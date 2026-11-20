@@ -96,7 +96,9 @@ def test_huge_integer_and_deep_nesting_do_not_abort(tmp_path):
     result = load_dictionary(tmp_path)
     text = "\n".join(messages(result))
     assert "dictionary/misc/bigint.json: JSON を読み込めない" in text
-    assert "dictionary/misc/deep.json: JSON を読み込めない" in text
+    # 深い入れ子は、Python の再帰の上限（スタックの大きさで決まり、OS によって違う）に
+    # 達するかどうかでエラーの内容が変わる。どちらでもファイル単位のエラーになればよい
+    assert "dictionary/misc/deep.json: " in text
     assert [g.rel_path for g in result.groups] == ["misc/ok.json"]
 
 
