@@ -1,0 +1,261 @@
+{
+  "$schema": "../../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "ミリプロ",
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "あくび・でもんすぺーど",
+      "conversions": [
+        {
+          "reading": "あくびでもんすぺーど",
+          "surface": "あくび・でもんすぺーど"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/akubi-demonspade",
+          "note": "公式プロフィールページ。表記「あくび・でもんすぺーど」、ローマ字「Akubi Demonspade」、ミリプロ所属を確認"
+        },
+        {
+          "url": "https://www.4gamer.net/games/835/G083569/20241115003/",
+          "note": "4Gamer「週刊VTuberファイル」ミリプロ回。名前欄の表記「あくび・でもんすぺーど」（ひらがな表記）を確認"
+        }
+      ]
+    },
+    {
+      "name": "甘狼このみ",
+      "conversions": [
+        {
+          "reading": "あまかみこのみ",
+          "surface": "甘狼このみ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/amakami-konomi",
+          "note": "公式プロフィールページ。表記「甘狼このみ」、ローマ字「Amakami Konomi」、ミリプロ所属を確認"
+        },
+        {
+          "url": "https://www.4gamer.net/games/835/G083569/20240905059/",
+          "note": "4Gamer「週刊VTuberファイル」ミリプロ回。名前欄に「甘狼このみ（あまかみこのみ）」と記載"
+        }
+      ]
+    },
+    {
+      "name": "雨夜リズ",
+      "conversions": [
+        {
+          "reading": "あまよりず",
+          "surface": "雨夜リズ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/amayo-liz",
+          "note": "公式プロフィールページ。表記「雨夜リズ」、ローマ字「Amayo Liz」、ミリプロ所属を確認"
+        },
+        {
+          "url": "https://www.4gamer.net/games/835/G083569/20251007055/",
+          "note": "4Gamer「週刊VTuberファイル」ミリプロ回。名前欄に「雨夜リズ（あまよりず）」と記載"
+        }
+      ]
+    },
+    {
+      "name": "音ノ瀬らこ",
+      "conversions": [
+        {
+          "reading": "おとのせらこ",
+          "surface": "音ノ瀬らこ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/otonose-raco",
+          "note": "公式プロフィールページ。表記「音ノ瀬らこ」、ローマ字「Otonose Raco」、ミリプロ所属を確認"
+        },
+        {
+          "url": "https://www.4gamer.net/games/835/G083569/20241212036/",
+          "note": "4Gamer「週刊VTuberファイル」ミリプロ回。名前欄に「音ノ瀬らこ（おとのせ らこ）」と記載"
+        }
+      ]
+    },
+    {
+      "name": "鹿乃まほろ",
+      "conversions": [
+        {
+          "reading": "かのまほろ",
+          "surface": "鹿乃まほろ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/kano-mahoro",
+          "note": "公式プロフィールページ。表記「鹿乃まほろ」、ローマ字「Kano Mahoro」、ミリプロ所属を確認"
+        },
+        {
+          "url": "https://milpr.com/news/mahoro_debut",
+          "note": "公式お知らせ「鹿乃まほろ（かのまほろ）がミリプロSONAに所属」の記載を確認"
+        }
+      ]
+    },
+    {
+      "name": "小廻こま",
+      "conversions": [
+        {
+          "reading": "こまわりこま",
+          "surface": "小廻こま"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/komawari-koma",
+          "note": "公式プロフィールページ。表記「小廻こま」、ローマ字「Komawari Koma」、ミリプロ所属を確認"
+        },
+        {
+          "url": "https://www.4gamer.net/games/835/G083569/20250802002/",
+          "note": "4Gamer「週刊VTuberファイル」ミリプロ回。名前欄に「小廻こま（こまわり こま）」と記載"
+        }
+      ]
+    },
+    {
+      "name": "旋風マヨイ",
+      "conversions": [
+        {
+          "reading": "つむじまよい",
+          "surface": "旋風マヨイ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/news/mayoi_debut",
+          "note": "公式お知らせ（2026-11-14）「旋風マヨイ（つむじ まよい）がミリプロUNIに所属決定」。公式プロフィールページは未公開のため代替"
+        },
+        {
+          "url": "https://www.youtube.com/@TsumujiMayoi",
+          "note": "公式YouTubeチャンネル「旋風マヨイ / TsumujiMayoi」、動画タイトルにミリプロ表記を確認"
+        }
+      ]
+    },
+    {
+      "name": "虹深°ぬふ",
+      "conversions": [
+        {
+          "reading": "にじぷかぬふ",
+          "surface": "虹深°ぬふ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/nijipuka-nuhu",
+          "note": "公式プロフィールページ。表記「虹深°ぬふ」、ローマ字「Nijipuka Nuhu」、ミリプロ所属を確認"
+        },
+        {
+          "url": "https://milpr.com/news/nuhu_debut",
+          "note": "公式お知らせ「虹深°ぬふ（にじぷか ぬふ）がミリプロNOVAに所属」の記載を確認"
+        },
+        {
+          "url": "https://www.4gamer.net/games/835/G083569/20251115010/",
+          "note": "4Gamer「週刊VTuberファイル」ミリプロ回。名前欄に「虹深°ぬふ（にじぷかぬふ）」と記載"
+        }
+      ]
+    },
+    {
+      "name": "眠雲ツクリ",
+      "conversions": [
+        {
+          "reading": "ねむくもつくり",
+          "surface": "眠雲ツクリ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/nemukumo-tsukuri",
+          "note": "公式プロフィールページ。表記「眠雲ツクリ」、ローマ字「Nemukumo Tsukuri」、ミリプロ所属を確認"
+        },
+        {
+          "url": "https://www.4gamer.net/games/835/G083569/20250919074/",
+          "note": "4Gamer「週刊VTuberファイル」ミリプロ回。名前欄に「眠雲ツクリ（ねむくもつくり）」と記載"
+        }
+      ]
+    },
+    {
+      "name": "音ノ乃のの",
+      "conversions": [
+        {
+          "reading": "ののののの",
+          "surface": "音ノ乃のの"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/nonono-nono",
+          "note": "公式プロフィールページ。表記「音ノ乃のの」、ローマ字「Nonono Nono」、ミリプロ所属を確認"
+        },
+        {
+          "url": "https://www.4gamer.net/games/835/G083569/20241018089/",
+          "note": "4Gamer「週刊VTuberファイル」ミリプロ回。名前欄に「音ノ乃のの（ののの のの）」と記載"
+        }
+      ]
+    },
+    {
+      "name": "海琳あおい",
+      "conversions": [
+        {
+          "reading": "みたまあおい",
+          "surface": "海琳あおい"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/mitama-aoi",
+          "note": "公式プロフィールページ。表記「海琳あおい」、ローマ字「Mitama Aoi」を確認"
+        },
+        {
+          "url": "https://milpr.com/news/aoi_debut",
+          "note": "公式お知らせ「海琳あおい（みたま あおい）がミリプロNOVAに所属」の記載を確認"
+        }
+      ]
+    },
+    {
+      "name": "夕霧レイ",
+      "conversions": [
+        {
+          "reading": "ゆうぎりれい",
+          "surface": "夕霧レイ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/yugiri-ray",
+          "note": "公式プロフィールページ。表記「夕霧レイ」、ローマ字「Yugiri Ray」、ミリプロ所属を確認"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/%E5%A4%95%E9%9C%A7%E3%83%AC%E3%82%A4",
+          "note": "ピクシブ百科事典。読み「ゆうぎりれい」、ミリプロ所属VTuberと記載（本文取得で確認）"
+        }
+      ]
+    },
+    {
+      "name": "ゆらぎゆら",
+      "conversions": [
+        {
+          "reading": "ゆらぎゆら",
+          "surface": "ゆらぎゆら"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://milpr.com/talents/yuragi-yura",
+          "note": "公式プロフィールページ。表記「ゆらぎゆら」、ローマ字「Yuragi Yura」、ミリプロ所属を確認"
+        },
+        {
+          "url": "https://www.4gamer.net/games/835/G083569/20250130051/",
+          "note": "4Gamer「週刊VTuberファイル」ミリプロ回。名前欄の表記「ゆらぎゆら」（ひらがな表記）を確認"
+        }
+      ]
+    }
+  ]
+}
