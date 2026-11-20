@@ -1,0 +1,827 @@
+{
+  "$schema": "../../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "ホロライブ",
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "赤井はあと",
+      "conversions": [
+        {
+          "reading": "あかいはあと",
+          "surface": "赤井はあと"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/akai-haato/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E8%B5%A4%E4%BA%95%E3%81%AF%E3%81%82%E3%81%A8",
+          "note": "Wikipedia記事（読み「あかい はあと」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "アキ・ローゼンタール",
+      "conversions": [
+        {
+          "reading": "あきろーぜんたーる",
+          "surface": "アキ・ローゼンタール"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/aki-rosenthal/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%AD%E3%83%BB%E3%83%AD%E3%83%BC%E3%82%BC%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%AB",
+          "note": "Wikipedia記事（表記と英字表記を確認。読みは表記のかなどおり）"
+        }
+      ]
+    },
+    {
+      "name": "AZKi",
+      "conversions": [
+        {
+          "reading": "あずき",
+          "surface": "AZKi"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/azki/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/AZKi",
+          "note": "Wikipedia記事（読み「あずき」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "熱千めら",
+      "conversions": [
+        {
+          "reading": "あちちめら",
+          "surface": "熱千めら"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/achichi-mela/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%BD%E3%83%93%E2%98%85%E3%81%BE%E3%82%8F%E3%82%8A%E9%9A%8A%21",
+          "note": "Wikipedia（所属ユニット記事のメンバー表で読みを確認）"
+        }
+      ]
+    },
+    {
+      "name": "響咲リオナ",
+      "conversions": [
+        {
+          "reading": "いさきりおな",
+          "surface": "響咲リオナ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/isaki-riona/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/FLOW_GLOW",
+          "note": "Wikipedia（所属ユニット記事のメンバー表で読みを確認）"
+        }
+      ]
+    },
+    {
+      "name": "一条莉々華",
+      "conversions": [
+        {
+          "reading": "いちじょうりりか",
+          "surface": "一条莉々華"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/ichijou-ririka/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%B8%80%E6%9D%A1%E8%8E%89%E3%80%85%E8%8F%AF",
+          "note": "Wikipedia記事（読み「いちじょう りりか」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "戌神ころね",
+      "conversions": [
+        {
+          "reading": "いぬがみころね",
+          "surface": "戌神ころね"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/inugami-korone/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E6%88%8C%E7%A5%9E%E3%81%93%E3%82%8D%E3%81%AD",
+          "note": "Wikipedia記事（読み「いぬがみ ころね」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "兎田ぺこら",
+      "conversions": [
+        {
+          "reading": "うさだぺこら",
+          "surface": "兎田ぺこら"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/usada-pekora/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%85%8E%E7%94%B0%E3%81%BA%E3%81%93%E3%82%89",
+          "note": "Wikipedia記事（読み「うさだ ぺこら」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "大神ミオ",
+      "conversions": [
+        {
+          "reading": "おおかみみお",
+          "surface": "大神ミオ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/ookami-mio/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E7%A5%9E%E3%83%9F%E3%82%AA",
+          "note": "Wikipedia記事（読み「おおかみ ミオ」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "大空スバル",
+      "conversions": [
+        {
+          "reading": "おおぞらすばる",
+          "surface": "大空スバル"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/oozora-subaru/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E7%A9%BA%E3%82%B9%E3%83%90%E3%83%AB",
+          "note": "Wikipedia記事（読み「おおぞら スバル」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "音乃瀬奏",
+      "conversions": [
+        {
+          "reading": "おとのせかなで",
+          "surface": "音乃瀬奏"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/otonose-kanade/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E9%9F%B3%E4%B9%83%E7%80%AC%E5%A5%8F",
+          "note": "Wikipedia記事（読み「おとのせ かなで」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "尾丸ポルカ",
+      "conversions": [
+        {
+          "reading": "おまるぽるか",
+          "surface": "尾丸ポルカ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/omaru-polka/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%B0%BE%E4%B8%B8%E3%83%9D%E3%83%AB%E3%82%AB",
+          "note": "Wikipedia記事（読み「おまる ポルカ」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "風真いろは",
+      "conversions": [
+        {
+          "reading": "かざまいろは",
+          "surface": "風真いろは"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/kazama-iroha/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E9%A2%A8%E7%9C%9F%E3%81%84%E3%82%8D%E3%81%AF",
+          "note": "Wikipedia記事（読み「かざま いろは」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "綺々羅々ヴィヴィ",
+      "conversions": [
+        {
+          "reading": "ききららゔぃゔぃ",
+          "surface": "綺々羅々ヴィヴィ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/kikirara-vivi/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/FLOW_GLOW",
+          "note": "Wikipedia（所属ユニット記事のメンバー表で読みを確認）"
+        }
+      ]
+    },
+    {
+      "name": "虎金妃笑虎",
+      "conversions": [
+        {
+          "reading": "こがねいにこ",
+          "surface": "虎金妃笑虎"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/koganei-niko/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/FLOW_GLOW",
+          "note": "Wikipedia（所属ユニット記事のメンバー表で読みを確認）"
+        }
+      ]
+    },
+    {
+      "name": "さくらみこ",
+      "conversions": [
+        {
+          "reading": "さくらみこ",
+          "surface": "さくらみこ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/sakuramiko/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%81%8F%E3%82%89%E3%81%BF%E3%81%93",
+          "note": "Wikipedia記事（表記と英字表記を確認。読みは表記のかなどおり）"
+        }
+      ]
+    },
+    {
+      "name": "獅白ぼたん",
+      "conversions": [
+        {
+          "reading": "ししろぼたん",
+          "surface": "獅白ぼたん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/shishiro-botan/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E7%8D%85%E7%99%BD%E3%81%BC%E3%81%9F%E3%82%93",
+          "note": "Wikipedia記事（読み「ししろ ぼたん」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "白上フブキ",
+      "conversions": [
+        {
+          "reading": "しらかみふぶき",
+          "surface": "白上フブキ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/shirakami-fubuki/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E7%99%BD%E4%B8%8A%E3%83%95%E3%83%96%E3%82%AD",
+          "note": "Wikipedia記事（読み「しらかみ フブキ」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "不知火フレア",
+      "conversions": [
+        {
+          "reading": "しらぬいふれあ",
+          "surface": "不知火フレア"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/shiranui-flare/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%B8%8D%E7%9F%A5%E7%81%AB%E3%83%95%E3%83%AC%E3%82%A2",
+          "note": "Wikipedia記事（読み「しらぬい フレア」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "白銀ノエル",
+      "conversions": [
+        {
+          "reading": "しろがねのえる",
+          "surface": "白銀ノエル"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/shirogane-noel/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E7%99%BD%E9%8A%80%E3%83%8E%E3%82%A8%E3%83%AB",
+          "note": "Wikipedia記事（読み「しろがね ノエル」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "儒烏風亭らでん",
+      "conversions": [
+        {
+          "reading": "じゅうふうていらでん",
+          "surface": "儒烏風亭らでん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/juufuutei-raden/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%84%92%E7%83%8F%E9%A2%A8%E4%BA%AD%E3%82%89%E3%81%A7%E3%82%93",
+          "note": "Wikipedia記事（読み「じゅうふうてい らでん」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "鈴鳴つづり",
+      "conversions": [
+        {
+          "reading": "すずなつづり",
+          "surface": "鈴鳴つづり"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/suzuna-tsuzuri/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%BD%E3%83%93%E2%98%85%E3%81%BE%E3%82%8F%E3%82%8A%E9%9A%8A%21",
+          "note": "Wikipedia（所属ユニット記事のメンバー表で読みを確認）"
+        }
+      ]
+    },
+    {
+      "name": "宙科そぴあ",
+      "conversions": [
+        {
+          "reading": "そらしなそぴあ",
+          "surface": "宙科そぴあ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/sorashina-sopia/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%BD%E3%83%93%E2%98%85%E3%81%BE%E3%82%8F%E3%82%8A%E9%9A%8A%21",
+          "note": "Wikipedia（所属ユニット記事のメンバー表で読みを確認）"
+        }
+      ]
+    },
+    {
+      "name": "鷹嶺ルイ",
+      "conversions": [
+        {
+          "reading": "たかねるい",
+          "surface": "鷹嶺ルイ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/takane-lui/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E9%B7%B9%E5%B6%BA%E3%83%AB%E3%82%A4",
+          "note": "Wikipedia記事（読み「たかね ルイ」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "角巻わため",
+      "conversions": [
+        {
+          "reading": "つのまきわため",
+          "surface": "角巻わため"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/tsunomaki-watame/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E8%A7%92%E5%B7%BB%E3%82%8F%E3%81%9F%E3%82%81",
+          "note": "Wikipedia記事（読み「つのまき わため」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "ときのそら",
+      "conversions": [
+        {
+          "reading": "ときのそら",
+          "surface": "ときのそら"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/tokino-sora/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%A8%E3%81%8D%E3%81%AE%E3%81%9D%E3%82%89",
+          "note": "Wikipedia記事（表記と英字表記を確認。読みは表記のかなどおり）"
+        }
+      ]
+    },
+    {
+      "name": "常闇トワ",
+      "conversions": [
+        {
+          "reading": "とこやみとわ",
+          "surface": "常闇トワ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/tokoyami-towa/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%B8%B8%E9%97%87%E3%83%88%E3%83%AF",
+          "note": "Wikipedia記事（読み「とこやみ とわ」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "轟はじめ",
+      "conversions": [
+        {
+          "reading": "とどろきはじめ",
+          "surface": "轟はじめ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/todoroki-hajime/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E8%BD%9F%E3%81%AF%E3%81%98%E3%82%81",
+          "note": "Wikipedia記事（読み「とどろき はじめ」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "百鬼あやめ",
+      "conversions": [
+        {
+          "reading": "なきりあやめ",
+          "surface": "百鬼あやめ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/nakiri-ayame/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E7%99%BE%E9%AC%BC%E3%81%82%E3%82%84%E3%82%81",
+          "note": "Wikipedia記事（読み「なきり あやめ」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "夏色まつり",
+      "conversions": [
+        {
+          "reading": "なついろまつり",
+          "surface": "夏色まつり"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/natsuiro-matsuri/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%A4%8F%E8%89%B2%E3%81%BE%E3%81%A4%E3%82%8A",
+          "note": "Wikipedia記事（読み「なついろ まつり」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "猫又おかゆ",
+      "conversions": [
+        {
+          "reading": "ねこまたおかゆ",
+          "surface": "猫又おかゆ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/nekomata-okayu/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E7%8C%AB%E5%8F%88%E3%81%8A%E3%81%8B%E3%82%86",
+          "note": "Wikipedia記事（読み「ねこまた おかゆ」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "博衣こより",
+      "conversions": [
+        {
+          "reading": "はくいこより",
+          "surface": "博衣こより"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/hakui-koyori/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%8D%9A%E8%A1%A3%E3%81%93%E3%82%88%E3%82%8A",
+          "note": "Wikipedia記事（読み「はくい こより」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "姫森ルーナ",
+      "conversions": [
+        {
+          "reading": "ひめもりるーな",
+          "surface": "姫森ルーナ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/himemori-luna/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%A7%AB%E6%A3%AE%E3%83%AB%E3%83%BC%E3%83%8A",
+          "note": "Wikipedia記事（読み「ひめもり るーな」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "百灯キョーコ",
+      "conversions": [
+        {
+          "reading": "ひゃくとうきょーこ",
+          "surface": "百灯キョーコ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/hyakuto-kyoko/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%BD%E3%83%93%E2%98%85%E3%81%BE%E3%82%8F%E3%82%8A%E9%9A%8A%21",
+          "note": "Wikipedia（所属ユニット記事のメンバー表で読みを確認）"
+        }
+      ]
+    },
+    {
+      "name": "宝鐘マリン",
+      "conversions": [
+        {
+          "reading": "ほうしょうまりん",
+          "surface": "宝鐘マリン"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/houshou-marine/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%AE%9D%E9%90%98%E3%83%9E%E3%83%AA%E3%83%B3",
+          "note": "Wikipedia記事（読み「ほうしょう マリン」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "星街すいせい",
+      "conversions": [
+        {
+          "reading": "ほしまちすいせい",
+          "surface": "星街すいせい"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/hoshimachi-suisei/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E6%98%9F%E8%A1%97%E3%81%99%E3%81%84%E3%81%9B%E3%81%84",
+          "note": "Wikipedia記事（読み「ほしまち すいせい」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "水宮枢",
+      "conversions": [
+        {
+          "reading": "みずみやすう",
+          "surface": "水宮枢"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/mizumiya-su/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/FLOW_GLOW",
+          "note": "Wikipedia（所属ユニット記事のメンバー表で読みを確認）"
+        }
+      ]
+    },
+    {
+      "name": "桃鈴ねね",
+      "conversions": [
+        {
+          "reading": "ももすずねね",
+          "surface": "桃鈴ねね"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/momosuzu-nene/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E6%A1%83%E9%88%B4%E3%81%AD%E3%81%AD",
+          "note": "Wikipedia記事（読み「ももすず ねね」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "雪花ラミィ",
+      "conversions": [
+        {
+          "reading": "ゆきはならみぃ",
+          "surface": "雪花ラミィ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/yukihana-lamy/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E9%9B%AA%E8%8A%B1%E3%83%A9%E3%83%9F%E3%82%A3",
+          "note": "Wikipedia記事（読み「ゆきはな ラミィ」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "癒月ちょこ",
+      "conversions": [
+        {
+          "reading": "ゆづきちょこ",
+          "surface": "癒月ちょこ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/yuzuki-choco/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E7%99%92%E6%9C%88%E3%81%A1%E3%82%87%E3%81%93",
+          "note": "Wikipedia記事（読み「ゆづき ちょこ」・英字表記）"
+        }
+      ]
+    },
+    {
+      "name": "ラプラス・ダークネス",
+      "conversions": [
+        {
+          "reading": "らぷらすだーくねす",
+          "surface": "ラプラス・ダークネス"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/la-darknesss/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%83%A9%E3%83%97%E3%83%A9%E3%82%B9%E3%83%BB%E3%83%80%E3%83%BC%E3%82%AF%E3%83%8D%E3%82%B9",
+          "note": "Wikipedia記事（表記と英字表記を確認。読みは表記のかなどおり）"
+        }
+      ]
+    },
+    {
+      "name": "輪堂千速",
+      "conversions": [
+        {
+          "reading": "りんどうちはや",
+          "surface": "輪堂千速"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/rindo-chihaya/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/FLOW_GLOW",
+          "note": "Wikipedia（所属ユニット記事のメンバー表で読みを確認）"
+        }
+      ]
+    },
+    {
+      "name": "ロボ子さん",
+      "conversions": [
+        {
+          "reading": "ろぼこさん",
+          "surface": "ロボ子さん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://hololive.hololivepro.com/talents/roboco-san/",
+          "note": "公式プロフィール（所属・現役表示・ローマ字表記を確認）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%9C%E5%AD%90%E3%81%95%E3%82%93",
+          "note": "Wikipedia記事（読み「ロボこさん」・英字表記）"
+        }
+      ]
+    }
+  ]
+}
