@@ -1,3 +1,6 @@
+import os
+
+import pytest
 from helpers import entry, group, write
 
 from dictctl.loader import load_dictionary
@@ -81,3 +84,32 @@ def test_model_errors_are_described_with_entry_name(tmp_path):
     assert "entries[1]「試験花子」.conversions[0].reading: 読みはひらがなと「ー」だけで書く" in text
     assert "entries[1]「試験花子」.conversions[1].pos: 品詞は" in text
     assert "entries[0]「ok」.category: 定義されていない項目がある" in text
+
+
+# --- レビュー指摘（bdc4478）の回帰テスト: 1ファイルの異常で全体を止めない ---
+
+
+def test_huge_integer_and_deep_nesting_do_not_abort(tmp_path):
+    write(tmp_path, "misc/bigint.json", '{"schema_version": ' + "1" * 4301 + "}")
+    write(tmp_path, "misc/deep.json", "[" * 100000 + "]" * 100000)
+    write(tmp_path, "misc/ok.json", group(entry("a", ("あ", "亜"))))
+    result = load_dictionary(tmp_path)
+    text = "\n".join(messages(result))
+    assert "dictionary/misc/bigint.json: JSON を読み込めない" in text
+    assert "dictionary/misc/deep.json: JSON を読み込めない" in text
+    assert [g.rel_path for g in result.groups] == ["misc/ok.json"]
+
+
+@pytest.mark.skipif(
+    os.name != "posix" or os.geteuid() == 0, reason="権限で読み取りを拒否できない環境"
+)
+def test_unreadable_file_does_not_abort(tmp_path):
+    path = write(tmp_path, "misc/locked.json", group(entry("a", ("あ", "亜"))))
+    write(tmp_path, "misc/ok.json", group(entry("b", ("い", "伊"))))
+    path.chmod(0)
+    try:
+        result = load_dictionary(tmp_path)
+    finally:
+        path.chmod(0o644)
+    assert "dictionary/misc/locked.json: ファイルを読めない" in "\n".join(messages(result))
+    assert [g.rel_path for g in result.groups] == ["misc/ok.json"]

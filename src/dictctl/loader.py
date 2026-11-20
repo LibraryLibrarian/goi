@@ -93,7 +93,10 @@ def check_path(rel: PurePosixPath, display: str) -> list[Issue]:
 
 
 def load_file(path: Path, rel_path: str, display: str) -> tuple[LoadedGroup | None, list[Issue]]:
-    data = path.read_bytes()
+    try:
+        data = path.read_bytes()
+    except OSError as exc:
+        return None, [error(display, "", f"ファイルを読めない: {exc.strerror or exc}")]
     if data.startswith(b"\xef\xbb\xbf"):
         return None, [error(display, "", "BOM 付きの UTF-8 は使えない")]
     try:
@@ -106,12 +109,18 @@ def load_file(path: Path, rel_path: str, display: str) -> tuple[LoadedGroup | No
         return None, [error(display, "", f"JSON のキーが重複している: {exc.key}")]
     except json.JSONDecodeError as exc:
         return None, [error(display, f"{exc.lineno}行目", f"JSON の構文エラー: {exc.msg}")]
+    except (ValueError, RecursionError) as exc:
+        # 桁数の多すぎる整数（Python の整数変換の上限）や、深すぎる入れ子など。
+        # 1ファイルの問題で辞書全体の検査を止めないよう、ファイル単位のエラーにする。
+        return None, [error(display, "", f"JSON を読み込めない: {type(exc).__name__}")]
     if not isinstance(raw, dict):
         return None, [error(display, "", "JSON の最上位はオブジェクトにする")]
     try:
         group = GroupFile.model_validate(raw)
     except ValidationError as exc:
         return None, [error(display, loc, msg) for loc, msg in describe_validation_error(exc, raw)]
+    except RecursionError:
+        return None, [error(display, "", "JSON の入れ子が深すぎる")]
     return LoadedGroup(rel_path=rel_path, group=group, raw=raw), []
 
 
