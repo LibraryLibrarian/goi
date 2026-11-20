@@ -11,7 +11,7 @@ from __future__ import annotations
 
 from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 SCHEMA_VERSION = 1
 
@@ -20,14 +20,33 @@ SCHEMA_VERSION = 1
 Pos = Literal["名詞", "固有名詞", "人名", "姓", "名", "組織", "地名", "品詞なし"]
 DEFAULT_POS: Pos = "品詞なし"
 
+# 正規表現は pydantic-core（Rust）と JSON Schema（ECMA）の両方で同じ意味になるよう、
+# \s・\d・\w などエンジンで意味が変わる略記を使わず、文字を明示的に列挙する。
+
+# どこにも含めてはいけない文字: C0/C1 制御文字、ゼロ幅スペース、方向制御、
+# 行・段落区切り、単語結合子、BOM。絵文字の結合に使う ZWJ（U+200D）は許可する。
+_FORBIDDEN = r"\u0000-\u001f\u007f-\u009f​‎‏  ⁠﻿"
+# 先頭・末尾に置いてはいけない空白（文字列の内側では許可する）。
+_EDGE_SPACE = r"    -   　"
+
 # 読み: ひらがな（ゔ・ゕ・ゖ を含む）と長音符のみ。
 READING_PATTERN = r"^[ぁ-ゖー]+$"
-# 表記: 制御文字を含まず、前後が空白でない。
-SURFACE_PATTERN = r"^[^\s\x00-\x1f\x7f](?:[^\x00-\x1f\x7f]*[^\s\x00-\x1f\x7f])?$"
+# 表記: 禁止文字を含まず、前後が空白でない。
+SURFACE_PATTERN = (
+    rf"^[^{_FORBIDDEN}{_EDGE_SPACE}](?:[^{_FORBIDDEN}]*[^{_FORBIDDEN}{_EDGE_SPACE}])?$"
+)
 # 一般的なテキスト項目（名前・タイトル・メモ）: 表記と同じ規則。
 TEXT_PATTERN = SURFACE_PATTERN
 TAG_PATTERN = r"^[a-z0-9]+(?:-[a-z0-9]+)*$"
-URL_PATTERN = r"^https://[^\s]+$"
+# https のみ。ホスト名は ASCII でドットを1つ以上含む（国際化ドメインは punycode で書く）。
+# パス以降は非 ASCII を許可する（日本語版 Wikipedia の URL などをそのまま書けるように）が、
+# 空白と禁止文字は許可しない。
+URL_PATTERN = (
+    r"^https://[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?"
+    r"(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)+"
+    r"(?::[0-9]{1,5})?"
+    rf"(?:[/?#][^{_FORBIDDEN}{_EDGE_SPACE}]*)?$"
+)
 
 
 class _Model(BaseModel):
@@ -97,6 +116,14 @@ class GroupFile(_Model):
     entries: list[Entry] = Field(min_length=1)
 
     model_config = ConfigDict(extra="forbid", frozen=True, populate_by_name=True)
+
+    @field_validator("schema_version", mode="before")
+    @classmethod
+    def _reject_bool(cls, value: object) -> object:
+        # Python では True == 1 のため、Literal[1] だけでは JSON の true が通ってしまう。
+        if isinstance(value, bool):
+            raise ValueError("schema_version には整数を指定する")
+        return value
 
     def effective_pos(self, conversion: Conversion) -> Pos:
         """語ごとの指定 → ファイルの既定値 → 「品詞なし」の順に品詞を決める。"""

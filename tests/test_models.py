@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -130,3 +131,82 @@ def test_unsupported_schema_version_is_rejected():
 def test_committed_schema_is_up_to_date():
     committed = (REPO_ROOT / "schema" / SCHEMA_FILENAME).read_text(encoding="utf-8")
     assert committed == render_schema(), "schema が古い。dictctl.schema で再生成する"
+
+
+# --- レビュー指摘（03f2295）の回帰テスト ---
+
+
+@pytest.mark.parametrize(
+    "surface",
+    ["﻿語", "語﻿", "\u0085語", "語​語", "語 語", "　語", "語 "],
+)
+def test_surface_rejects_invisible_and_edge_space_chars(surface):
+    with pytest.raises(ValidationError):
+        GroupFile.model_validate(with_conversion(surface=surface))
+
+
+@pytest.mark.parametrize("surface", ["語　語", "👨‍👩‍👧", "A B"])
+def test_surface_allows_inner_space_and_zwj(surface):
+    GroupFile.model_validate(with_conversion(surface=surface))
+
+
+@pytest.mark.parametrize(
+    "url",
+    [
+        "https:///",
+        "https://#",
+        "https://example.com\x00",
+        "https://localhost/",
+        "https://example.com/a b",
+        "https://example.com/​",
+    ],
+)
+def test_source_url_requires_host_and_no_forbidden_chars(url):
+    data = make_group()
+    data["entries"][0]["sources"] = [{"url": url}]
+    with pytest.raises(ValidationError):
+        GroupFile.model_validate(data)
+
+
+@pytest.mark.parametrize(
+    "url",
+    [
+        "https://example.com",
+        "https://example.jp/wiki/試験花子",
+        "https://example.org/a/%E8%A9%A6",
+        "https://example.com:8443/path?q=1#frag",
+    ],
+)
+def test_source_url_accepts_common_forms(url):
+    data = make_group()
+    data["entries"][0]["sources"] = [{"url": url}]
+    GroupFile.model_validate(data)
+
+
+def test_schema_version_rejects_boolean():
+    doc = make_group(schema_version=True)
+    with pytest.raises(ValidationError):
+        GroupFile.model_validate(doc)
+    with pytest.raises(ValidationError):
+        GroupFile.model_validate_json(json.dumps(doc))
+
+
+def _patterns(node):
+    if isinstance(node, dict):
+        for key, value in node.items():
+            if key == "pattern":
+                yield value
+            else:
+                yield from _patterns(value)
+    elif isinstance(node, list):
+        for item in node:
+            yield from _patterns(item)
+
+
+def test_schema_patterns_avoid_engine_dependent_shorthands():
+    # \s \d \w \b は Rust・Python・ECMA で対象文字が異なるため使わない。
+    patterns = list(_patterns(json.loads(render_schema())))
+    assert patterns
+    for pattern in patterns:
+        for shorthand in (r"\s", r"\S", r"\d", r"\D", r"\w", r"\W", r"\b"):
+            assert shorthand not in pattern, (pattern, shorthand)
