@@ -130,7 +130,7 @@ def test_unsupported_schema_version_is_rejected():
 
 def test_committed_schema_is_up_to_date():
     committed = (REPO_ROOT / "schema" / SCHEMA_FILENAME).read_text(encoding="utf-8")
-    assert committed == render_schema(), "schema が古い。dictctl.schema で再生成する"
+    assert committed == render_schema(), "schema が古い。dictctl schema で再生成する"
 
 
 # --- レビュー指摘（03f2295）の回帰テスト ---

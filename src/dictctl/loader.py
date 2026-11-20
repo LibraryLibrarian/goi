@@ -42,6 +42,7 @@ class LoadedGroup:
 class LoadResult:
     groups: list[LoadedGroup]
     issues: list[Issue]
+    file_count: int = 0  # dictionary/ 配下で見つかったファイルの数（読み込めなかったものを含む）
 
 
 def load_dictionary(root: Path) -> LoadResult:
@@ -52,7 +53,8 @@ def load_dictionary(root: Path) -> LoadResult:
 
     groups: list[LoadedGroup] = []
     issues: list[Issue] = []
-    for path in sorted(p for p in base.rglob("*") if p.is_file()):
+    paths = sorted(p for p in base.rglob("*") if p.is_file())
+    for path in paths:
         rel = PurePosixPath(path.relative_to(base).as_posix())
         display = f"{DICTIONARY_DIRNAME}/{rel}"
         path_issues = check_path(rel, display)
@@ -63,7 +65,7 @@ def load_dictionary(root: Path) -> LoadResult:
         issues.extend(file_issues)
         if loaded is not None:
             groups.append(loaded)
-    return LoadResult(groups, issues)
+    return LoadResult(groups, issues, file_count=len(paths))
 
 
 def check_path(rel: PurePosixPath, display: str) -> list[Issue]:
