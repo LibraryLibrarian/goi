@@ -34,6 +34,8 @@ extend-exclude = ["spike"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+# 日本語の全角括弧・全角英数字を誤検知するため無効化
+ignore = ["RUF001", "RUF002", "RUF003"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

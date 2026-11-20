@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "Conversion": {
+      "additionalProperties": false,
+      "description": "読みと変換結果（表記）の組。",
+      "properties": {
+        "reading": {
+          "description": "読み。ひらがなと長音符（ー）のみ。",
+          "maxLength": 100,
+          "pattern": "^[ぁ-ゖー]+$",
+          "title": "Reading",
+          "type": "string"
+        },
+        "surface": {
+          "description": "変換結果（表記）。UTF-8 で300バイト以内。",
+          "maxLength": 100,
+          "pattern": "^[^\\s\\x00-\\x1f\\x7f](?:[^\\x00-\\x1f\\x7f]*[^\\s\\x00-\\x1f\\x7f])?$",
+          "title": "Surface",
+          "type": "string"
+        },
+        "pos": {
+          "anyOf": [
+            {
+              "enum": [
+                "名詞",
+                "固有名詞",
+                "人名",
+                "姓",
+                "名",
+                "組織",
+                "地名",
+                "品詞なし"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "品詞。省略時はファイルの defaults.pos、それも無ければ「品詞なし」。",
+          "title": "Pos"
+        }
+      },
+      "required": [
+        "reading",
+        "surface"
+      ],
+      "title": "Conversion",
+      "type": "object"
+    },
+    "Defaults": {
+      "additionalProperties": false,
+      "description": "ファイル内の語に共通する既定値。",
+      "properties": {
+        "pos": {
+          "anyOf": [
+            {
+              "enum": [
+                "名詞",
+                "固有名詞",
+                "人名",
+                "姓",
+                "名",
+                "組織",
+                "地名",
+                "品詞なし"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pos"
+        }
+      },
+      "title": "Defaults",
+      "type": "object"
+    },
+    "Entry": {
+      "additionalProperties": false,
+      "description": "1つの語（エンティティ）。複数の読み・表記を持てる。",
+      "properties": {
+        "name": {
+          "description": "代表名称。",
+          "maxLength": 100,
+          "pattern": "^[^\\s\\x00-\\x1f\\x7f](?:[^\\x00-\\x1f\\x7f]*[^\\s\\x00-\\x1f\\x7f])?$",
+          "title": "Name",
+          "type": "string"
+        },
+        "conversions": {
+          "items": {
+            "$ref": "#/$defs/Conversion"
+          },
+          "minItems": 1,
+          "title": "Conversions",
+          "type": "array"
+        },
+        "sources": {
+          "description": "出典。最低1件。",
+          "items": {
+            "$ref": "#/$defs/Source"
+          },
+          "minItems": 1,
+          "title": "Sources",
+          "type": "array"
+        },
+        "tags": {
+          "description": "分類・検索用のタグ（英小文字・数字・ハイフン）。",
+          "items": {
+            "maxLength": 50,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        },
+        "status": {
+          "default": "active",
+          "description": "deprecated の語はビルドに含めない。",
+          "enum": [
+            "active",
+            "deprecated"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "conversions",
+        "sources"
+      ],
+      "title": "Entry",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "description": "語の実在や読みを確認できる出典。",
+      "properties": {
+        "url": {
+          "description": "出典の URL（https）。",
+          "maxLength": 2000,
+          "pattern": "^https://[^\\s]+$",
+          "title": "Url",
+          "type": "string"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "pattern": "^[^\\s\\x00-\\x1f\\x7f](?:[^\\x00-\\x1f\\x7f]*[^\\s\\x00-\\x1f\\x7f])?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "補足（例: 読みの確認箇所）。",
+          "title": "Note"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "dictionary/ 配下の1ファイル。",
+  "properties": {
+    "$schema": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "$Schema"
+    },
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "title": {
+      "description": "グループの表示名。",
+      "maxLength": 100,
+      "pattern": "^[^\\s\\x00-\\x1f\\x7f](?:[^\\x00-\\x1f\\x7f]*[^\\s\\x00-\\x1f\\x7f])?$",
+      "title": "Title",
+      "type": "string"
+    },
+    "defaults": {
+      "$ref": "#/$defs/Defaults"
+    },
+    "entries": {
+      "items": {
+        "$ref": "#/$defs/Entry"
+      },
+      "minItems": 1,
+      "title": "Entries",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "title",
+    "entries"
+  ],
+  "title": "GroupFile",
+  "type": "object"
+}
