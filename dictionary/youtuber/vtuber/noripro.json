@@ -159,6 +159,29 @@
       ]
     },
     {
+      "name": "佃煮のりお",
+      "conversions": [
+        {
+          "reading": "つくだにのりお",
+          "surface": "佃煮のりお"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-norio/",
+          "note": "公式プロフィール。所属タレント欄に掲載、表記「佃煮のりお」、ローマ字表記 TSUKUDANI NORIO を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」。読み（つくだに のりお）を確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "ニコニコ大百科「佃煮のりお」。読み（ツクダニノリオ）を確認"
+        }
+      ]
+    },
+    {
       "name": "冥海らぶか",
       "conversions": [
         {
