@@ -1,6 +1,6 @@
 """辞書マスター（dictionary/ 配下の JSON）のデータモデル。
 
-1ファイルが1グループ（例: dictionary/game/rpg/sample.json）で、
+1ファイルが1グループ（例: dictionary/company/pc/peripherals.json）で、
 複数の語（entries）を持つ。分類はディレクトリ階層で表し、ファイル内には持たない。
 
 ここでは構造と単一フィールドで判定できる制約だけを扱う。

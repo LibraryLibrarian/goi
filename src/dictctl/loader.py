@@ -22,7 +22,7 @@ from dictctl.models import GroupFile
 
 DICTIONARY_DIRNAME = "dictionary"
 SEGMENT_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
-# dictionary/ からの相対パスの段数（ファイル名を含む）。例: game/rpg/sample.json は3段。
+# dictionary/ からの相対パスの段数（ファイル名を含む）。例: company/pc/peripherals.json は3段。
 MIN_DEPTH = 2
 MAX_DEPTH = 3
 
@@ -77,7 +77,7 @@ def check_path(rel: PurePosixPath, display: str) -> list[Issue]:
                 display,
                 "",
                 f"階層は dictionary/ から {MIN_DEPTH}〜{MAX_DEPTH} 段にする"
-                "（例: dictionary/game/rpg/sample.json）",
+                "（例: dictionary/company/pc/peripherals.json）",
             )
         )
     bad = [s for s in segments if not SEGMENT_PATTERN.fullmatch(s)]

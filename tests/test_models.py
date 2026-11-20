@@ -14,13 +14,13 @@ def make_group(**overrides) -> dict:
     data = {
         "schema_version": 1,
         "title": "テストグループ",
-        "defaults": {"pos": "人名"},
+        "defaults": {"pos": "組織"},
         "entries": [
             {
-                "name": "試験花子",
-                "conversions": [{"reading": "しけんはなこ", "surface": "試験花子"}],
-                "sources": [{"url": "https://example.com/hanako", "note": "公式プロフィール"}],
-                "tags": ["sample-tag"],
+                "name": "Corsair",
+                "conversions": [{"reading": "こるせあ", "surface": "Corsair"}],
+                "sources": [{"url": "https://example.com/corsair", "note": "公式サイト"}],
+                "tags": ["pc-parts"],
             }
         ],
     }
@@ -31,7 +31,7 @@ def make_group(**overrides) -> dict:
 def with_conversion(**conversion) -> dict:
     data = make_group()
     data["entries"][0]["conversions"] = [
-        {"reading": "しけんはなこ", "surface": "試験花子", **conversion}
+        {"reading": "こるせあ", "surface": "Corsair", **conversion}
     ]
     return data
 
@@ -39,7 +39,7 @@ def with_conversion(**conversion) -> dict:
 def test_valid_group_parses():
     group = GroupFile.model_validate(make_group())
     assert group.entries[0].status == "active"
-    assert group.entries[0].conversions[0].reading == "しけんはなこ"
+    assert group.entries[0].conversions[0].reading == "こるせあ"
 
 
 def test_schema_key_is_accepted():
@@ -49,7 +49,7 @@ def test_schema_key_is_accepted():
 
 def test_effective_pos_order():
     group = GroupFile.model_validate(make_group())
-    assert group.effective_pos(group.entries[0].conversions[0]) == "人名"
+    assert group.effective_pos(group.entries[0].conversions[0]) == "組織"
 
     explicit = GroupFile.model_validate(with_conversion(pos="固有名詞"))
     assert explicit.effective_pos(explicit.entries[0].conversions[0]) == "固有名詞"
@@ -68,7 +68,7 @@ def test_reading_accepts_hiragana_and_choonpu(reading):
 
 @pytest.mark.parametrize(
     "reading",
-    ["シケン", "shiken", "しけん はなこ", "しけん2", "", "あ" * 101],
+    ["コルセア", "corsair", "こる せあ", "こるせあ2", "", "あ" * 101],
 )
 def test_reading_rejects_other_characters(reading):
     with pytest.raises(ValidationError):
@@ -77,7 +77,7 @@ def test_reading_rejects_other_characters(reading):
 
 @pytest.mark.parametrize(
     "surface",
-    [" 試験花子", "試験花子 ", "試験\tはなこ", "試験\nはなこ", "", "長" * 101],
+    [" Corsair", "Corsair ", "Cor\tsair", "Cor\nsair", "", "長" * 101],
 )
 def test_surface_rejects_whitespace_edges_and_control_chars(surface):
     with pytest.raises(ValidationError):
@@ -115,7 +115,7 @@ def test_source_requires_https_url(url):
         GroupFile.model_validate(data)
 
 
-@pytest.mark.parametrize("tag", ["Sample", "sam_ple", "-sample", "サンプル"])
+@pytest.mark.parametrize("tag", ["PC-Parts", "pc_parts", "-pc", "パーツ"])
 def test_tag_format(tag):
     data = make_group()
     data["entries"][0]["tags"] = [tag]
@@ -172,8 +172,8 @@ def test_source_url_requires_host_and_no_forbidden_chars(url):
     "url",
     [
         "https://example.com",
-        "https://example.jp/wiki/試験花子",
-        "https://example.org/a/%E8%A9%A6",
+        "https://example.jp/wiki/コルセア",
+        "https://example.org/a/%E3%82%B3",
         "https://example.com:8443/path?q=1#frag",
     ],
 )

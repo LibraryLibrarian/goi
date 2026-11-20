@@ -17,8 +17,8 @@ def run(tmp_path):
 def test_clean_dictionary_has_no_issues(tmp_path):
     write(
         tmp_path,
-        "game/rpg/sample.json",
-        group(entry("試験花子", ("しけんはなこ", "試験花子")), pos="人名"),
+        "company/pc/peripherals.json",
+        group(entry("Corsair", ("こるせあ", "Corsair")), pos="組織"),
     )
     issues, _ = run(tmp_path)
     assert issues == []
@@ -101,11 +101,11 @@ def test_deprecated_entries_are_ignored_across_files(tmp_path):
 def test_reading_sets_differ_across_files_is_warning(tmp_path):
     write(
         tmp_path,
-        "company/it.json",
-        group(entry("Examplia", ("えぐざんぷりあ", "Examplia"), ("いぐざんぷりあ", "Examplia"))),
+        "company/pc.json",
+        group(entry("Corsair", ("こるせあ", "Corsair"), ("こーせあ", "Corsair"))),
     )
-    write(tmp_path, "company/ai.json", group(entry("Examplia", ("えぐざんぷりあ", "Examplia"))))
+    write(tmp_path, "company/gaming.json", group(entry("Corsair", ("こるせあ", "Corsair"))))
     issues, text = run(tmp_path)
     assert not has_errors(issues)
     assert "同じ表記の読みの組み合わせがファイルによって違う" in text
-    assert "dictionary/company/ai.json（えぐざんぷりあ）" in text
+    assert "dictionary/company/gaming.json（こるせあ）" in text

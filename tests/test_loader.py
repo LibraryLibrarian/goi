@@ -13,15 +13,15 @@ def messages(result):
 def test_loads_valid_files(tmp_path):
     write(
         tmp_path,
-        "game/rpg/sample.json",
-        group(entry("試験花子", ("しけんはなこ", "試験花子"))),
+        "company/pc/peripherals.json",
+        group(entry("Corsair", ("こるせあ", "Corsair"))),
     )
-    write(tmp_path, "company/it.json", group(entry("Examplia", ("えぐざんぷりあ", "Examplia"))))
+    write(tmp_path, "vehicle/motorcycle.json", group(entry("Triumph", ("とらいあんふ", "Triumph"))))
     result = load_dictionary(tmp_path)
     assert result.issues == []
     assert [g.rel_path for g in result.groups] == [
-        "company/it.json",
-        "game/rpg/sample.json",
+        "company/pc/peripherals.json",
+        "vehicle/motorcycle.json",
     ]
 
 
@@ -41,13 +41,13 @@ def test_path_rules(tmp_path):
     good = group(entry("a", ("あ", "亜")))
     write(tmp_path, "top.json", good)  # 浅すぎる
     write(tmp_path, "a/b/c/deep.json", good)  # 深すぎる
-    write(tmp_path, "Game/sam_ple.json", good)  # 大文字・アンダースコア
+    write(tmp_path, "Vehicle/motor_cycle.json", good)  # 大文字・アンダースコア
     write(tmp_path, "misc/readme.txt", "x")  # .json 以外
     result = load_dictionary(tmp_path)
     text = "\n".join(messages(result))
     assert result.groups == []
     assert "dictionary/top.json" in text and "dictionary/a/b/c/deep.json" in text
-    assert "Game, sam_ple" in text
+    assert "Vehicle, motor_cycle" in text
     assert ".json ファイルだけ" in text
 
 
@@ -76,13 +76,13 @@ def test_json_syntax_and_duplicate_keys(tmp_path):
 def test_model_errors_are_described_with_entry_name(tmp_path):
     data = group(
         entry("ok", ("おーけー", "OK")),
-        entry("試験花子", ("シケン", "試験花子"), ("しけん", "試験", "謎の品詞")),
+        entry("Triumph", ("トライアンフ", "Triumph"), ("とらいあんふ", "Triumph", "謎の品詞")),
     )
     data["entries"][0]["category"] = "x"
     write(tmp_path, "misc/bad.json", data)
     text = "\n".join(messages(load_dictionary(tmp_path)))
-    assert "entries[1]「試験花子」.conversions[0].reading: 読みはひらがなと「ー」だけで書く" in text
-    assert "entries[1]「試験花子」.conversions[1].pos: 品詞は" in text
+    assert "entries[1]「Triumph」.conversions[0].reading: 読みはひらがなと「ー」だけで書く" in text
+    assert "entries[1]「Triumph」.conversions[1].pos: 品詞は" in text
     assert "entries[0]「ok」.category: 定義されていない項目がある" in text
 
 
