@@ -1,0 +1,39 @@
+[project]
+name = "goi"
+version = "0.1.0"
+description = "Community-maintained open dictionary for Japanese input methods"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.14.4",
+    "typer>=0.29.2",
+]
+
+[project.scripts]
+dictctl = "dictctl.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.6",
+]
+
+[build-system]
+requires = ["uv_build>=0.9,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "dictctl"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["spike"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
