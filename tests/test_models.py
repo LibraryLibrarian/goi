@@ -138,14 +138,14 @@ def test_committed_schema_is_up_to_date():
 
 @pytest.mark.parametrize(
     "surface",
-    ["﻿語", "語﻿", "\u0085語", "語​語", "語 語", "　語", "語 "],
+    ["\ufeff語", "語\ufeff", "\u0085語", "語\u200b語", "語\u2028語", "\u3000語", "語\u00a0"],
 )
 def test_surface_rejects_invisible_and_edge_space_chars(surface):
     with pytest.raises(ValidationError):
         GroupFile.model_validate(with_conversion(surface=surface))
 
 
-@pytest.mark.parametrize("surface", ["語　語", "👨‍👩‍👧", "A B"])
+@pytest.mark.parametrize("surface", ["語\u3000語", "👨\u200d👩\u200d👧", "A B"])
 def test_surface_allows_inner_space_and_zwj(surface):
     GroupFile.model_validate(with_conversion(surface=surface))
 
@@ -158,7 +158,7 @@ def test_surface_allows_inner_space_and_zwj(surface):
         "https://example.com\x00",
         "https://localhost/",
         "https://example.com/a b",
-        "https://example.com/​",
+        "https://example.com/\u200b",
     ],
 )
 def test_source_url_requires_host_and_no_forbidden_chars(url):

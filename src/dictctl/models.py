@@ -25,9 +25,47 @@ DEFAULT_POS: Pos = "品詞なし"
 
 # どこにも含めてはいけない文字: C0/C1 制御文字、ゼロ幅スペース、方向制御、
 # 行・段落区切り、単語結合子、BOM。絵文字の結合に使う ZWJ（U+200D）は許可する。
-_FORBIDDEN = r"\u0000-\u001f\u007f-\u009f​‎‏  ⁠﻿"
+FORBIDDEN_RANGES = (
+    (0x0000, 0x001F),
+    (0x007F, 0x009F),
+    (0x200B, 0x200B),
+    (0x200E, 0x200F),
+    (0x2028, 0x2029),
+    (0x2060, 0x2060),
+    (0xFEFF, 0xFEFF),
+)
 # 先頭・末尾に置いてはいけない空白（文字列の内側では許可する）。
-_EDGE_SPACE = r"    -   　"
+EDGE_SPACE_RANGES = (
+    (0x0020, 0x0020),
+    (0x00A0, 0x00A0),
+    (0x1680, 0x1680),
+    (0x2000, 0x200A),
+    (0x202F, 0x202F),
+    (0x205F, 0x205F),
+    (0x3000, 0x3000),
+)
+EDGE_SPACE_CHARS = "".join(chr(c) for lo, hi in EDGE_SPACE_RANGES for c in range(lo, hi + 1))
+
+_BACKSLASH = chr(0x5C)
+
+
+def _char_class(ranges: tuple[tuple[int, int], ...]) -> str:
+    """文字クラスの中身を「バックスラッシュ + uXXXX」のエスケープで作る。
+
+    ソースや生成したスキーマに不可視文字そのものを書かないため、文字ではなく
+    エスケープで表す（pydantic-core と ECMA のどちらも同じ意味に解釈する）。
+    """
+    parts = []
+    for lo, hi in ranges:
+        part = f"{_BACKSLASH}u{lo:04x}"
+        if hi != lo:
+            part += f"-{_BACKSLASH}u{hi:04x}"
+        parts.append(part)
+    return "".join(parts)
+
+
+_FORBIDDEN = _char_class(FORBIDDEN_RANGES)
+_EDGE_SPACE = _char_class(EDGE_SPACE_RANGES)
 
 # 読み: ひらがな（ゔ・ゕ・ゖ を含む）と長音符のみ。
 READING_PATTERN = r"^[ぁ-ゖー]+$"
