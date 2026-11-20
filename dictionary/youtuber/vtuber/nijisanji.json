@@ -1,0 +1,822 @@
+{
+  "$schema": "../../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "にじさんじ",
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "赤羽葉子",
+      "conversions": [
+        {
+          "reading": "あかばねようこ",
+          "surface": "赤羽葉子"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/youko-akabane",
+          "note": "公式プロフィール。表記「赤羽葉子」、ふりがな「あかばねようこ」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「赤羽葉子（あかばねようこ）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E8%B5%A4%E7%BE%BD%E8%91%89%E5%AD%90",
+          "note": "ニコニコ大百科に「赤羽葉子」の記事。本文冒頭に「赤羽葉子（あかばねようこ）とは」"
+        }
+      ]
+    },
+    {
+      "name": "飛鳥ひな",
+      "conversions": [
+        {
+          "reading": "あすかひな",
+          "surface": "飛鳥ひな"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/hina-asuka",
+          "note": "公式プロフィール。表記「飛鳥ひな」、ふりがな「あすかひな」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「飛鳥ひな（あすかひな）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E9%A3%9B%E9%B3%A5%E3%81%B2%E3%81%AA",
+          "note": "ニコニコ大百科に「飛鳥ひな」の記事。ページ題名の読み（カタカナ）が「あすかひな」と一致"
+        }
+      ]
+    },
+    {
+      "name": "雨森小夜",
+      "conversions": [
+        {
+          "reading": "あめもりさよ",
+          "surface": "雨森小夜"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/sayo-amemori",
+          "note": "公式プロフィール。表記「雨森小夜」、ふりがな「あめもりさよ」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「雨森小夜（あめもりさよ）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E9%9B%A8%E6%A3%AE%E5%B0%8F%E5%A4%9C",
+          "note": "ニコニコ大百科に「雨森小夜」の記事。本文冒頭に「雨森小夜（あめもりさよ）とは」"
+        }
+      ]
+    },
+    {
+      "name": "家長むぎ",
+      "conversions": [
+        {
+          "reading": "いえながむぎ",
+          "surface": "家長むぎ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/mugi-ienaga",
+          "note": "公式プロフィール。表記「家長むぎ」、ふりがな「いえながむぎ」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「家長むぎ（いえながむぎ）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E5%AE%B6%E9%95%B7%E3%82%80%E3%81%8E",
+          "note": "ニコニコ大百科に「家長むぎ」の記事。ページ題名の読み（カタカナ）が「いえながむぎ」と一致"
+        }
+      ]
+    },
+    {
+      "name": "宇志海いちご",
+      "conversions": [
+        {
+          "reading": "うしみいちご",
+          "surface": "宇志海いちご"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/ichigo-ushimi",
+          "note": "公式プロフィール。表記「宇志海いちご」、ふりがな「うしみいちご」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「宇志海いちご（うしみいちご）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E5%AE%87%E5%BF%97%E6%B5%B7%E3%81%84%E3%81%A1%E3%81%94",
+          "note": "ニコニコ大百科に「宇志海いちご」の記事。ページ題名の読み（カタカナ）が「うしみいちご」と一致"
+        }
+      ]
+    },
+    {
+      "name": "卯月コウ",
+      "conversions": [
+        {
+          "reading": "うづきこう",
+          "surface": "卯月コウ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/kou-uzuki",
+          "note": "公式プロフィール。表記「卯月コウ」、ふりがな「うづきこう」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%8D%AF%E6%9C%88%E3%82%B3%E3%82%A6",
+          "note": "Wikipedia個別記事の冒頭に「卯月コウ（うづきこう）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E5%8D%AF%E6%9C%88%E3%82%B3%E3%82%A6",
+          "note": "ニコニコ大百科に「卯月コウ」の記事。ページ題名の読み（カタカナ）が「うづきこう」と一致"
+        }
+      ]
+    },
+    {
+      "name": "える",
+      "conversions": [
+        {
+          "reading": "える",
+          "surface": "える"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/elu",
+          "note": "公式プロフィール。表記「える」、ふりがな「える」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧（現役）に「える」が記載。読みの記載は無く、読みは公式ふりがなによる"
+        }
+      ]
+    },
+    {
+      "name": "叶",
+      "conversions": [
+        {
+          "reading": "かなえ",
+          "surface": "叶"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/kanae",
+          "note": "公式プロフィール。表記「叶」、ふりがな「かなえ」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「叶（かなえ）」と記載（現役の一覧内）"
+        }
+      ]
+    },
+    {
+      "name": "神田笑一",
+      "conversions": [
+        {
+          "reading": "かんだしょういち",
+          "surface": "神田笑一"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/shoichi-kanda",
+          "note": "公式プロフィール。表記「神田笑一」、ふりがな「かんだしょういち」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「神田笑一（かんだしょういち）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E7%A5%9E%E7%94%B0%E7%AC%91%E4%B8%80",
+          "note": "ニコニコ大百科に「神田笑一」の記事。本文冒頭に「神田笑一（かんだしょういち）とは」"
+        }
+      ]
+    },
+    {
+      "name": "ギルザレンⅢ世",
+      "conversions": [
+        {
+          "reading": "ぎるざれんさんせい",
+          "surface": "ギルザレンⅢ世"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/gilzaren-iii",
+          "note": "公式プロフィール。表記「ギルザレンⅢ世」、ふりがな「ぎるざれんさんせい」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「ギルザレンIII世（ぎるざれんさんせい）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E3%82%AE%E3%83%AB%E3%82%B6%E3%83%AC%E3%83%B3%E2%85%A2%E4%B8%96",
+          "note": "ニコニコ大百科に「ギルザレンⅢ世」の記事。ページ題名の読み（カタカナ）が「ぎるざれんさんせい」と一致"
+        }
+      ]
+    },
+    {
+      "name": "葛葉",
+      "conversions": [
+        {
+          "reading": "くずは",
+          "surface": "葛葉"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/kuzuha",
+          "note": "公式プロフィール。表記「葛葉」、ふりがな「くずは」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E8%91%9B%E8%91%89_(%E3%83%90%E3%83%BC%E3%83%81%E3%83%A3%E3%83%ABYouTuber)",
+          "note": "Wikipedia「葛葉 (バーチャルYouTuber)」。にじさんじ所属の本人の記事"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E8%91%9B%E8%91%89(%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98)",
+          "note": "ニコニコ大百科「葛葉(にじさんじ)」。読み（クズハ）を確認"
+        }
+      ]
+    },
+    {
+      "name": "剣持刀也",
+      "conversions": [
+        {
+          "reading": "けんもちとうや",
+          "surface": "剣持刀也"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/toya-kenmochi",
+          "note": "公式プロフィール。表記「剣持刀也」、ふりがな「けんもちとうや」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E5%89%A3%E6%8C%81%E5%88%80%E4%B9%9F",
+          "note": "Wikipedia個別記事の冒頭に「剣持刀也（けんもちとうや）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E5%89%A3%E6%8C%81%E5%88%80%E4%B9%9F",
+          "note": "ニコニコ大百科に「剣持刀也」の記事。本文冒頭に「剣持刀也（けんもちとうや）とは」"
+        }
+      ]
+    },
+    {
+      "name": "笹木咲",
+      "conversions": [
+        {
+          "reading": "ささきさく",
+          "surface": "笹木咲"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/saku-sasaki",
+          "note": "公式プロフィール。表記「笹木咲」、ふりがな「ささきさく」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E7%AC%B9%E6%9C%A8%E5%92%B2",
+          "note": "Wikipedia個別記事の冒頭に「笹木咲（ささきさく）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E7%AC%B9%E6%9C%A8%E5%92%B2",
+          "note": "ニコニコ大百科に「笹木咲」の記事。本文冒頭に「笹木咲（ささきさく）とは」"
+        }
+      ]
+    },
+    {
+      "name": "椎名唯華",
+      "conversions": [
+        {
+          "reading": "しいなゆいか",
+          "surface": "椎名唯華"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/yuika-shiina",
+          "note": "公式プロフィール。表記「椎名唯華」、ふりがな「しいなゆいか」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E6%A4%8E%E5%90%8D%E5%94%AF%E8%8F%AF",
+          "note": "Wikipedia個別記事の冒頭に「椎名唯華（しいなゆいか）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E6%A4%8E%E5%90%8D%E5%94%AF%E8%8F%AF",
+          "note": "ニコニコ大百科に「椎名唯華」の記事。本文冒頭に「椎名唯華（しいなゆいか）とは」"
+        }
+      ]
+    },
+    {
+      "name": "シスター・クレア",
+      "conversions": [
+        {
+          "reading": "しすたーくれあ",
+          "surface": "シスター・クレア"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/sister-claire",
+          "note": "公式プロフィール。表記「シスター・クレア」、ふりがな「しすたー くれあ」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧（現役）に「シスター・クレア」が記載。読みの記載は無く、読みは公式ふりがなによる"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E3%82%B7%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%BB%E3%82%AF%E3%83%AC%E3%82%A2",
+          "note": "ニコニコ大百科に「シスター・クレア」の記事。ページ題名の読み（カタカナ）が「しすたーくれあ」と一致"
+        }
+      ]
+    },
+    {
+      "name": "静凛",
+      "conversions": [
+        {
+          "reading": "しずかりん",
+          "surface": "静凛"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/rin-shizuka",
+          "note": "公式プロフィール。表記「静凛」、ふりがな「しずかりん」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E9%9D%99%E5%87%9B",
+          "note": "Wikipedia個別記事の冒頭に「静凛（しずかりん）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E9%9D%99%E5%87%9B",
+          "note": "ニコニコ大百科に「静凛」の記事。本文冒頭に「静凛（しずかりん）とは」"
+        }
+      ]
+    },
+    {
+      "name": "渋谷ハジメ",
+      "conversions": [
+        {
+          "reading": "しぶやはじめ",
+          "surface": "渋谷ハジメ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/hajime-shibuya",
+          "note": "公式プロフィール。表記「渋谷ハジメ」、ふりがな「しぶやはじめ」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「渋谷ハジメ（しぶやはじめ）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E6%B8%8B%E8%B0%B7%E3%83%8F%E3%82%B8%E3%83%A1",
+          "note": "ニコニコ大百科に「渋谷ハジメ」の記事。ページ題名の読み（カタカナ）が「しぶやはじめ」と一致"
+        }
+      ]
+    },
+    {
+      "name": "鈴木勝",
+      "conversions": [
+        {
+          "reading": "すずきまさる",
+          "surface": "鈴木勝"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/masaru-suzuki",
+          "note": "公式プロフィール。表記「鈴木勝」、ふりがな「すずきまさる」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「鈴木勝（すずきまさる）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E9%88%B4%E6%9C%A8%E5%8B%9D",
+          "note": "ニコニコ大百科に「鈴木勝」の記事。ページ題名の読み（カタカナ）が「すずきまさる」と一致"
+        }
+      ]
+    },
+    {
+      "name": "鷹宮リオン",
+      "conversions": [
+        {
+          "reading": "たかみやりおん",
+          "surface": "鷹宮リオン"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/rion-takamiya",
+          "note": "公式プロフィール。表記「鷹宮リオン」、ふりがな「たかみやりおん」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E9%B7%B9%E5%AE%AE%E3%83%AA%E3%82%AA%E3%83%B3",
+          "note": "Wikipedia個別記事の冒頭に「鷹宮リオン（たかみやりおん）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E9%B7%B9%E5%AE%AE%E3%83%AA%E3%82%AA%E3%83%B3",
+          "note": "ニコニコ大百科に「鷹宮リオン」の記事。本文冒頭に「鷹宮リオン（たかみやりおん）とは」"
+        }
+      ]
+    },
+    {
+      "name": "月ノ美兎",
+      "conversions": [
+        {
+          "reading": "つきのみと",
+          "surface": "月ノ美兎"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/mito-tsukino",
+          "note": "公式プロフィール。表記「月ノ美兎」、ふりがな「つきのみと」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E6%9C%88%E3%83%8E%E7%BE%8E%E5%85%8E",
+          "note": "Wikipedia個別記事の冒頭に「月ノ美兎（つきのみと）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E6%9C%88%E3%83%8E%E7%BE%8E%E5%85%8E",
+          "note": "ニコニコ大百科に「月ノ美兎」の記事。本文冒頭に「月ノ美兎（つきのみと）とは」"
+        }
+      ]
+    },
+    {
+      "name": "轟京子",
+      "conversions": [
+        {
+          "reading": "とどろききょうこ",
+          "surface": "轟京子"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/kyoko-todoroki",
+          "note": "公式プロフィール。表記「轟京子」、ふりがな「とどろききょうこ」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「轟京子（とどろききょうこ）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E8%BD%9F%E4%BA%AC%E5%AD%90",
+          "note": "ニコニコ大百科に「轟京子」の記事。本文冒頭に「轟京子（とどろききょうこ）とは」"
+        }
+      ]
+    },
+    {
+      "name": "ドーラ",
+      "conversions": [
+        {
+          "reading": "どーら",
+          "surface": "ドーラ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/dola",
+          "note": "公式プロフィール。表記「ドーラ」、ふりがな「どーら」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧（現役）に「ドーラ」が記載。読みの記載は無く、読みは公式ふりがなによる"
+        }
+      ]
+    },
+    {
+      "name": "花畑チャイカ",
+      "conversions": [
+        {
+          "reading": "はなばたけちゃいか",
+          "surface": "花畑チャイカ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/chaika-hanabatake",
+          "note": "公式プロフィール。表記「花畑チャイカ」、ふりがな「はなばたけちゃいか」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E8%8A%B1%E7%95%91%E3%83%81%E3%83%A3%E3%82%A4%E3%82%AB",
+          "note": "Wikipedia個別記事の冒頭に「花畑チャイカ（はなばたけちゃいか）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E8%8A%B1%E7%95%91%E3%83%81%E3%83%A3%E3%82%A4%E3%82%AB",
+          "note": "ニコニコ大百科に「花畑チャイカ」の記事。ページ題名の読み（カタカナ）が「はなばたけちゃいか」と一致"
+        }
+      ]
+    },
+    {
+      "name": "春崎エアル",
+      "conversions": [
+        {
+          "reading": "はるさきえある",
+          "surface": "春崎エアル"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/air-harusaki",
+          "note": "公式プロフィール。表記「春崎エアル」、ふりがな「はるさきえある」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「春崎エアル（はるさきえある）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E6%98%A5%E5%B4%8E%E3%82%A8%E3%82%A2%E3%83%AB",
+          "note": "ニコニコ大百科に「春崎エアル」の記事。ページ題名の読み（カタカナ）が「はるさきえある」と一致"
+        }
+      ]
+    },
+    {
+      "name": "樋口楓",
+      "conversions": [
+        {
+          "reading": "ひぐちかえで",
+          "surface": "樋口楓"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/kaede-higuchi",
+          "note": "公式プロフィール。表記「樋口楓」、ふりがな「ひぐちかえで」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E6%A8%8B%E5%8F%A3%E6%A5%93",
+          "note": "Wikipedia個別記事の冒頭に「樋口楓（ひぐちかえで）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E6%A8%8B%E5%8F%A3%E6%A5%93",
+          "note": "ニコニコ大百科に「樋口楓」の記事。本文冒頭に「樋口楓（ひぐちかえで）とは」"
+        }
+      ]
+    },
+    {
+      "name": "伏見ガク",
+      "conversions": [
+        {
+          "reading": "ふしみがく",
+          "surface": "伏見ガク"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/gaku-fushimi",
+          "note": "公式プロフィール。表記「伏見ガク」、ふりがな「ふしみがく」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「伏見ガク（ふしみがく）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E4%BC%8F%E8%A6%8B%E3%82%AC%E3%82%AF",
+          "note": "ニコニコ大百科に「伏見ガク」の記事。ページ題名の読み（カタカナ）が「ふしみがく」と一致"
+        }
+      ]
+    },
+    {
+      "name": "文野環",
+      "conversions": [
+        {
+          "reading": "ふみのたまき",
+          "surface": "文野環"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/tamaki-fumino",
+          "note": "公式プロフィール。表記「文野環」、ふりがな「ふみのたまき」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「文野環（ふみのたまき）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E6%96%87%E9%87%8E%E7%92%B0",
+          "note": "ニコニコ大百科に「文野環」の記事。本文冒頭に「文野環（ふみのたまき）とは」"
+        }
+      ]
+    },
+    {
+      "name": "本間ひまわり",
+      "conversions": [
+        {
+          "reading": "ほんまひまわり",
+          "surface": "本間ひまわり"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/himawari-honma",
+          "note": "公式プロフィール。表記「本間ひまわり」、ふりがな「ほんまひまわり」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E6%9C%AC%E9%96%93%E3%81%B2%E3%81%BE%E3%82%8F%E3%82%8A",
+          "note": "Wikipedia個別記事の冒頭に「本間ひまわり（ほんまひまわり）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E6%9C%AC%E9%96%93%E3%81%B2%E3%81%BE%E3%82%8F%E3%82%8A",
+          "note": "ニコニコ大百科に「本間ひまわり」の記事。ページ題名の読み（カタカナ）が「ほんまひまわり」と一致"
+        }
+      ]
+    },
+    {
+      "name": "舞元啓介",
+      "conversions": [
+        {
+          "reading": "まいもとけいすけ",
+          "surface": "舞元啓介"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/keisuke-maimoto",
+          "note": "公式プロフィール。表記「舞元啓介」、ふりがな「まいもとけいすけ」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「舞元啓介（まいもとけいすけ）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E8%88%9E%E5%85%83%E5%95%93%E4%BB%8B",
+          "note": "ニコニコ大百科に「舞元啓介」の記事。本文冒頭に「舞元啓介（まいもとけいすけ）とは」"
+        }
+      ]
+    },
+    {
+      "name": "魔界ノりりむ",
+      "conversions": [
+        {
+          "reading": "まかいのりりむ",
+          "surface": "魔界ノりりむ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/makaino-ririmu",
+          "note": "公式プロフィール。表記「魔界ノりりむ」、ふりがな「まかいのりりむ」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「魔界ノりりむ（まかいのりりむ）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E9%AD%94%E7%95%8C%E3%83%8E%E3%82%8A%E3%82%8A%E3%82%80",
+          "note": "ニコニコ大百科に「魔界ノりりむ」の記事。ページ題名の読み（カタカナ）が「まかいのりりむ」と一致"
+        }
+      ]
+    },
+    {
+      "name": "モイラ",
+      "conversions": [
+        {
+          "reading": "もいら",
+          "surface": "モイラ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/moira",
+          "note": "公式プロフィール。表記「モイラ」、ふりがな「もいら」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧（現役）に「モイラ」が記載。読みの記載は無く、読みは公式ふりがなによる"
+        }
+      ]
+    },
+    {
+      "name": "物述有栖",
+      "conversions": [
+        {
+          "reading": "もののべありす",
+          "surface": "物述有栖"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/alice-mononobe",
+          "note": "公式プロフィール。表記「物述有栖」、ふりがな「もののべありす」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E7%89%A9%E8%BF%B0%E6%9C%89%E6%A0%96",
+          "note": "Wikipedia個別記事の冒頭に「物述有栖（もののべありす）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E7%89%A9%E8%BF%B0%E6%9C%89%E6%A0%96",
+          "note": "ニコニコ大百科に「物述有栖」の記事。本文冒頭に「物述有栖（もののべありす）とは」"
+        }
+      ]
+    },
+    {
+      "name": "森中花咲",
+      "conversions": [
+        {
+          "reading": "もりなかかざき",
+          "surface": "森中花咲"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/kazaki-morinaka",
+          "note": "公式プロフィール。表記「森中花咲」、ふりがな「もりなかかざき」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「森中花咲（もりなかかざき）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E6%A3%AE%E4%B8%AD%E8%8A%B1%E5%92%B2",
+          "note": "ニコニコ大百科に「森中花咲」の記事。本文冒頭に「森中花咲（もりなかかざき）とは」"
+        }
+      ]
+    },
+    {
+      "name": "社築",
+      "conversions": [
+        {
+          "reading": "やしろきずく",
+          "surface": "社築"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/kizuku-yashiro",
+          "note": "公式プロフィール。表記「社築」、ふりがな「やしろきずく」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E7%A4%BE%E7%AF%89",
+          "note": "Wikipedia個別記事の冒頭に「社築（やしろきずく）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E7%A4%BE%E7%AF%89",
+          "note": "ニコニコ大百科に「社築」の記事。本文冒頭に「社築（やしろきずく）とは」"
+        }
+      ]
+    },
+    {
+      "name": "夕陽リリ",
+      "conversions": [
+        {
+          "reading": "ゆうひりり",
+          "surface": "夕陽リリ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/riri-yuhi",
+          "note": "公式プロフィール。表記「夕陽リリ」、ふりがな「ゆうひりり」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%AB%E3%81%98%E3%81%95%E3%82%93%E3%81%98",
+          "note": "Wikipedia「にじさんじ」の所属ライバー一覧に「夕陽リリ（ゆうひりり）」と記載（現役の一覧内）"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E5%A4%95%E9%99%BD%E3%83%AA%E3%83%AA",
+          "note": "ニコニコ大百科に「夕陽リリ」の記事。ページ題名の読み（カタカナ）が「ゆうひりり」と一致"
+        }
+      ]
+    },
+    {
+      "name": "緑仙",
+      "conversions": [
+        {
+          "reading": "りゅーしぇん",
+          "surface": "緑仙"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.nijisanji.jp/talents/l/ryushen",
+          "note": "公式プロフィール。表記「緑仙」、ふりがな「りゅーしぇん」、所属にじさんじを確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E7%B7%91%E4%BB%99",
+          "note": "Wikipedia個別記事の冒頭に「緑仙（りゅーしぇん）」と記載、にじさんじ所属と確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/%E7%B7%91%E4%BB%99",
+          "note": "ニコニコ大百科に「緑仙」の記事。ページ題名の読み（カタカナ）が「りゅーしぇん」と一致"
+        }
+      ]
+    }
+  ]
+}
