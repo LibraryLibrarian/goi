@@ -23,7 +23,7 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 
-from dictctl.loader import LoadedGroup
+from dictctl.loader import ALL_PACK_NAME, LoadedGroup
 from dictctl.models import Pos
 from dictctl.validate import MAX_BYTES
 
@@ -34,7 +34,10 @@ HEADER = (
 LANGUAGE_TAG = "ja-JP"
 INNER_FILENAME = "dictionary.txt"
 BOM = chr(0xFEFF)
-ALL_PACK = "all"
+ALL_PACK = ALL_PACK_NAME
+# 実機検証では表記100文字は変換に出て、101文字（漢字で303バイト）は出なかった。
+# 文字数とバイト数のどちらの上限かは切り分けていないため、両方を満たすことを求める。
+MAX_CHARS = 100
 ZIP_DATE_TIME = (1980, 1, 1, 0, 0, 0)  # ZIP 形式で表せる最も古い日時
 
 Row = tuple[str, str, Pos]  # (読み, 表記, 品詞)
@@ -127,6 +130,8 @@ def check_text(text: str) -> int:
         if pos not in _ALLOWED_POS:
             raise GboardFormatError(f"{number}行目: 未知の品詞名 {pos}")
         for value in (reading, surface):
+            if len(value) > MAX_CHARS:
+                raise GboardFormatError(f"{number}行目: {MAX_CHARS} 文字を超える")
             if len(value.encode("utf-8")) > MAX_BYTES:
                 raise GboardFormatError(f"{number}行目: {MAX_BYTES} バイトを超える")
         if line in seen:
@@ -145,6 +150,11 @@ def read_zip_text(data: bytes) -> str:
 
 def write_packs(packs: list[Pack], directory: Path) -> list[Path]:
     """配布物を書き出す。前回のビルドで作られ、今回は作られない配布物は消す。"""
+    filenames = [pack.filename for pack in packs]
+    duplicated = sorted({name for name in filenames if filenames.count(name) > 1})
+    if duplicated:
+        # 同じ名前の配布物を書くと、後のものが前のものを上書きして語が欠落するため
+        raise GboardFormatError("配布物の名前が重複している: " + ", ".join(duplicated))
     directory.mkdir(parents=True, exist_ok=True)
     for stale in directory.glob("goi-gboard-*.zip"):
         stale.unlink()

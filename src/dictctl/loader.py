@@ -25,6 +25,8 @@ SEGMENT_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 # dictionary/ からの相対パスの段数（ファイル名を含む）。例: company/pc/peripherals.json は3段。
 MIN_DEPTH = 2
 MAX_DEPTH = 3
+# 全件入りの配布物の名前（goi-<target>-all.zip）に使うため、最上位のディレクトリ名には使えない
+ALL_PACK_NAME = "all"
 
 
 @dataclass(frozen=True)
@@ -80,6 +82,15 @@ def check_path(rel: PurePosixPath, display: str) -> list[Issue]:
                 "",
                 f"階層は dictionary/ から {MIN_DEPTH}〜{MAX_DEPTH} 段にする"
                 "（例: dictionary/company/pc/peripherals.json）",
+            )
+        )
+    if segments[0] == ALL_PACK_NAME:
+        issues.append(
+            error(
+                display,
+                "",
+                f"最上位のディレクトリ名 {ALL_PACK_NAME} は"
+                "全件入りの配布物の名前に使うため予約されている",
             )
         )
     bad = [s for s in segments if not SEGMENT_PATTERN.fullmatch(s)]

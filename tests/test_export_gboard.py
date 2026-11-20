@@ -138,3 +138,33 @@ def test_cli_build_refuses_on_validation_errors(tmp_path):
     assert result.exit_code == 1
     assert "検証エラーが 1 件あるため出力しない" in result.output
     assert not (tmp_path / "out").exists()
+
+
+# --- レビュー指摘（e8251b0）の回帰テスト ---
+
+
+def test_top_level_all_is_reserved(tmp_path):
+    write(tmp_path, "all/a.json", group(entry("Triumph", ("とらいあんふ", "Triumph"))))
+    write(tmp_path, "company/b.json", group(entry("Corsair", ("こるせあ", "Corsair"))))
+    result = runner.invoke(app, ["build", "--root", str(tmp_path)])
+    assert result.exit_code == 1
+    assert (
+        "最上位のディレクトリ名 all は全件入りの配布物の名前に使うため予約されている"
+        in result.output
+    )
+    assert not (tmp_path / "dist").exists()
+
+
+def test_write_packs_refuses_duplicate_filenames(tmp_path):
+    from dictctl.export_gboard import Pack
+
+    packs = [Pack("all", [("あ", "A", "名詞")]), Pack("all", [("い", "I", "名詞")])]
+    with pytest.raises(GboardFormatError, match="配布物の名前が重複"):
+        write_packs(packs, tmp_path / "out")
+    assert not (tmp_path / "out").exists()
+
+
+def test_check_text_enforces_character_limit_too():
+    assert check_text(render_text([("あ", "A" * 100, "品詞なし")])) == 1
+    with pytest.raises(GboardFormatError, match="100 文字"):
+        check_text(render_text([("あ", "A" * 101, "品詞なし")]))
