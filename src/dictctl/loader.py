@@ -95,6 +95,20 @@ def check_path(rel: PurePosixPath, display: str) -> list[Issue]:
 
 
 def load_file(path: Path, rel_path: str, display: str) -> tuple[LoadedGroup | None, list[Issue]]:
+    raw, issues = read_json(path, display)
+    if raw is None:
+        return None, issues
+    try:
+        group = GroupFile.model_validate(raw)
+    except ValidationError as exc:
+        return None, [error(display, loc, msg) for loc, msg in describe_validation_error(exc, raw)]
+    except RecursionError:
+        return None, [error(display, "", "JSON の入れ子が深すぎる")]
+    return LoadedGroup(rel_path=rel_path, group=group, raw=raw), []
+
+
+def read_json(path: Path, display: str) -> tuple[dict[str, Any] | None, list[Issue]]:
+    """ファイルを UTF-8（BOM なし）の JSON オブジェクトとして読む。モデルの検証はしない。"""
     try:
         data = path.read_bytes()
     except OSError as exc:
@@ -117,13 +131,7 @@ def load_file(path: Path, rel_path: str, display: str) -> tuple[LoadedGroup | No
         return None, [error(display, "", f"JSON を読み込めない: {type(exc).__name__}")]
     if not isinstance(raw, dict):
         return None, [error(display, "", "JSON の最上位はオブジェクトにする")]
-    try:
-        group = GroupFile.model_validate(raw)
-    except ValidationError as exc:
-        return None, [error(display, loc, msg) for loc, msg in describe_validation_error(exc, raw)]
-    except RecursionError:
-        return None, [error(display, "", "JSON の入れ子が深すぎる")]
-    return LoadedGroup(rel_path=rel_path, group=group, raw=raw), []
+    return raw, []
 
 
 class _DuplicateKeyError(ValueError):

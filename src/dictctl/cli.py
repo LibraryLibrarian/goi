@@ -2,7 +2,8 @@
 
 終了コード:
   0  成功（警告だけの場合を含む）
-  1  検査で問題が見つかった（validate のエラー、schema --check の差分）
+  1  検査で問題が見つかった（validate のエラー、fmt --check・schema --check の差分、
+     読み込めず整形できなかったファイル）
   2  コマンドの使い方の誤り（Typer の既定）
 """
 
@@ -14,6 +15,7 @@ from typing import Annotated
 import typer
 
 from dictctl.diagnostics import has_errors
+from dictctl.fmt import format_dictionary
 from dictctl.loader import load_dictionary
 from dictctl.schema import SCHEMA_FILENAME, render_schema, write_schema
 from dictctl.validate import validate_groups
@@ -75,6 +77,36 @@ def schema(
         return
     write_schema(directory)
     typer.echo(f"schema/{SCHEMA_FILENAME} を書き出した")
+
+
+@app.command()
+def fmt(
+    root: RootOption = Path("."),
+    check: Annotated[
+        bool,
+        typer.Option("--check", help="書き込まず、整形が必要なファイルがあるかだけを確認する。"),
+    ] = False,
+) -> None:
+    """dictionary/ 配下のファイルを正規の形に整形する（キーの順序・語の並び順・正規化）。"""
+    result = format_dictionary(root, write=not check)
+    for issue in result.issues:
+        typer.echo(issue.format())
+    for path in result.changed:
+        typer.echo(f"整形が必要: {path}" if check else f"整形した: {path}")
+
+    if result.issues or result.changed:
+        typer.echo("")
+    if check:
+        summary = f"{result.checked} ファイル中 {len(result.changed)} ファイルの整形が必要"
+        if result.changed:
+            summary += "（dictctl fmt で直せる）"
+    else:
+        summary = f"{result.checked} ファイル中 {len(result.changed)} ファイルを整形した"
+    if result.issues:
+        summary += f"、読み込めないファイル {len(result.issues)} 件"
+    typer.echo(summary)
+    if result.issues or (check and result.changed):
+        raise typer.Exit(code=1)
 
 
 def main() -> None:
