@@ -1,0 +1,585 @@
+{
+  "$schema": "../../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "ぶいすぽっ！",
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "藍沢エマ",
+      "conversions": [
+        {
+          "reading": "あいざわえま",
+          "surface": "藍沢エマ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「藍沢 エマ」の表記と AIZAWA EMA のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「藍沢エマ」の読み（あいざわえま）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCPkKpOHxEDcwmUAnRpIu-Ng",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「藍沢エマ / Aizawa Ema」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "空澄セナ",
+      "conversions": [
+        {
+          "reading": "あすみせな",
+          "surface": "空澄セナ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「空澄 セナ」の表記と ASUMI SENA のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「空澄セナ」の読み（あすみせな）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCF_U2GCKHvDz52jWdizppIA",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「空澄セナ -Asumi Sena-」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "甘結もか",
+      "conversions": [
+        {
+          "reading": "あまゆいもか",
+          "surface": "甘結もか"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「甘結 もか」の表記と AMAYUI MOKA のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「甘結もか」の読み（あまゆいもか）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@Moka_Amayui",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「甘結もか / Amayui Moka」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "一ノ瀬うるは",
+      "conversions": [
+        {
+          "reading": "いちのせうるは",
+          "surface": "一ノ瀬うるは"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「一ノ瀬 うるは」の表記と ICHINOSE URUHA のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「一ノ瀬うるは」の読み（いちのせうるは）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC5LyYg6cCA4yHEYvtUsir3g",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「一ノ瀬うるは」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "花芽すみれ",
+      "conversions": [
+        {
+          "reading": "かがすみれ",
+          "surface": "花芽すみれ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「花芽 すみれ」の表記と KAGA SUMIRE のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「花芽すみれ」の読み（かがすみれ）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCyLGcqYs7RsBb3L0SJfzGYA",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「花芽すみれ / Kaga Sumire」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "花芽なずな",
+      "conversions": [
+        {
+          "reading": "かがなずな",
+          "surface": "花芽なずな"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「花芽 なずな」の表記と KAGA NAZUNA のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「花芽なずな」の読み（かがなずな）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCiMG6VdScBabPhJ1ZtaVmbw",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「花芽なずな / Nazuna Kaga」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "神成きゅぴ",
+      "conversions": [
+        {
+          "reading": "かみなりきゅぴ",
+          "surface": "神成きゅぴ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「神成 きゅぴ」の表記と KAMINARI QPI のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「神成きゅぴ」の読み（かみなりきゅぴ）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCMp55EbT_ZlqiMS3lCj01BQ",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「神成きゅぴ / Kaminari Qpi」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "如月れん",
+      "conversions": [
+        {
+          "reading": "きさらぎれん",
+          "surface": "如月れん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「如月 れん」の表記と KISARAGI REN のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「如月れん」の読み（きさらぎれん）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCGWa1dMU_sDCaRQjdabsVgg",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「如月れん -Ren kisaragi-」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "銀城サイネ",
+      "conversions": [
+        {
+          "reading": "ぎんじょうさいね",
+          "surface": "銀城サイネ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「銀城サイネ」の表記と GINJO SAINE のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「銀城サイネ」の読み（ぎんじょうさいね）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@Saine_Ginjo",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「銀城サイネ / Ginjo Saine」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "胡桃のあ",
+      "conversions": [
+        {
+          "reading": "くるみのあ",
+          "surface": "胡桃のあ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「胡桃 のあ」の表記と KURUMI NOAH のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「胡桃のあ」の読み（くるみのあ）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCIcAj6WkJ8vZ7DeJVgmeqKw",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「胡桃のあ」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "小雀とと",
+      "conversions": [
+        {
+          "reading": "こがらとと",
+          "surface": "小雀とと"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「小雀 とと」の表記と KOGARA TOTO のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「小雀とと」の読み（こがらとと）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCgTzsBI0DIRopMylJEDqnog",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「小雀とと / Toto Kogara」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "小森めと",
+      "conversions": [
+        {
+          "reading": "こもりめと",
+          "surface": "小森めと"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「小森 めと」の表記と KOMORI MET のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「小森めと」の読み（こもりめと）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@Met_Komori",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「Met Channel / 小森めと 」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "紫宮るな",
+      "conversions": [
+        {
+          "reading": "しのみやるな",
+          "surface": "紫宮るな"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「紫宮 るな」の表記と SHINOMIYA RUNA のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「紫宮るな」の読み（しのみやるな）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCD5W21JqNMv_tV9nfjvF9sw",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「紫宮るな /shinomiya runa」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "白波らむね",
+      "conversions": [
+        {
+          "reading": "しらなみらむね",
+          "surface": "白波らむね"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「白波 らむね」の表記と SHIRANAMI RAMUNE のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「白波らむね」の読み（しらなみらむね）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC61OwuYOVuKkpKnid-43Twg",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「白波らむね / Shiranami Ramune」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "千燈ゆうひ",
+      "conversions": [
+        {
+          "reading": "せんどうゆうひ",
+          "surface": "千燈ゆうひ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「千燈 ゆうひ」の表記と SENDO YUUHI のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「千燈ゆうひ」の読み（せんどうゆうひ）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@SendoYuuhi",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「千燈ゆうひ」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "橘ひなの",
+      "conversions": [
+        {
+          "reading": "たちばなひなの",
+          "surface": "橘ひなの"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「橘 ひなの」の表記と TACHIBANA HINANO のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「橘ひなの」の読み（たちばなひなの）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCvUc0m317LWTTPZoBQV479A",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「橘ひなの / Hinano Tachibana」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "龍巻ちせ",
+      "conversions": [
+        {
+          "reading": "たつまきちせ",
+          "surface": "龍巻ちせ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「龍巻ちせ」の表記と TATSUMAKI CHISE のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「龍巻ちせ」の読み（たつまきちせ）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@Chise_Tatsumaki",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「龍巻ちせ / Tatsumaki Chise」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "蝶屋はなび",
+      "conversions": [
+        {
+          "reading": "ちょうやはなび",
+          "surface": "蝶屋はなび"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「蝶屋 はなび」の表記と CHOYA HANABI のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「蝶屋はなび」の読み（ちょうやはなび）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@HanabiChoya",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「蝶屋はなび / Choya Hanabi」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "紡木こかげ",
+      "conversions": [
+        {
+          "reading": "つむぎこかげ",
+          "surface": "紡木こかげ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「紡木 こかげ」の表記と TSUMUGI KOKAGE のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「紡木こかげ」の読み（つむぎこかげ）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@Kokage_Tsumugi",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「紡木こかげ」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "兎咲ミミ",
+      "conversions": [
+        {
+          "reading": "とさきみみ",
+          "surface": "兎咲ミミ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「兎咲 ミミ」の表記と TOSAKI MIMI のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「兎咲ミミ」の読み（とさきみみ）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCnvVG9RbOW3J6Ifqo-zKLiw",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「兎咲ミミ / Tosaki Mimi」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "猫汰つな",
+      "conversions": [
+        {
+          "reading": "ねこたつな",
+          "surface": "猫汰つな"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「猫汰 つな」の表記と NEKOTA TSUNA のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「猫汰つな」の読み（ねこたつな）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCIjdfjcSaEgdjwbgjxC3ZWg",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「猫汰つな / Nekota Tsuna」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "英リサ",
+      "conversions": [
+        {
+          "reading": "はなぶさりさ",
+          "surface": "英リサ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「英 リサ」の表記と HANABUSA LISA のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「英リサ」の読み（はなぶさりさ）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCurEA8YoqFwimJcAuSHU0MQ",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「英リサ.Hanabusa Lisa」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "八雲べに",
+      "conversions": [
+        {
+          "reading": "やくもべに",
+          "surface": "八雲べに"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「八雲 べに」の表記と YAKUMO BENI のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「八雲べに」の読み（やくもべに）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCjXBuHmWkieBApgBhDuJMMQ",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「八雲べに」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "夜乃くろむ",
+      "conversions": [
+        {
+          "reading": "やのくろむ",
+          "surface": "夜乃くろむ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「夜乃 くろむ」の表記と YANO KUROMU のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「夜乃くろむ」の読み（やのくろむ）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@YanoKuromu",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「夜乃くろむ / Yano Kuromu」で名前を確認"
+        }
+      ]
+    },
+    {
+      "name": "夢野あかり",
+      "conversions": [
+        {
+          "reading": "ゆめのあかり",
+          "surface": "夢野あかり"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://vspo.jp/member/",
+          "note": "公式メンバーページに「夢野 あかり」の表記と YUMENO AKARI のローマ字表記を確認（ぶいすぽっ！所属、卒業欄なし）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ぶいすぽっ!",
+          "note": "Wikipedia メンバー節で「夢野あかり」の読み（ゆめのあかり）を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@akarindao",
+          "note": "公式メンバーページからリンクされたYouTubeチャンネルを開き、チャンネル名「Akari ch.夢野あかり」で名前を確認"
+        }
+      ]
+    }
+  ]
+}
