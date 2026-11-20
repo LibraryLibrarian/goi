@@ -153,7 +153,8 @@ class GroupFile(_Model):
     defaults: Defaults = Field(default_factory=Defaults)
     entries: list[Entry] = Field(min_length=1)
 
-    model_config = ConfigDict(extra="forbid", frozen=True, populate_by_name=True)
+    # $schema だけを受け付ける（内部名の schema_ref は JSON のキーとして使えない）
+    model_config = ConfigDict(extra="forbid", frozen=True)
 
     @field_validator("schema_version", mode="before")
     @classmethod

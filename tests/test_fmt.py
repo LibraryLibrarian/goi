@@ -143,3 +143,61 @@ def test_cli_missing_dictionary_is_noop(tmp_path):
     result = runner.invoke(app, ["fmt", "--root", str(tmp_path), "--check"])
     assert result.exit_code == 0
     assert "0 ファイル中 0 ファイルの整形が必要" in result.output
+
+
+# --- レビュー指摘（f8b07d9）の回帰テスト ---
+# fmt がデータを変えたり、validate の結果を変えたりしない
+
+
+def _validate(root) -> int:
+    return runner.invoke(app, ["validate", "--root", str(root)]).exit_code
+
+
+def test_unknown_null_keys_in_defaults_are_kept(tmp_path):
+    raw = group(entry("Corsair", ("こるせあ", "Corsair")))
+    raw["defaults"] = {"typo": None, "pos": None}
+    path = write(tmp_path, "company/pc.json", raw)
+    assert _validate(tmp_path) == 1
+    assert runner.invoke(app, ["fmt", "--root", str(tmp_path)]).exit_code == 0
+    assert json.loads(path.read_text(encoding="utf-8"))["defaults"] == {"typo": None}
+    assert _validate(tmp_path) == 1  # 未定義キーは引き続き検出される
+
+
+def test_source_urls_are_not_normalized(tmp_path):
+    composed = "https://example.com/" + "ガ"
+    decomposed = "https://example.com/" + unicodedata.normalize("NFD", "ガ")
+    raw = group(entry("Corsair", ("こるせあ", "Corsair")))
+    raw["entries"][0]["sources"] = [{"url": composed}, {"url": decomposed}]
+    path = write(tmp_path, "company/pc.json", raw)
+    assert _validate(tmp_path) == 0
+    assert runner.invoke(app, ["fmt", "--root", str(tmp_path)]).exit_code == 0
+    urls = [s["url"] for s in json.loads(path.read_text(encoding="utf-8"))["entries"][0]["sources"]]
+    assert urls == [composed, decomposed]
+    assert _validate(tmp_path) == 0
+
+
+def test_schema_ref_is_not_accepted_as_json_key(tmp_path):
+    raw = group(entry("Corsair", ("こるせあ", "Corsair")))
+    raw["schema_ref"] = "../../schema/group.schema.json"
+    write(tmp_path, "company/pc.json", raw)
+    result = runner.invoke(app, ["validate", "--root", str(tmp_path)])
+    assert result.exit_code == 1
+    assert "schema_ref: 定義されていない項目がある" in result.output
+
+
+def test_lone_surrogate_is_reported_per_file(tmp_path):
+    lone_surrogate = chr(0x5C) + "ud800"  # JSON 上のエスケープ表記
+    write(
+        tmp_path, "company/broken.json", '{"schema_version": 1, "title": "' + lone_surrogate + '"}'
+    )
+    ok = write(tmp_path, "company/pc.json", group(entry("Corsair", ("コルセア", "Corsair"))))
+
+    result = runner.invoke(app, ["fmt", "--root", str(tmp_path)])
+    assert result.exit_code == 1
+    assert result.exception is None or isinstance(result.exception, SystemExit)
+    assert "単独のサロゲート" in result.output
+    assert "こるせあ" in ok.read_text(encoding="utf-8")  # 後続のファイルは整形される
+
+    result = runner.invoke(app, ["validate", "--root", str(tmp_path)])
+    assert result.exit_code == 1
+    assert "dictionary/company/broken.json: JSON に不正な Unicode" in result.output

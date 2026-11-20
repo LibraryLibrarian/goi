@@ -4,7 +4,7 @@
   - キーの順序を固定し、インデントは2スペース、改行は LF、末尾に改行を1つ置く
   - 語（entries）を読み順に並べる（PR 同士の衝突を減らすため）。
     並べ替えのキーは「最初の読み → name」。語の中の conversions と sources の順は変えない
-  - テキストを NFC 正規化し、前後の空白を取り除く
+  - テキストを NFC 正規化し、前後の空白を取り除く（出典の URL は変更しない）
   - 読みは NFKC 正規化（半角カナ → 全角）したうえで、カタカナをひらがなに直す
   - タグは辞書順に並べ、既定値と同じ項目（status: active、空の tags・defaults など）は省く
   - $schema に、ファイルの位置から schema/group.schema.json への相対パスを入れる
@@ -79,9 +79,9 @@ def _format_source(source: Any) -> Any:
     if not isinstance(source, dict):
         return source
     source = dict(source)
-    for key in SOURCE_KEYS:
-        if key in source:
-            source[key] = normalize_text(source[key])
+    # URL は変更しない（正規化すると別の URL を指したり、他の出典と重複したりするため）
+    if "note" in source:
+        source["note"] = normalize_text(source["note"])
     if source.get("note") is None:
         source.pop("note", None)
     return _ordered(source, SOURCE_KEYS)
@@ -126,7 +126,9 @@ def format_group(raw: dict[str, Any], rel_path: str) -> dict[str, Any]:
 
     defaults = group.get("defaults")
     if isinstance(defaults, dict):
-        defaults = {k: v for k, v in defaults.items() if v is not None}
+        defaults = dict(defaults)
+        if defaults.get("pos", "") is None:
+            defaults.pop("pos")
         if defaults:
             group["defaults"] = _ordered(defaults, DEFAULTS_KEYS)
         else:

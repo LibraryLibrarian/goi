@@ -131,6 +131,11 @@ def read_json(path: Path, display: str) -> tuple[dict[str, Any] | None, list[Iss
         return None, [error(display, "", f"JSON を読み込めない: {type(exc).__name__}")]
     if not isinstance(raw, dict):
         return None, [error(display, "", "JSON の最上位はオブジェクトにする")]
+    try:
+        # JSON のエスケープで書かれた単独のサロゲートは UTF-8 にできず、後の処理で失敗するため
+        json.dumps(raw, ensure_ascii=False).encode("utf-8")
+    except UnicodeEncodeError:
+        return None, [error(display, "", "JSON に不正な Unicode（単独のサロゲート）が含まれる")]
     return raw, []
 
 
