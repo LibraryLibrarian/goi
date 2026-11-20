@@ -159,3 +159,31 @@ def test_unreadable_directory_is_an_error(tmp_path):
     finally:
         hidden.chmod(0o755)
     assert "dictionary/vehicle: ディレクトリを読めない" in "\n".join(messages(result))
+
+
+# --- dictionary/LICENSE（辞書データのライセンス）の扱い ---
+
+
+def test_data_license_at_dictionary_root_is_allowed(tmp_path):
+    write(tmp_path, "company/pc.json", group(entry("Corsair", ("こるせあ", "Corsair"))))
+    (tmp_path / "dictionary" / "LICENSE").write_text("CC0 1.0 Universal\n", encoding="utf-8")
+    result = load_dictionary(tmp_path)
+    assert result.issues == []
+    assert [g.rel_path for g in result.groups] == ["company/pc.json"]
+    assert result.file_count == 1  # 辞書ファイルとしては数えない
+
+
+def test_license_elsewhere_is_still_rejected(tmp_path):
+    write(tmp_path, "company/pc.json", group(entry("Corsair", ("こるせあ", "Corsair"))))
+    (tmp_path / "dictionary" / "company" / "LICENSE").write_text("x\n", encoding="utf-8")
+    text = "\n".join(messages(load_dictionary(tmp_path)))
+    assert "dictionary/company/LICENSE: dictionary/ には .json ファイルだけを置ける" in text
+
+
+def test_symlinked_data_license_is_rejected(tmp_path):
+    outside = tmp_path / "outside-license"
+    outside.write_text("x\n", encoding="utf-8")
+    write(tmp_path, "company/pc.json", group(entry("Corsair", ("こるせあ", "Corsair"))))
+    (tmp_path / "dictionary" / "LICENSE").symlink_to(outside)
+    text = "\n".join(messages(load_dictionary(tmp_path)))
+    assert "dictionary/LICENSE: シンボリックリンクは使えない" in text

@@ -218,3 +218,13 @@ def test_fmt_does_not_write_through_symlinks(tmp_path):
     assert "dictionary/company/linked.json: シンボリックリンクは使えない" in result.output
     assert outside.read_text(encoding="utf-8") == original  # 辞書の外は変更しない
     assert "こるせあ" in (tmp_path / "dictionary/company/pc.json").read_text(encoding="utf-8")
+
+
+def test_fmt_leaves_data_license_untouched(tmp_path):
+    write(tmp_path, "company/pc.json", group(entry("Corsair", ("コルセア", "Corsair"))))
+    license_path = tmp_path / "dictionary" / "LICENSE"
+    license_path.write_text("CC0 1.0 Universal\n", encoding="utf-8")
+    result = runner.invoke(app, ["fmt", "--root", str(tmp_path)])
+    assert result.exit_code == 0
+    assert license_path.read_text(encoding="utf-8") == "CC0 1.0 Universal\n"
+    assert runner.invoke(app, ["validate", "--root", str(tmp_path)]).exit_code == 0

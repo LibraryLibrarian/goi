@@ -28,6 +28,8 @@ MIN_DEPTH = 2
 MAX_DEPTH = 3
 # 全件入りの配布物の名前（goi-<target>-all.zip）に使うため、最上位のディレクトリ名には使えない
 ALL_PACK_NAME = "all"
+# 辞書データのライセンス（CC0 1.0）の本文。dictionary/ 直下にだけ置け、辞書ファイルとしては扱わない
+DATA_LICENSE_FILENAME = "LICENSE"
 
 
 @dataclass(frozen=True)
@@ -56,6 +58,7 @@ def discover_files(root: Path) -> tuple[list[Path], list[Issue]]:
         fmt が辞書の外のファイルを書き換えたり、意図しない語が配布物に入ったりする
       - 読めないディレクトリ、通常のファイルでないもの。黙って除外すると、
         語が欠けたまま検証と build が成功してしまう
+    dictionary/ 直下の LICENSE（辞書データのライセンス）は辞書ファイルではないため列挙しない。
     """
     base = root / DICTIONARY_DIRNAME
     if base.is_symlink():
@@ -87,6 +90,8 @@ def discover_files(root: Path) -> tuple[list[Path], list[Issue]]:
                 issues.append(error(display(path), "", "シンボリックリンクは使えない"))
             elif not path.is_file():
                 issues.append(error(display(path), "", "通常のファイルではない"))
+            elif path == base / DATA_LICENSE_FILENAME:
+                continue
             else:
                 files.append(path)
     return sorted(files), issues
