@@ -11,6 +11,6 @@
 ## ライセンス
 
 - コード（`dictionary/` 以外）: [MIT License](LICENSE)
-- 辞書データ（`dictionary/` 配下）: [CC0 1.0 Universal](LICENSE-DATA)
+- 辞書データ（`dictionary/` 配下）: [CC0 1.0 Universal](dictionary/LICENSE)
 
 辞書データへの貢献は CC0 1.0 で提供されたものとして扱う。他の辞書・Wikipedia・百科事典サイトなどの一覧から語を機械的に抜き出して登録しないこと。
