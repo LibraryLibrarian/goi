@@ -117,7 +117,11 @@ PRではCIが同じ検証を行います。CIが失敗しているPRはマージ
 
 ### Gboardへの取り込み
 
-`dictctl build`で作ったZIP（またはCIの成果物）をAndroid端末に転送し、Gboardの設定から日本語の単語リストを開いて、メニュー（︙）のインポートで取り込んでください（英語表示ではSettings → Dictionary → Personal dictionary → 日本語 → ︙ → Import）。大量の語を取り込んだ直後は、Gboardを再起動すると変換に確実に反映されます。
+`dictctl build`で作ったZIPをAndroid端末に転送し、Gboardの設定から日本語の単語リストを開いて、メニュー（︙）のインポートで取り込んでください（英語表示ではSettings → Dictionary → Personal dictionary → 日本語 → ︙ → Import）。
+
+CIの成果物（`goi-gboard`）をダウンロードした場合、そのZIPはGboardに直接取り込めません。一度展開し、中にある`goi-gboard-all.zip`（全件）または分類ごとのZIPを取り込んでください。
+
+大量の語を取り込んだ直後は、Gboardを再起動すると変換に確実に反映されます。
 
 ## Pull Request
 
