@@ -1,0 +1,238 @@
+{
+  "$schema": "../../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "のりプロ",
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "字ぴろぱる",
+      "conversions": [
+        {
+          "reading": "あざなぴろぱる",
+          "surface": "字ぴろぱる"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-azana/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「字ぴろぱる」、ローマ字表記 AZANA PIROPARU を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認"
+        }
+      ]
+    },
+    {
+      "name": "稲荷いろは",
+      "conversions": [
+        {
+          "reading": "いなりいろは",
+          "surface": "稲荷いろは"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-inari/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「稲荷いろは」、ローマ字表記 INARI IROHA を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認"
+        }
+      ]
+    },
+    {
+      "name": "犬山たまき",
+      "conversions": [
+        {
+          "reading": "いぬやまたまき",
+          "surface": "犬山たまき"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-inuyama/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「犬山たまき」、ローマ字表記 INUYAMA TAMAKI を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認"
+        }
+      ]
+    },
+    {
+      "name": "梟雄しろや",
+      "conversions": [
+        {
+          "reading": "きょうゆうしろや",
+          "surface": "梟雄しろや"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-kyoyu/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「梟雄しろや」、ローマ字表記 KYOYU SHIROYA を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認"
+        }
+      ]
+    },
+    {
+      "name": "熊谷タクマ",
+      "conversions": [
+        {
+          "reading": "くまがやたくま",
+          "surface": "熊谷タクマ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-kumagaya/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「熊谷タクマ」、ローマ字表記 KUMAGAYA TAKUMA を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認"
+        }
+      ]
+    },
+    {
+      "name": "海月とうみ",
+      "conversions": [
+        {
+          "reading": "くらげとうみ",
+          "surface": "海月とうみ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-kurage/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「海月とうみ」、ローマ字表記 KURAGE TOUMI を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認"
+        }
+      ]
+    },
+    {
+      "name": "斎木こまり",
+      "conversions": [
+        {
+          "reading": "さいきこまり",
+          "surface": "斎木こまり"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-saiki/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「斎木こまり」、ローマ字表記 SAIKI KOMARI を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認"
+        }
+      ]
+    },
+    {
+      "name": "瀬兎一也",
+      "conversions": [
+        {
+          "reading": "せとかずや",
+          "surface": "瀬兎一也"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-seto/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「瀬兎一也」、ローマ字表記 SETO KAZUYA を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認"
+        }
+      ]
+    },
+    {
+      "name": "冥海らぶか",
+      "conversions": [
+        {
+          "reading": "めいかいらぶか",
+          "surface": "冥海らぶか"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-meikai/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「冥海らぶか」、ローマ字表記 MEIKAI LOVEKA を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認（同欄は「冥界らぶか」と誤記、読みは めいかい らぶか）"
+        }
+      ]
+    },
+    {
+      "name": "雪ノ精くもち",
+      "conversions": [
+        {
+          "reading": "ゆきのせくもち",
+          "surface": "雪ノ精くもち"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-yukinose/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「雪ノ精くもち」、ローマ字表記 YUKINOSE KUMOCHI を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認"
+        }
+      ]
+    },
+    {
+      "name": "レグルシュ・ライオンハート",
+      "conversions": [
+        {
+          "reading": "れぐるしゅらいおんはーと",
+          "surface": "レグルシュ・ライオンハート"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-reglush/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「レグルシュ・ライオンハート」、ローマ字表記 REGLUSH LIONHEART を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認（読みの括弧書きなし。公式ローマ字とカタカナ表記からの対応）"
+        }
+      ]
+    },
+    {
+      "name": "鷲羽アスカ",
+      "conversions": [
+        {
+          "reading": "わしゅうあすか",
+          "surface": "鷲羽アスカ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://noripro.jp/talent-washu/",
+          "note": "公式プロフィールページ。所属タレント一覧に掲載、表記「鷲羽アスカ」、ローマ字表記 WASHU ASUKA を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/%E4%BD%83%E7%85%AE%E3%81%AE%E3%82%8A%E3%81%8A",
+          "note": "Wikipedia「佃煮のりお」内ののりプロ所属メンバー欄で読みと所属を確認"
+        }
+      ]
+    }
+  ]
+}
