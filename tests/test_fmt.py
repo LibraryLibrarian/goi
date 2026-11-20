@@ -201,3 +201,20 @@ def test_lone_surrogate_is_reported_per_file(tmp_path):
     result = runner.invoke(app, ["validate", "--root", str(tmp_path)])
     assert result.exit_code == 1
     assert "dictionary/company/broken.json: JSON に不正な Unicode" in result.output
+
+
+# --- 全体レビューの指摘の回帰テスト ---
+
+
+def test_fmt_does_not_write_through_symlinks(tmp_path):
+    outside = tmp_path / "outside.json"
+    original = '{"title": "辞書の外のファイル"}'
+    outside.write_text(original, encoding="utf-8")
+    write(tmp_path, "company/pc.json", group(entry("Corsair", ("コルセア", "Corsair"))))
+    (tmp_path / "dictionary" / "company" / "linked.json").symlink_to(outside)
+
+    result = runner.invoke(app, ["fmt", "--root", str(tmp_path)])
+    assert result.exit_code == 1
+    assert "dictionary/company/linked.json: シンボリックリンクは使えない" in result.output
+    assert outside.read_text(encoding="utf-8") == original  # 辞書の外は変更しない
+    assert "こるせあ" in (tmp_path / "dictionary/company/pc.json").read_text(encoding="utf-8")

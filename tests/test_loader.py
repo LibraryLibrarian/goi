@@ -113,3 +113,47 @@ def test_unreadable_file_does_not_abort(tmp_path):
         path.chmod(0o644)
     assert "dictionary/misc/locked.json: ファイルを読めない" in "\n".join(messages(result))
     assert [g.rel_path for g in result.groups] == ["misc/ok.json"]
+
+
+# --- 全体レビューの指摘の回帰テスト: シンボリックリンクと読めないディレクトリ ---
+
+
+def test_symlinks_are_rejected(tmp_path):
+    outside = tmp_path / "outside"
+    outside.mkdir()
+    (outside / "target.json").write_text("{}", encoding="utf-8")
+    (outside / "dir").mkdir()
+    write(tmp_path, "company/pc.json", group(entry("Corsair", ("こるせあ", "Corsair"))))
+    base = tmp_path / "dictionary"
+    (base / "company" / "linked.json").symlink_to(outside / "target.json")
+    (base / "linked-dir").symlink_to(outside / "dir")
+    (base / "company" / "broken.json").symlink_to(tmp_path / "missing.json")
+
+    result = load_dictionary(tmp_path)
+    text = "\n".join(messages(result))
+    assert "dictionary/company/linked.json: シンボリックリンクは使えない" in text
+    assert "dictionary/linked-dir: シンボリックリンクは使えない" in text
+    assert "dictionary/company/broken.json: シンボリックリンクは使えない" in text
+    assert [g.rel_path for g in result.groups] == ["company/pc.json"]
+
+
+def test_symlinked_dictionary_root_is_rejected(tmp_path):
+    real = tmp_path / "real"
+    real.mkdir()
+    (tmp_path / "dictionary").symlink_to(real)
+    assert "dictionary: シンボリックリンクは使えない" in messages(load_dictionary(tmp_path))[0]
+
+
+@pytest.mark.skipif(
+    os.name != "posix" or os.geteuid() == 0, reason="権限で読み取りを拒否できない環境"
+)
+def test_unreadable_directory_is_an_error(tmp_path):
+    write(tmp_path, "company/pc.json", group(entry("Corsair", ("こるせあ", "Corsair"))))
+    write(tmp_path, "vehicle/motorcycle.json", group(entry("Triumph", ("とらいあんふ", "Triumph"))))
+    hidden = tmp_path / "dictionary" / "vehicle"
+    hidden.chmod(0)
+    try:
+        result = load_dictionary(tmp_path)
+    finally:
+        hidden.chmod(0o755)
+    assert "dictionary/vehicle: ディレクトリを読めない" in "\n".join(messages(result))

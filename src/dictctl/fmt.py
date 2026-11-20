@@ -22,7 +22,7 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 from dictctl.diagnostics import Issue
-from dictctl.loader import DICTIONARY_DIRNAME, read_json
+from dictctl.loader import DICTIONARY_DIRNAME, discover_files, read_json
 from dictctl.models import EDGE_SPACE_CHARS
 from dictctl.schema import SCHEMA_FILENAME
 
@@ -157,13 +157,14 @@ class FormatResult:
 def format_dictionary(root: Path, *, write: bool) -> FormatResult:
     base = root / DICTIONARY_DIRNAME
     changed: list[str] = []
-    issues: list[Issue] = []
     checked = 0
-    if not base.is_dir():
+    if not base.exists() and not base.is_symlink():
         return FormatResult(0, [], [])
-    for path in sorted(base.rglob("*.json")):
-        if not path.is_file():
-            continue
+    # シンボリックリンクや読めないディレクトリはエラーとして報告し、書き込みの対象にしない
+    paths, issues = discover_files(root)
+    for path in paths:
+        if path.suffix != ".json":
+            continue  # .json 以外のファイルは validate がエラーにする
         rel = path.relative_to(base).as_posix()
         display = f"{DICTIONARY_DIRNAME}/{rel}"
         raw, read_issues = read_json(path, display)

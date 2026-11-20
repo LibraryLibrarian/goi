@@ -1,4 +1,5 @@
 import io
+import os
 import zipfile
 
 import pytest
@@ -168,3 +169,23 @@ def test_check_text_enforces_character_limit_too():
     assert check_text(render_text([("あ", "A" * 100, "品詞なし")])) == 1
     with pytest.raises(GboardFormatError, match="100 文字"):
         check_text(render_text([("あ", "A" * 101, "品詞なし")]))
+
+
+@pytest.mark.skipif(
+    os.name != "posix" or os.geteuid() == 0, reason="権限で読み取りを拒否できない環境"
+)
+def test_build_refuses_when_a_directory_cannot_be_read(tmp_path):
+    make_dictionary(tmp_path)
+    assert runner.invoke(app, ["build", "--root", str(tmp_path)]).exit_code == 0
+    previous = (tmp_path / "dist/gboard/goi-gboard-all.zip").read_bytes()
+
+    hidden = tmp_path / "dictionary" / "vehicle"
+    hidden.chmod(0)
+    try:
+        result = runner.invoke(app, ["build", "--root", str(tmp_path)])
+    finally:
+        hidden.chmod(0o755)
+    assert result.exit_code == 1
+    assert "ディレクトリを読めない" in result.output
+    # 語が欠けた配布物を作らず、前回の配布物も消さない
+    assert (tmp_path / "dist/gboard/goi-gboard-all.zip").read_bytes() == previous

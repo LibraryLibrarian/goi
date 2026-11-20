@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
@@ -47,15 +48,55 @@ class LoadResult:
     file_count: int = 0  # dictionary/ 配下で見つかったファイルの数（読み込めなかったものを含む）
 
 
+def discover_files(root: Path) -> tuple[list[Path], list[Issue]]:
+    """dictionary/ 配下のファイルを列挙する。読み込み（validate・build）と整形（fmt）で共通に使う。
+
+    次のものはエラーにする:
+      - シンボリックリンク（ファイル・ディレクトリとも）。辞書の外を指せるため、
+        fmt が辞書の外のファイルを書き換えたり、意図しない語が配布物に入ったりする
+      - 読めないディレクトリ、通常のファイルでないもの。黙って除外すると、
+        語が欠けたまま検証と build が成功してしまう
+    """
+    base = root / DICTIONARY_DIRNAME
+    if base.is_symlink():
+        return [], [error(DICTIONARY_DIRNAME, "", "シンボリックリンクは使えない")]
+    if not base.is_dir():
+        return [], [error(DICTIONARY_DIRNAME, "", "ディレクトリが見つからない")]
+
+    files: list[Path] = []
+    issues: list[Issue] = []
+
+    def display(path: Path) -> str:
+        rel = path.relative_to(base).as_posix()
+        return DICTIONARY_DIRNAME if rel == "." else f"{DICTIONARY_DIRNAME}/{rel}"
+
+    def on_error(exc: OSError) -> None:
+        where = display(Path(exc.filename)) if exc.filename else DICTIONARY_DIRNAME
+        issues.append(error(where, "", f"ディレクトリを読めない: {exc.strerror or exc}"))
+
+    for dirpath, dirnames, filenames in os.walk(base, onerror=on_error, followlinks=False):
+        current = Path(dirpath)
+        links = sorted(d for d in dirnames if (current / d).is_symlink())
+        issues.extend(
+            error(display(current / d), "", "シンボリックリンクは使えない") for d in links
+        )
+        dirnames[:] = sorted(d for d in dirnames if d not in links)
+        for name in sorted(filenames):
+            path = current / name
+            if path.is_symlink():
+                issues.append(error(display(path), "", "シンボリックリンクは使えない"))
+            elif not path.is_file():
+                issues.append(error(display(path), "", "通常のファイルではない"))
+            else:
+                files.append(path)
+    return sorted(files), issues
+
+
 def load_dictionary(root: Path) -> LoadResult:
     """リポジトリのルートを受け取り、dictionary/ 配下をすべて読み込む。"""
     base = root / DICTIONARY_DIRNAME
-    if not base.is_dir():
-        return LoadResult([], [error(DICTIONARY_DIRNAME, "", "ディレクトリが見つからない")])
-
     groups: list[LoadedGroup] = []
-    issues: list[Issue] = []
-    paths = sorted(p for p in base.rglob("*") if p.is_file())
+    paths, issues = discover_files(root)
     for path in paths:
         rel = PurePosixPath(path.relative_to(base).as_posix())
         display = f"{DICTIONARY_DIRNAME}/{rel}"
