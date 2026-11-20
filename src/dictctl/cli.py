@@ -3,18 +3,20 @@
 終了コード:
   0  成功（警告だけの場合を含む）
   1  検査で問題が見つかった（validate のエラー、fmt --check・schema --check の差分、
-     読み込めず整形できなかったファイル）
+     読み込めず整形できなかったファイル、検証エラーによる build の中止）
   2  コマンドの使い方の誤り（Typer の既定）
 """
 
 from __future__ import annotations
 
+from enum import StrEnum
 from pathlib import Path
 from typing import Annotated
 
 import typer
 
 from dictctl.diagnostics import has_errors
+from dictctl.export_gboard import build_packs, write_packs
 from dictctl.fmt import format_dictionary
 from dictctl.loader import load_dictionary
 from dictctl.schema import SCHEMA_FILENAME, render_schema, write_schema
@@ -107,6 +109,47 @@ def fmt(
     typer.echo(summary)
     if result.issues or (check and result.changed):
         raise typer.Exit(code=1)
+
+
+class Target(StrEnum):
+    gboard = "gboard"
+
+
+@app.command()
+def build(
+    root: RootOption = Path("."),
+    target: Annotated[
+        Target, typer.Option("--target", help="出力する IME の形式。")
+    ] = Target.gboard,
+    out: Annotated[
+        Path | None,
+        typer.Option(
+            "--out",
+            help="出力先（この下に <target>/ を作る）。省略時は <root>/dist。",
+            file_okay=False,
+        ),
+    ] = None,
+) -> None:
+    """辞書を検証し、IME 向けの配布物を出力する。検証エラーがあれば出力しない。"""
+    result = load_dictionary(root)
+    issues = sorted(result.issues + validate_groups(result.groups))
+    errors = [issue for issue in issues if issue.level == "error"]
+    if errors:
+        for issue in errors:
+            typer.echo(issue.format())
+        typer.echo("")
+        typer.echo(
+            f"検証エラーが {len(errors)} 件あるため出力しない（dictctl validate で確認できる）"
+        )
+        raise typer.Exit(code=1)
+
+    packs = build_packs(result.groups)
+    out_dir = (out if out is not None else root / "dist") / target.value
+    paths = write_packs(packs, out_dir)
+    for pack, path in zip(packs, paths, strict=True):
+        typer.echo(f"{path}: {len(pack.rows)} 件（読みと表記の組）")
+    if not packs:
+        typer.echo("出力する語がない")
 
 
 def main() -> None:
