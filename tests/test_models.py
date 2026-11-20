@@ -210,3 +210,14 @@ def test_schema_patterns_avoid_engine_dependent_shorthands():
     for pattern in patterns:
         for shorthand in (r"\s", r"\S", r"\d", r"\D", r"\w", r"\W", r"\b"):
             assert shorthand not in pattern, (pattern, shorthand)
+
+
+# --- 全体レビューの指摘の回帰テスト: 方向制御文字 ---
+
+BIDI_CONTROLS = [0x061C, 0x200E, 0x200F, *range(0x202A, 0x202F), *range(0x2066, 0x206A)]
+
+
+@pytest.mark.parametrize("codepoint", BIDI_CONTROLS, ids=lambda c: f"U+{c:04X}")
+def test_bidi_controls_are_rejected(codepoint):
+    with pytest.raises(ValidationError):
+        GroupFile.model_validate(with_conversion(surface="ABC" + chr(codepoint) + "DEF"))

@@ -68,3 +68,14 @@ def test_committed_schema_passes_check():
 
 def test_usage_error_exits_two():
     assert invoke("validate", "--no-such-option").exit_code == 2
+
+
+def test_validate_and_build_reject_bidi_override(tmp_path):
+    write(
+        tmp_path,
+        "company/pc.json",
+        group(entry("Corsair", ("こるせあ", "ABC" + chr(0x202E) + "DEF"))),
+    )
+    assert invoke("validate", "--root", str(tmp_path)).exit_code == 1
+    assert invoke("build", "--root", str(tmp_path)).exit_code == 1
+    assert not (tmp_path / "dist").exists()
