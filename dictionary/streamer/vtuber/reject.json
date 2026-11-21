@@ -1,0 +1,411 @@
+{
+  "$schema": "../../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "REJECT",
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "天鬼ぷるる",
+      "conversions": [
+        {
+          "reading": "あまきぷるる",
+          "surface": "天鬼ぷるる"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/pururu-amaki/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。ローマ字のスラッグ pururu-amaki"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/天鬼ぷるる",
+          "note": "ピクシブ百科事典。読み「あまきぷるる」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "乾伸一郎",
+      "conversions": [
+        {
+          "reading": "いぬいしんいちろう",
+          "surface": "乾伸一郎"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/shinichiro-inui/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/乾伸一郎",
+          "note": "ピクシブ百科事典。読み「いぬいしんいちろう」"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/乾伸一郎",
+          "note": "ニコニコ大百科。読み「イヌイシンイチロウ」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "折咲もしゅ",
+      "conversions": [
+        {
+          "reading": "おりさきもしゅ",
+          "surface": "折咲もしゅ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/moshu-orisaki/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。ローマ字のスラッグ moshu-orisaki"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/折咲もしゅ",
+          "note": "ピクシブ百科事典。読み「おりさきもしゅ」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "かしわねこ",
+      "conversions": [
+        {
+          "reading": "かしわねこ",
+          "surface": "かしわねこ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/kashiwa-neko/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://reject.jp/2024/10/31/【streamer】ろぜっくぴん、折咲もしゅ、玉餅かずよ、/",
+          "note": "公式の告知。VTuberとして加入（4名同時）"
+        },
+        {
+          "url": "https://www.youtube.com/@kashi_neko",
+          "note": "本人のYouTube。チャンネル名「かしわねこ / kashi_neko」"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/かしわねこ",
+          "note": "ピクシブ百科事典。読み「かしわねこ」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "カプラ・リブラス",
+      "conversions": [
+        {
+          "reading": "かぷらりぶらす",
+          "surface": "カプラ・リブラス"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/capla-libras/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。表記がかなのため読みは表記どおり（中黒は除く）"
+        },
+        {
+          "url": "https://reject.jp/2026/09/20/【ストリーマー部門】カプラ・リブラスがデビュ/",
+          "note": "公式の告知。VTuberとしてデビュー。「カプラ・リブラス／Capla Libras」"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/カプラ・リブラス",
+          "note": "ピクシブ百科事典。読み「かぷらりぶらす」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "鴉羽そら",
+      "conversions": [
+        {
+          "reading": "からすばそら",
+          "surface": "鴉羽そら"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/sora-karasuba/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://reject.jp/2026/03/25/20260325/",
+          "note": "公式の告知。ローマ字「Sora Karasuba」"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/鴉羽そら",
+          "note": "ピクシブ百科事典。読み「からすばそら」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "秋雪こはく",
+      "conversions": [
+        {
+          "reading": "しゅせつこはく",
+          "surface": "秋雪こはく"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/kohaku-shusetsu/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://x.com/Syusetu_kohaku",
+          "note": "本人のX。プロフィールに「秋雪（しゅせつ）こはく」"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/秋雪こはく",
+          "note": "ピクシブ百科事典。読み「しゅせつこはく」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "白熊つらら",
+      "conversions": [
+        {
+          "reading": "しろくまつらら",
+          "surface": "白熊つらら"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/tsurara-shirokuma/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://reject.jp/2026/03/25/20260325/",
+          "note": "公式の告知。ローマ字「Tsurara Shirokuma」"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/白熊つらら",
+          "note": "ピクシブ百科事典。読み「しろくまつらら」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "玉餅かずよ",
+      "conversions": [
+        {
+          "reading": "たまもちかずよ",
+          "surface": "玉餅かずよ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/kazuyo-tamamochi/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。ローマ字のスラッグ kazuyo-tamamochi"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/玉餅かずよ",
+          "note": "ピクシブ百科事典。読み「たまもちかずよ」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "dtto.",
+      "conversions": [
+        {
+          "reading": "でぃっと",
+          "surface": "dtto."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/dtto/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/dtto",
+          "note": "ピクシブ百科事典。読み「でぃっと」"
+        },
+        {
+          "url": "https://x.com/_dtto",
+          "note": "本人のX。表示名「dtto. (でぃっと)」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "URS-No.1005 (とおこ)",
+      "conversions": [
+        {
+          "reading": "とおこ",
+          "surface": "URS-No.1005"
+        },
+        {
+          "reading": "とおこ",
+          "surface": "とおこ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/toko/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。表記「URS-No.1005 (とおこ)」"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/URS-No.1005",
+          "note": "ピクシブ百科事典。「URS-No.1005（とおこ）」"
+        },
+        {
+          "url": "https://www.youtube.com/@urs-no.1005",
+          "note": "本人のYouTube。チャンネル名「とおこ」"
+        },
+        {
+          "url": "https://x.com/No1005_W",
+          "note": "本人のX。表示名「URS-No.1005（とおこ）」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "花前ハル",
+      "conversions": [
+        {
+          "reading": "はなまえはる",
+          "surface": "花前ハル"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/haru-hanamae/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://reject.jp/2026/04/27/【ストリーマー部門】花前ハル-加入のお知らせ/",
+          "note": "公式の告知。「花前ハル／Haru Hanamae」"
+        },
+        {
+          "url": "https://x.com/hanamaeharu",
+          "note": "本人のX。プロフィールに「はなまえはるです。」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "巫神こん",
+      "conversions": [
+        {
+          "reading": "みかみこん",
+          "surface": "巫神こん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/kon-mikami/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。ローマ字のスラッグ kon-mikami"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/巫神こん",
+          "note": "ピクシブ百科事典。読み「みかみこん」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "ラクシャーナ",
+      "conversions": [
+        {
+          "reading": "らくしゃーな",
+          "surface": "ラクシャーナ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/rakushaana/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://reject.jp/2026/05/09/【ストリーマー部門】ラクシャーナ-加入のお知ら/",
+          "note": "公式の告知。「ラクシャーナ／Rakshaana」、VTuberとして加入"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    },
+    {
+      "name": "ろぜっくぴん",
+      "conversions": [
+        {
+          "reading": "ろぜっくぴん",
+          "surface": "ろぜっくぴん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/rosec-pin/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://reject.jp/2024/10/31/【streamer】ろぜっくぴん、折咲もしゅ、玉餅かずよ、/",
+          "note": "公式の告知。VTuberとして加入（4名同時）"
+        },
+        {
+          "url": "https://www.youtube.com/@Rosec_pin",
+          "note": "本人のYouTube。チャンネル名「ろぜっくぴん -Rosec_pin-」"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/ろぜっくぴん",
+          "note": "ピクシブ百科事典。読み「ろぜっくぴん」"
+        },
+        {
+          "url": "https://reject.jp/2026/10/01/20261001/",
+          "note": "公式の告知。所属VTuber15名が出演する「REJECT VTuber Fanmeeting 2026」の出演者一覧に掲載"
+        }
+      ]
+    }
+  ]
+}
