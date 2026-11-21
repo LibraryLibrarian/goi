@@ -9,6 +9,8 @@
 
 from __future__ import annotations
 
+import sys
+from datetime import date
 from enum import StrEnum
 from pathlib import Path
 from typing import Annotated
@@ -19,6 +21,7 @@ from dictctl.diagnostics import has_errors
 from dictctl.export_gboard import build_packs, write_packs
 from dictctl.fmt import format_dictionary
 from dictctl.loader import load_dictionary
+from dictctl.release import DictionaryLoadError, dictionary_rows, next_version, render_notes
 from dictctl.schema import SCHEMA_FILENAME, render_schema, write_schema
 from dictctl.validate import validate_groups
 
@@ -150,6 +153,44 @@ def build(
         typer.echo(f"{path}: {len(pack.rows)} 件（読みと表記の組）")
     if not packs:
         typer.echo("出力する語がない")
+
+
+@app.command()
+def diff(
+    new: Annotated[
+        Path,
+        typer.Option("--new", help="新しい版のリポジトリのルート。", file_okay=False),
+    ] = Path("."),
+    old: Annotated[
+        Path | None,
+        typer.Option(
+            "--old",
+            help="前の版のリポジトリのルート。省略すると初回のリリースとして扱う。",
+            file_okay=False,
+        ),
+    ] = None,
+) -> None:
+    """前の版との差分（追加・削除・変更された語）をリリースノートの形で出力する。"""
+    try:
+        old_rows = dictionary_rows(old) if old is not None else None
+        new_rows = dictionary_rows(new)
+    except DictionaryLoadError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=1) from exc
+    typer.echo(render_notes(old_rows, new_rows), nl=False)
+
+
+@app.command("release-version")
+def release_version(
+    day: Annotated[str, typer.Option("--date", help="リリースの日付（YYYY-MM-DD、日本時間）。")],
+) -> None:
+    """既存のタグ（標準入力から1行に1つ）をもとに、次の版の名前を出力する。"""
+    try:
+        parsed = date.fromisoformat(day)
+    except ValueError as exc:
+        typer.echo(f"日付の形式が正しくない: {day}", err=True)
+        raise typer.Exit(code=2) from exc
+    typer.echo(next_version(parsed, sys.stdin.read().splitlines()))
 
 
 def main() -> None:
