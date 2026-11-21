@@ -45,7 +45,9 @@ Row = tuple[str, str, Pos]  # (読み, 表記, 品詞)
 
 @dataclass(frozen=True)
 class Pack:
-    name: str  # "all" または最上位ディレクトリ名
+    name: (
+        str  # "all"、またはディレクトリのパスを「-」でつないだもの（例: streamer、streamer-vtuber）
+    )
     rows: list[Row]
 
     @property
@@ -64,14 +66,19 @@ def collect_rows(groups: Iterable[LoadedGroup]) -> list[Row]:
 
 
 def build_packs(groups: list[LoadedGroup]) -> list[Pack]:
-    """全件入りの配布物と、最上位ディレクトリごとの配布物を作る。語のないものは作らない。"""
-    by_top: dict[str, list[LoadedGroup]] = {}
+    """全件入りの配布物と、ディレクトリごと（最上位と2段目）の配布物を作る。語のないものは作らない。
+
+    例: streamer/vtuber/hololive.json は all・streamer・streamer-vtuber の3つに入り、
+    streamer/reject.json は all と streamer の2つに入る。
+    """
+    by_dir: dict[tuple[str, ...], list[LoadedGroup]] = {}
     for loaded in groups:
-        top = PurePosixPath(loaded.rel_path).parts[0]
-        by_top.setdefault(top, []).append(loaded)
+        directories = PurePosixPath(loaded.rel_path).parent.parts
+        for depth in range(1, len(directories) + 1):
+            by_dir.setdefault(directories[:depth], []).append(loaded)
 
     packs = [Pack(ALL_PACK, collect_rows(groups))]
-    packs += [Pack(top, collect_rows(members)) for top, members in sorted(by_top.items())]
+    packs += [Pack("-".join(key), collect_rows(members)) for key, members in sorted(by_dir.items())]
     return [pack for pack in packs if pack.rows]
 
 

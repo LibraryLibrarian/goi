@@ -10,6 +10,8 @@
     （両方の配布物を取り込んだ端末で、単語リストの行が増えるため）
   - 同じ表記に登録された読みの組み合わせがファイルによって違う場合は警告
     （片方だけ修正された可能性がある。同名の別人など正当な場合もある）
+  - ディレクトリごとの配布物の名前（パスを「-」でつないだもの）が重複する場合はエラー
+    （例: 最上位の a-b/ と a/b/ はどちらも goi-gboard-a-b.zip になるため）
 """
 
 from __future__ import annotations
@@ -17,6 +19,7 @@ from __future__ import annotations
 import unicodedata
 from collections import defaultdict
 from dataclasses import dataclass
+from pathlib import PurePosixPath
 
 from dictctl.diagnostics import Issue, error, warning
 from dictctl.loader import LoadedGroup
@@ -30,7 +33,30 @@ def validate_groups(groups: list[LoadedGroup]) -> list[Issue]:
     for loaded in groups:
         issues.extend(_check_file(loaded))
     issues.extend(_check_across_files(groups))
+    issues.extend(_check_pack_names(groups))
     return sorted(issues)
+
+
+def _check_pack_names(groups: list[LoadedGroup]) -> list[Issue]:
+    """ディレクトリごとの配布物の名前が、別のディレクトリと重ならないかを確かめる。"""
+    owners: dict[str, set[str]] = defaultdict(set)
+    for loaded in groups:
+        directories = PurePosixPath(loaded.rel_path).parent.parts
+        for depth in range(1, len(directories) + 1):
+            owners["-".join(directories[:depth])].add("/".join(directories[:depth]))
+    issues: list[Issue] = []
+    for name, paths in sorted(owners.items()):
+        if len(paths) > 1:
+            listed = "、".join(f"dictionary/{p}/" for p in sorted(paths))
+            for path in sorted(paths):
+                issues.append(
+                    error(
+                        f"dictionary/{path}/",
+                        "",
+                        f"配布物の名前 goi-gboard-{name}.zip が重複する: {listed}",
+                    )
+                )
+    return issues
 
 
 def _entry_loc(index: int, name: str) -> str:
