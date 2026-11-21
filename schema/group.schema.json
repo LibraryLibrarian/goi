@@ -117,16 +117,6 @@
           },
           "title": "Tags",
           "type": "array"
-        },
-        "status": {
-          "default": "active",
-          "description": "deprecated の語はビルドに含めない。",
-          "enum": [
-            "active",
-            "deprecated"
-          ],
-          "title": "Status",
-          "type": "string"
         }
       },
       "required": [

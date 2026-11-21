@@ -87,17 +87,6 @@ def test_same_pair_across_files_with_different_pos_is_error(tmp_path):
     assert "品詞が違う語が他のファイルにある" in text
 
 
-def test_deprecated_entries_are_ignored_across_files(tmp_path):
-    write(tmp_path, "youtuber/a.json", group(entry("x", ("えっくす", "X")), pos="人名"))
-    write(
-        tmp_path,
-        "youtuber/b.json",
-        group(entry("x", ("えっくす", "X"), status="deprecated"), pos="固有名詞"),
-    )
-    issues, _ = run(tmp_path)
-    assert issues == []
-
-
 def test_reading_sets_differ_across_files_is_warning(tmp_path):
     write(
         tmp_path,
@@ -109,31 +98,3 @@ def test_reading_sets_differ_across_files_is_warning(tmp_path):
     assert not has_errors(issues)
     assert "同じ表記の読みの組み合わせがファイルによって違う" in text
     assert "dictionary/company/gaming.json（こるせあ）" in text
-
-
-# --- レビュー指摘（c2cccd7）の回帰テスト ---
-
-
-def test_correction_by_deprecating_and_readding_in_same_file_is_allowed(tmp_path):
-    # 品詞だけを直す: 誤った語を deprecated にし、正しい語を別に追加する（CONTRIBUTING.md の手順）
-    old = entry("Corsair", ("こるせあ", "Corsair", "名詞"), status="deprecated")
-    new = entry("Corsair", ("こるせあ", "Corsair", "組織"))
-    write(tmp_path, "company/pc.json", group(old, new))
-    issues, _ = run(tmp_path)
-    assert issues == []
-
-
-def test_duplicates_among_active_entries_are_still_errors(tmp_path):
-    write(
-        tmp_path,
-        "company/pc.json",
-        group(
-            entry("Corsair", ("こるせあ", "Corsair")),
-            entry("Corsair", ("こるせあ", "Corsair"), status="deprecated"),
-            entry("Corsair", ("こるせあ", "Corsair")),
-        ),
-    )
-    issues, text = run(tmp_path)
-    assert has_errors(issues)
-    assert "（entries[0]「Corsair」.conversions[0]）" in text
-    assert "entries[1]" not in text  # deprecated の語は重複として報告しない

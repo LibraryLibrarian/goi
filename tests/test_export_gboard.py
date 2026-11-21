@@ -35,7 +35,6 @@ def make_dictionary(tmp_path):
         "company/pc/peripherals.json",
         group(
             entry("Corsair", ("こるせあ", "Corsair"), ("こーせあ", "Corsair")),
-            entry("Old", ("おーるど", "Old"), status="deprecated"),
             pos="組織",
         ),
     )
@@ -43,7 +42,7 @@ def make_dictionary(tmp_path):
     write(tmp_path, "vehicle/motorcycle.json", group(entry("Triumph", ("とらいあんふ", "Triumph"))))
 
 
-def test_packs_rows_are_sorted_deduplicated_and_skip_deprecated(tmp_path):
+def test_packs_rows_are_sorted_and_deduplicated(tmp_path):
     make_dictionary(tmp_path)
     packs = {p.name: p for p in build_packs(load(tmp_path))}
     assert list(packs) == ["all", "company", "vehicle"]
@@ -55,13 +54,6 @@ def test_packs_rows_are_sorted_deduplicated_and_skip_deprecated(tmp_path):
     assert packs["vehicle"].rows == [("とらいあんふ", "Triumph", "品詞なし")]
     assert len(packs["all"].rows) == 3
     assert packs["all"].filename == "goi-gboard-all.zip"
-
-
-def test_pack_without_active_entries_is_not_built(tmp_path):
-    write(
-        tmp_path, "company/old.json", group(entry("Old", ("おーるど", "Old"), status="deprecated"))
-    )
-    assert build_packs(load(tmp_path)) == []
 
 
 def test_render_text_matches_gboard_v2_format():

@@ -4,10 +4,8 @@
   - テキストが NFC 正規化されている
   - 表記・読みが UTF-8 で300バイト以内（Gboard はそれを超える語を変換に使わない）
   - 同じファイル内で「読み＋表記」が重複しない、出典 URL・タグが語の中で重複しない
-    （「読み＋表記」と name の重複は status が active の語だけが対象。誤りを直すときは、
-    誤った語を deprecated にして正しい語を別に追加するため、両者は重複してよい）
   - 出典が1件だけの語は警告
-ファイルをまたぐ検査（status が active の語だけが対象。deprecated の語はビルドに含めないため）:
+ファイルをまたぐ検査:
   - 「読み＋表記」が同じで品詞が違う組はエラー
     （両方の配布物を取り込んだ端末で、単語リストの行が増えるため）
   - 同じ表記に登録された読みの組み合わせがファイルによって違う場合は警告
@@ -50,17 +48,13 @@ def _check_file(loaded: LoadedGroup) -> list[Issue]:
     seen_names: dict[str, str] = {}
     for i, entry in enumerate(group.entries):
         loc = _entry_loc(i, entry.name)
-        active = entry.status == "active"
         issues.extend(_nfc(path, f"{loc}.name", entry.name))
 
-        if active:
-            if entry.name in seen_names:
-                first = seen_names[entry.name]
-                issues.append(
-                    warning(path, loc, f"同じ name の語がこのファイルに既にある（{first}）")
-                )
-            else:
-                seen_names[entry.name] = loc
+        if entry.name in seen_names:
+            first = seen_names[entry.name]
+            issues.append(warning(path, loc, f"同じ name の語がこのファイルに既にある（{first}）"))
+        else:
+            seen_names[entry.name] = loc
 
         for j, conv in enumerate(entry.conversions):
             cloc = f"{loc}.conversions[{j}]"
@@ -77,8 +71,6 @@ def _check_file(loaded: LoadedGroup) -> list[Issue]:
                         )
                     )
             pair = (conv.reading, conv.surface)
-            if not active:
-                continue
             if pair in seen_pairs:
                 issues.append(
                     error(
@@ -133,8 +125,6 @@ def _check_across_files(groups: list[LoadedGroup]) -> list[Issue]:
 
     for loaded in groups:
         for i, entry in enumerate(loaded.group.entries):
-            if entry.status != "active":
-                continue
             for j, conv in enumerate(entry.conversions):
                 loc = f"{_entry_loc(i, entry.name)}.conversions[{j}]"
                 occ = _Occurrence(loaded.display_path, loc, loaded.group.effective_pos(conv))

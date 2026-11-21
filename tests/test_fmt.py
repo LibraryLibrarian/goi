@@ -29,7 +29,6 @@ def test_format_group_produces_canonical_form():
     raw = {
         "entries": [
             {
-                "status": "active",
                 "tags": ["vehicle", "british"],
                 "sources": [{"note": None, "url": "https://example.com/triumph"}],
                 "conversions": [{"surface": "Triumph", "reading": "トライアンフ", "pos": None}],
