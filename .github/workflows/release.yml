@@ -5,7 +5,9 @@ name: release
 #   build   : 検証・テスト・ビルド、版とリリースノートの作成（読み取り権限のみ）
 #   publish : GitHub Releases への公開と、main の fast-forward（書き込み権限。リポジトリのコードは実行しない）
 #   notify  : 定期実行が失敗したら Issue で知らせる
-# その日に更新がなければ何もしない。定期実行は公開リポジトリでだけ動く。
+# その日に更新がなければ何もしない。更新があっても、配布物（ZIP）が前回のリリースとすべて同じなら
+# リリースせず、main も進めない（ドキュメントやコードだけの変更は、次のリリースにまとめて入る）。
+# 定期実行は公開リポジトリでだけ動く。
 # 手動実行は既定で dry run（publish を行わず、build の成果物を保存するだけ）。
 # 途中で止まっても、次の実行で既存のリリース（下書きを含む）を見つけて続きから再開する。
 
@@ -129,6 +131,8 @@ jobs:
     if: needs.plan.outputs.skip == 'false' && needs.plan.outputs.release_needed == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    outputs:
+      changed: ${{ steps.compare.outputs.changed }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -151,7 +155,32 @@ jobs:
           uv run dictctl validate
           uv run dictctl build --target gboard
 
+      - name: 前回のリリースと配布物を比べる
+        id: compare
+        env:
+          GH_TOKEN: ${{ github.token }} # 読み取り専用。このステップにだけ渡す（コードは実行しない）
+          PREVIOUS: ${{ needs.plan.outputs.previous }}
+        run: |
+          set -euo pipefail
+          if [ -z "$PREVIOUS" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "初回のリリース"
+            exit 0
+          fi
+          # ZIP は同じ入力から常に同じバイト列になるため、ファイルの集合と中身を比べればよい
+          mkdir -p "$RUNNER_TEMP/previous-assets" "$RUNNER_TEMP/new-assets"
+          gh release download "$PREVIOUS" --repo "$GITHUB_REPOSITORY" \
+            --pattern 'goi-gboard-*.zip' --dir "$RUNNER_TEMP/previous-assets"
+          cp dist/gboard/goi-gboard-*.zip "$RUNNER_TEMP/new-assets/"
+          if diff -r "$RUNNER_TEMP/previous-assets" "$RUNNER_TEMP/new-assets"; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "配布物が前回のリリース（$PREVIOUS）とすべて同じため、リリースしない" | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: 版とリリースノートを作る
+        if: steps.compare.outputs.changed == 'true'
         env:
           DAY: ${{ needs.plan.outputs.day }}
           PREVIOUS: ${{ needs.plan.outputs.previous }}
@@ -174,6 +203,7 @@ jobs:
           cat dist/gboard/RELEASE_NOTES.md >> "$GITHUB_STEP_SUMMARY"
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: steps.compare.outputs.changed == 'true'
         with:
           name: release
           path: dist/gboard/
@@ -182,11 +212,13 @@ jobs:
 
   publish:
     needs: [plan, build]
-    # dry run では実行しない。新しいリリースが不要なとき（build を飛ばしたとき）は main の更新だけ行う
+    # dry run では実行しない。配布物が前回と同じとき（changed=false）も実行しない。
+    # 新しいリリースが不要なとき（build を飛ばしたとき）は、main を前回のリリースまで追いつかせるだけ行う
     if: >-
       always() && needs.plan.result == 'success' && needs.plan.outputs.skip == 'false' &&
-      (needs.build.result == 'success' || needs.build.result == 'skipped') &&
-      !(github.event_name == 'workflow_dispatch' && inputs.dry_run)
+      !(github.event_name == 'workflow_dispatch' && inputs.dry_run) &&
+      (needs.plan.outputs.release_needed == 'false' ||
+       (needs.build.result == 'success' && needs.build.outputs.changed == 'true'))
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
