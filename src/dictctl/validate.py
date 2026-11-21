@@ -69,6 +69,9 @@ def _check_file(loaded: LoadedGroup) -> list[Issue]:
     issues: list[Issue] = []
 
     issues.extend(_nfc(path, "title", group.title))
+    duplicated_file_tags = sorted({t for t in group.tags if group.tags.count(t) > 1})
+    if duplicated_file_tags:
+        issues.append(error(path, "tags", "タグが重複している: " + ", ".join(duplicated_file_tags)))
 
     seen_pairs: dict[tuple[str, str], str] = {}
     seen_names: dict[str, str] = {}

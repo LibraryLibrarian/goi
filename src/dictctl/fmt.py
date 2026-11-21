@@ -26,7 +26,7 @@ from dictctl.loader import DICTIONARY_DIRNAME, discover_files, read_json
 from dictctl.models import EDGE_SPACE_CHARS
 from dictctl.schema import SCHEMA_FILENAME
 
-GROUP_KEYS = ("$schema", "schema_version", "title", "defaults", "entries")
+GROUP_KEYS = ("$schema", "schema_version", "title", "tags", "defaults", "entries")
 ENTRY_KEYS = ("name", "conversions", "sources", "tags")
 CONVERSION_KEYS = ("reading", "surface", "pos")
 SOURCE_KEYS = ("url", "note")
@@ -97,12 +97,17 @@ def _format_entry(entry: Any) -> Any:
         entry["conversions"] = [_format_conversion(c) for c in entry["conversions"]]
     if isinstance(entry.get("sources"), list):
         entry["sources"] = [_format_source(s) for s in entry["sources"]]
-    tags = entry.get("tags")
-    if tags == [] or tags is None:
-        entry.pop("tags", None)
-    elif isinstance(tags, list) and all(isinstance(t, str) for t in tags):
-        entry["tags"] = sorted(normalize_text(t) for t in tags)
+    _format_tags(entry)
     return _ordered(entry, ENTRY_KEYS)
+
+
+def _format_tags(obj: dict[str, Any]) -> None:
+    """空のタグを省き、タグを辞書順に並べる（ファイルと語で共通）。"""
+    tags = obj.get("tags")
+    if tags == [] or tags is None:
+        obj.pop("tags", None)
+    elif isinstance(tags, list) and all(isinstance(t, str) for t in tags):
+        obj["tags"] = sorted(normalize_text(t) for t in tags)
 
 
 def _entry_sort_key(entry: Any) -> tuple[str, str]:
@@ -121,6 +126,7 @@ def format_group(raw: dict[str, Any], rel_path: str) -> dict[str, Any]:
     group["$schema"] = schema_ref(rel_path)
     if "title" in group:
         group["title"] = normalize_text(group["title"])
+    _format_tags(group)
 
     defaults = group.get("defaults")
     if isinstance(defaults, dict):
