@@ -228,3 +228,18 @@ def test_status_field_is_no_longer_accepted():
     data["entries"][0]["status"] = "deprecated"
     with pytest.raises(ValidationError):
         GroupFile.model_validate(data)
+
+
+# --- ファイル単位のタグ ---
+
+
+def test_file_tags_are_merged_with_entry_tags():
+    group = GroupFile.model_validate(make_group(tags=["pc-brand", "organization"]))
+    entry = group.entries[0]
+    assert entry.tags == ["pc-parts"]
+    assert group.effective_tags(entry) == ["organization", "pc-brand", "pc-parts"]
+
+
+def test_file_tags_follow_tag_format():
+    with pytest.raises(ValidationError):
+        GroupFile.model_validate(make_group(tags=["PC Brand"]))

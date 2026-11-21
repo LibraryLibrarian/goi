@@ -227,3 +227,13 @@ def test_fmt_leaves_data_license_untouched(tmp_path):
     assert result.exit_code == 0
     assert license_path.read_text(encoding="utf-8") == "CC0 1.0 Universal\n"
     assert runner.invoke(app, ["validate", "--root", str(tmp_path)]).exit_code == 0
+
+
+def test_file_tags_are_sorted_and_placed_after_title():
+    raw = group(entry("Corsair", ("こるせあ", "Corsair")))
+    raw["tags"] = ["zeta", "alpha"]
+    formatted = format_group(raw, "company/pc.json")
+    assert list(formatted) == ["$schema", "schema_version", "title", "tags", "entries"]
+    assert formatted["tags"] == ["alpha", "zeta"]
+    raw["tags"] = []
+    assert "tags" not in format_group(raw, "company/pc.json")

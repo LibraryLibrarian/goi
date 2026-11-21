@@ -98,3 +98,12 @@ def test_reading_sets_differ_across_files_is_warning(tmp_path):
     assert not has_errors(issues)
     assert "同じ表記の読みの組み合わせがファイルによって違う" in text
     assert "dictionary/company/gaming.json（こるせあ）" in text
+
+
+def test_duplicate_file_tags_are_errors(tmp_path):
+    data = group(entry("Corsair", ("こるせあ", "Corsair")))
+    data["tags"] = ["pc", "pc"]
+    write(tmp_path, "company/pc.json", data)
+    issues, text = run(tmp_path)
+    assert has_errors(issues)
+    assert "tags: タグが重複している: pc" in text

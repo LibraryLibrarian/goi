@@ -91,6 +91,10 @@ URL_PATTERN = (
 )
 
 
+# タグ（英小文字・数字・ハイフン）。タグごとに配布物（goi-gboard-tag-<タグ>.zip）が作られる
+TagList = list[Annotated[str, Field(pattern=TAG_PATTERN, max_length=50)]]
+
+
 class _Model(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
@@ -132,9 +136,9 @@ class Entry(_Model):
     name: str = Field(pattern=TEXT_PATTERN, max_length=100, description="代表名称。")
     conversions: list[Conversion] = Field(min_length=1)
     sources: list[Source] = Field(min_length=1, description="出典。最低1件。")
-    tags: list[Annotated[str, Field(pattern=TAG_PATTERN, max_length=50)]] = Field(
+    tags: TagList = Field(
         default_factory=list,
-        description="分類・検索用のタグ（英小文字・数字・ハイフン）。",
+        description="この語に付けるタグ（英小文字・数字・ハイフン）。ファイルのタグに加わる。",
     )
 
 
@@ -150,6 +154,10 @@ class GroupFile(_Model):
     schema_ref: str | None = Field(default=None, alias="$schema")
     schema_version: Literal[1]
     title: str = Field(pattern=TEXT_PATTERN, max_length=100, description="グループの表示名。")
+    tags: TagList = Field(
+        default_factory=list,
+        description="このファイルのすべての語に付くタグ（例: 組織）。タグごとに配布物が作られる。",
+    )
     defaults: Defaults = Field(default_factory=Defaults)
     entries: list[Entry] = Field(min_length=1)
 
@@ -163,6 +171,10 @@ class GroupFile(_Model):
         if isinstance(value, bool):
             raise ValueError("schema_version には整数を指定する")
         return value
+
+    def effective_tags(self, entry: Entry) -> list[str]:
+        """ファイルのタグと語のタグを合わせたもの（重複なし、辞書順）。"""
+        return sorted({*self.tags, *entry.tags})
 
     def effective_pos(self, conversion: Conversion) -> Pos:
         """語ごとの指定 → ファイルの既定値 → 「品詞なし」の順に品詞を決める。"""
