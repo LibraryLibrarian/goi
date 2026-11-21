@@ -26,6 +26,9 @@ dictionary/<分類>/<小分類>/<グループ>.json
 - 分類はディレクトリの階層で表す。階層は`dictionary/`から2〜3段にする
 - ディレクトリ名とファイル名は、英小文字・数字・ハイフンだけにする
 - 最上位のディレクトリ名に`all`は使えない（全件入りの配布物の名前に使うため）
+- 配信者は`dictionary/streamer/`に置く。VTuberは`dictionary/streamer/vtuber/<事務所>.json`、VTuber以外の配信者は`dictionary/streamer/<組織>.json`。YouTubeやTwitchなどのプラットフォームでは分けない
+- 配布物（ZIP）は、全件入りに加えて、最上位と2段目のディレクトリごとに作られる。たとえば`dictionary/streamer/vtuber/`の語は、`goi-gboard-all.zip`・`goi-gboard-streamer.zip`・`goi-gboard-streamer-vtuber.zip`に入る。どこに置くかで、どの配布物に入るかが決まる
+- 配布物の名前はディレクトリのパスを「-」でつないだものになるため、別のディレクトリと同じ名前になる置き方はできない（例: `a-b/`と`a/b/`）
 - まず既存のファイルに追加できないか探す。どのグループにも属さない語は、その階層の`misc.json`に置く
 - 複数のグループに属する語は、それぞれのファイルに同じ内容で登録してよい。ただし、読み・表記・品詞をそろえること
 

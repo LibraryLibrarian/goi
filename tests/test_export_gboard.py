@@ -45,7 +45,12 @@ def make_dictionary(tmp_path):
 def test_packs_rows_are_sorted_and_deduplicated(tmp_path):
     make_dictionary(tmp_path)
     packs = {p.name: p for p in build_packs(load(tmp_path))}
-    assert list(packs) == ["all", "company", "vehicle"]
+    # 全件・最上位・2段目のディレクトリごと（company/pc/ → company-pc）
+    assert list(packs) == ["all", "company", "company-pc", "vehicle"]
+    assert packs["company-pc"].rows == [
+        ("こるせあ", "Corsair", "組織"),
+        ("こーせあ", "Corsair", "組織"),
+    ]
     # コードポイント順（「ー」U+30FC はひらがなより後）。2ファイルにある語は1行にまとまる
     assert packs["company"].rows == [
         ("こるせあ", "Corsair", "組織"),
@@ -107,11 +112,12 @@ def test_write_packs_removes_stale_packs(tmp_path):
     paths = write_packs(build_packs(load(tmp_path)), out)
     assert sorted(p.name for p in out.iterdir()) == [
         "goi-gboard-all.zip",
+        "goi-gboard-company-pc.zip",
         "goi-gboard-company.zip",
         "goi-gboard-vehicle.zip",
         "keep-me.txt",
     ]
-    assert len(paths) == 3
+    assert len(paths) == 4
 
 
 def test_cli_build_writes_packs_under_root(tmp_path):
@@ -181,3 +187,13 @@ def test_build_refuses_when_a_directory_cannot_be_read(tmp_path):
     assert "ディレクトリを読めない" in result.output
     # 語が欠けた配布物を作らず、前回の配布物も消さない
     assert (tmp_path / "dist/gboard/goi-gboard-all.zip").read_bytes() == previous
+
+
+def test_pack_name_collision_is_a_validation_error(tmp_path):
+    # 最上位の a-b/ と、a/b/ は、どちらも goi-gboard-a-b.zip になる
+    write(tmp_path, "pc-parts/brands.json", group(entry("Corsair", ("こるせあ", "Corsair"))))
+    write(tmp_path, "pc/parts/brands.json", group(entry("Triumph", ("とらいあんふ", "Triumph"))))
+    result = runner.invoke(app, ["validate", "--root", str(tmp_path)])
+    assert result.exit_code == 1
+    assert "配布物の名前 goi-gboard-pc-parts.zip が重複する" in result.output
+    assert runner.invoke(app, ["build", "--root", str(tmp_path)]).exit_code == 1
