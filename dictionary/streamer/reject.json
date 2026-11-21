@@ -1,0 +1,354 @@
+{
+  "$schema": "../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "REJECT",
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "くらら",
+      "conversions": [
+        {
+          "reading": "くらら",
+          "surface": "くらら"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/kurara/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://x.com/kurara__a",
+          "note": "本人のX。表示名「くらら」"
+        },
+        {
+          "url": "https://www.youtube.com/@kurara_fn",
+          "note": "本人のYouTube。チャンネル名「くらら」"
+        }
+      ]
+    },
+    {
+      "name": "こく兄",
+      "conversions": [
+        {
+          "reading": "こくにい",
+          "surface": "こく兄"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/kokunii/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/こく兄",
+          "note": "Wikipedia。読み「こくにい」"
+        },
+        {
+          "url": "https://x.com/kokujind",
+          "note": "本人のX。表示名「こく兄、こくじん」、REJECT格闘ゲーム部門プロデューサー兼ストリーマー"
+        }
+      ]
+    },
+    {
+      "name": "shomaru7",
+      "conversions": [
+        {
+          "reading": "しょうまる",
+          "surface": "shomaru7"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/shomaru7/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://b-gamers.net/apex-shomaru/",
+          "note": "BestGamers。「shomaru7(しょうまる)」。「7」は読まない"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000444.000050979.html",
+          "note": "PR TIMES（REJECTのプレスリリース）。イベント名「REJECT Hour 翔丸杯」"
+        }
+      ]
+    },
+    {
+      "name": "ズズ",
+      "conversions": [
+        {
+          "reading": "ずず",
+          "surface": "ズズ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/zuzu/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/ズズ",
+          "note": "ニコニコ大百科。読み「ズズ」"
+        }
+      ]
+    },
+    {
+      "name": "Zerost",
+      "conversions": [
+        {
+          "reading": "ぜろすと",
+          "surface": "Zerost"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/zerost/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000572.000050979.html",
+          "note": "PR TIMES（REJECTのプレスリリース）。キーワードに「ゼロスト」「ぜろすと」"
+        }
+      ]
+    },
+    {
+      "name": "そだ",
+      "conversions": [
+        {
+          "reading": "そだ",
+          "surface": "そだ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/soda/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://reject.jp/2026/10/07/【ストリーマー部門】そだ、rejectに加入/",
+          "note": "公式の告知"
+        }
+      ]
+    },
+    {
+      "name": "Soba",
+      "conversions": [
+        {
+          "reading": "そば",
+          "surface": "Soba"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/soba/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCCzmt6YgqXiorhwXCvjzpOw",
+          "note": "本人のYouTubeのチャンネル名「RC Soba そば そば粉【第五人格】」"
+        }
+      ]
+    },
+    {
+      "name": "たいじ",
+      "conversions": [
+        {
+          "reading": "たいじ",
+          "surface": "たいじ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/taiji/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/たいじ",
+          "note": "Wikipedia。2024年7月にREJECTのストリーマー部門へ移籍"
+        },
+        {
+          "url": "https://x.com/taijich0324",
+          "note": "本人のX。プロフィールに「REJECT所属のストリーマー」"
+        }
+      ]
+    },
+    {
+      "name": "たきしま",
+      "conversions": [
+        {
+          "reading": "たきしま",
+          "surface": "たきしま"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/takishima/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://x.com/Takishima_1222",
+          "note": "本人のX。表示名「たきしま / Takishima」、プロフィールに「REJECT所属」"
+        },
+        {
+          "url": "https://www.youtube.com/@Takishima_Game",
+          "note": "本人のYouTube。チャンネル名「たきしま」"
+        }
+      ]
+    },
+    {
+      "name": "TON・GG",
+      "conversions": [
+        {
+          "reading": "とんじーじー",
+          "surface": "TON・GG"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/tongg/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/TON・GG",
+          "note": "Wikipedia。読み「トン・ジージー」"
+        }
+      ]
+    },
+    {
+      "name": "ハイタニ",
+      "conversions": [
+        {
+          "reading": "はいたに",
+          "surface": "ハイタニ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/haitani/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://dic.nicovideo.jp/a/ハイタニ",
+          "note": "ニコニコ大百科。読み「ハイタニ」"
+        }
+      ]
+    },
+    {
+      "name": "春茶",
+      "conversions": [
+        {
+          "reading": "はるちゃ",
+          "surface": "春茶"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/harutya-2/",
+          "note": "公式プロフィール（REJECT、CREATOR）。所属と表記を確認"
+        },
+        {
+          "url": "https://x.com/HARUTYA1226",
+          "note": "本人のX"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/春茶",
+          "note": "Wikipedia。「春茶（はるちゃ）」、REJECTのクリエイター部門に所属"
+        },
+        {
+          "url": "https://www.youtube.com/@harutyasub",
+          "note": "本人のサブチャンネル（公式プロフィールからリンク）。チャンネル名「いろいろはるちゃ。」"
+        }
+      ]
+    },
+    {
+      "name": "Maripo",
+      "conversions": [
+        {
+          "reading": "まりぽ",
+          "surface": "Maripo"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/maripo/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://x.com/Maripo_12",
+          "note": "本人のX。表示名「maripo/まりぽ」"
+        },
+        {
+          "url": "https://www.youtube.com/@maripochannel",
+          "note": "本人のYouTube（公式プロフィールからリンク）。チャンネル名「まりぽちゃんねる」"
+        }
+      ]
+    },
+    {
+      "name": "YamatoN",
+      "conversions": [
+        {
+          "reading": "やまとん",
+          "surface": "YamatoN"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ja.wikipedia.org/wiki/YamatoN",
+          "note": "Wikipedia。読み「やまとん」、REJECTの配信者"
+        },
+        {
+          "url": "https://x.com/yamatonjp",
+          "note": "本人のX。表示名「YamatoN 【REJECT】」、プロフィール「配信者です、REJECTの執行役員もしています。」"
+        }
+      ]
+    },
+    {
+      "name": "Euriece",
+      "conversions": [
+        {
+          "reading": "ゆりーす",
+          "surface": "Euriece"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/euriece-streamer/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@Euriece",
+          "note": "本人のYouTubeのチャンネル名「Euriece（ユリース）」"
+        },
+        {
+          "url": "https://x.com/realEuriece",
+          "note": "本人のX。表示名にカタカナで「ユリース」"
+        }
+      ]
+    },
+    {
+      "name": "1tappy",
+      "conversions": [
+        {
+          "reading": "わんたっぴー",
+          "surface": "1tappy"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://reject.jp/member/1tappy/",
+          "note": "公式プロフィール（REJECT）。所属と表記を確認"
+        },
+        {
+          "url": "https://x.com/1TAPPYTHEWORLD",
+          "note": "本人のX。表示名「1tappy / わんたっぴー」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCR77BYqfZTZG_tusffddpnw",
+          "note": "本人のYouTube（公式プロフィールからリンク）。チャンネル名「1tappy / わんたっぴー」"
+        }
+      ]
+    }
+  ]
+}
