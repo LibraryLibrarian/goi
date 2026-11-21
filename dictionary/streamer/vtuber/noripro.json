@@ -2,6 +2,9 @@
   "$schema": "../../../schema/group.schema.json",
   "schema_version": 1,
   "title": "のりプロ",
+  "tags": [
+    "noripro"
+  ],
   "defaults": {
     "pos": "人名"
   },

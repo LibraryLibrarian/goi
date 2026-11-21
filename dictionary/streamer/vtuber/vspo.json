@@ -2,6 +2,9 @@
   "$schema": "../../../schema/group.schema.json",
   "schema_version": 1,
   "title": "ぶいすぽっ！",
+  "tags": [
+    "vspo"
+  ],
   "defaults": {
     "pos": "人名"
   },
