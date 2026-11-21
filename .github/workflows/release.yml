@@ -43,6 +43,7 @@ jobs:
       previous: ${{ steps.plan.outputs.previous }}
       release_needed: ${{ steps.plan.outputs.release_needed }}
       main_target: ${{ steps.plan.outputs.main_target }}
+      catch_up: ${{ steps.plan.outputs.catch_up }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -98,16 +99,22 @@ jobs:
           fi
           release_needed=true
           main_target="$target"
+          catch_up=""
+          main="$(git rev-parse origin/main)"
           if [ -n "$previous" ]; then
             previous_commit="$(git rev-list -n 1 "refs/tags/$previous")"
+            # main が公開済みの最新のリリースより遅れていれば、そこまで追いつかせる
+            # （新しいリリースが不要なときや、配布物が変わらずリリースしないときに使う）
+            if [ "$main" != "$previous_commit" ] && git merge-base --is-ancestor "$main" "$previous_commit"; then
+              catch_up="$previous_commit"
+            fi
             if git merge-base --is-ancestor "$target" "$previous_commit"; then
-              # 新しいリリースは不要。前回のリリースまで main が進んでいなければ、追いつかせる
+              # 新しいリリースは不要
               release_needed=false
               main_target="$previous_commit"
             fi
           fi
 
-          main="$(git rev-parse origin/main)"
           if [ "$release_needed" = "false" ] && git merge-base --is-ancestor "$main_target" "$main"; then
             skip "前回のリリースから develop に更新がない"
           fi
@@ -123,6 +130,7 @@ jobs:
             echo "previous=$previous"
             echo "release_needed=$release_needed"
             echo "main_target=$main_target"
+            echo "catch_up=$catch_up"
           } >> "$GITHUB_OUTPUT"
           echo "対象: $target（$day 分）、前回のリリース: ${previous:-なし}、リリース: $release_needed、main の更新先: $main_target"
 
@@ -212,13 +220,14 @@ jobs:
 
   publish:
     needs: [plan, build]
-    # dry run では実行しない。配布物が前回と同じとき（changed=false）も実行しない。
-    # 新しいリリースが不要なとき（build を飛ばしたとき）は、main を前回のリリースまで追いつかせるだけ行う
+    # dry run では実行しない。新しいリリースを公開するとき（build 成功かつ配布物が変わった）か、
+    # main が公開済みの最新のリリースより遅れているとき（catch_up）に実行する。
+    # 後者では、リリースはせず main をそのリリースまで追いつかせるだけ行う
     if: >-
       always() && needs.plan.result == 'success' && needs.plan.outputs.skip == 'false' &&
       !(github.event_name == 'workflow_dispatch' && inputs.dry_run) &&
-      (needs.plan.outputs.release_needed == 'false' ||
-       (needs.build.result == 'success' && needs.build.outputs.changed == 'true'))
+      ((needs.plan.outputs.release_needed == 'true' && needs.build.result == 'success' &&
+        needs.build.outputs.changed == 'true') || needs.plan.outputs.catch_up != '')
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
@@ -227,16 +236,19 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
       TARGET: ${{ needs.plan.outputs.target }}
-      MAIN_TARGET: ${{ needs.plan.outputs.main_target }}
+      # 新しいリリースを公開するときは対象の commit、そうでなければ公開済みの最新のリリースまで
+      MAIN_SHA: >-
+        ${{ (needs.plan.outputs.release_needed == 'true' && needs.build.outputs.changed == 'true')
+        && needs.plan.outputs.main_target || needs.plan.outputs.catch_up }}
     steps:
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
-        if: needs.plan.outputs.release_needed == 'true'
+        if: needs.plan.outputs.release_needed == 'true' && needs.build.outputs.changed == 'true'
         with:
           name: release
           path: release
 
       - name: GitHub Releases に公開する
-        if: needs.plan.outputs.release_needed == 'true'
+        if: needs.plan.outputs.release_needed == 'true' && needs.build.outputs.changed == 'true'
         run: |
           set -euo pipefail
           # 同じ commit を対象にしたリリース（下書きを含む）があれば、それを続きから仕上げる
@@ -277,7 +289,7 @@ jobs:
           set -euo pipefail
           # fast-forward のみ（force: false）。main が対象の祖先でなければ失敗する
           gh api --method PATCH "repos/$GH_REPO/git/refs/heads/main" \
-            -f sha="$MAIN_TARGET" -F force=false --jq .object.sha
+            -f sha="$MAIN_SHA" -F force=false --jq .object.sha
 
   notify:
     needs: [plan, build, publish]
