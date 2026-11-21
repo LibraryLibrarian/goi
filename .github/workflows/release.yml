@@ -1,0 +1,313 @@
+name: release
+
+# 毎日0:00（日本時間）に、前日までに develop へ入った変更をリリースする。
+#   plan    : 0:00 より前の develop の状態を、リポジトリの活動記録（push・マージの時刻）から決める
+#   build   : 検証・テスト・ビルド、版とリリースノートの作成（読み取り権限のみ）
+#   publish : GitHub Releases への公開と、main の fast-forward（書き込み権限。リポジトリのコードは実行しない）
+#   notify  : 定期実行が失敗したら Issue で知らせる
+# その日に更新がなければ何もしない。更新があっても、配布物（ZIP）が前回のリリースとすべて同じなら
+# リリースせず、main も進めない（ドキュメントやコードだけの変更は、次のリリースにまとめて入る）。
+# 定期実行は公開リポジトリでだけ動く。
+# 手動実行は既定で dry run（publish を行わず、build の成果物を保存するだけ）。
+# 途中で止まっても、次の実行で既存のリリース（下書きを含む）を見つけて続きから再開する。
+
+on:
+  schedule:
+    - cron: "0 15 * * *" # 0:00（日本時間）
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "確認だけを行い、mainの更新とリリースはしない"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+env:
+  UV_VERSION: "0.13.8"
+  TZ: Asia/Tokyo
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      skip: ${{ steps.plan.outputs.skip }}
+      day: ${{ steps.plan.outputs.day }}
+      target: ${{ steps.plan.outputs.target }}
+      previous: ${{ steps.plan.outputs.previous }}
+      release_needed: ${{ steps.plan.outputs.release_needed }}
+      main_target: ${{ steps.plan.outputs.main_target }}
+      catch_up: ${{ steps.plan.outputs.catch_up }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: リリースの対象を決める
+        id: plan
+        env:
+          GH_TOKEN: ${{ github.token }} # 読み取り専用（ジョブの権限は contents: read）
+        run: |
+          set -euo pipefail
+          skip() { echo "$1"; echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; }
+
+          # 0:00 より前（境界は含めない）に develop が指していた commit を、活動記録から求める
+          # （head でパイプを途中で閉じると pipefail で失敗するため、いったんファイルに書き出す）
+          # （取得に失敗したら return 1 で知らせる。コマンド置換の中では set -e が効かないため）
+          develop_at() {
+            gh api --paginate "repos/$GITHUB_REPOSITORY/activity?ref=refs/heads/develop&per_page=100" \
+              --jq ".[] | select((.timestamp | fromdateiso8601) < $1) | .after" \
+              > "$RUNNER_TEMP/develop_at" || return 1
+            sed -n 1p "$RUNNER_TEMP/develop_at"
+          }
+
+          cutoff="$(date -d 'today 00:00' +%s)"
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            if [ "$(gh api "repos/$GITHUB_REPOSITORY" --jq .private)" = "true" ]; then
+              skip "非公開のリポジトリなので、定期実行のリリースは行わない"
+            fi
+            day="$(date -d 'yesterday' +%F)"
+            target="$(develop_at "$cutoff")"
+          else
+            day="$(date +%F)"
+            target="$(git rev-parse origin/develop)"
+            # 定期実行の場合に選ばれる対象も表示する（dry run で定期実行の処理を確かめるため）
+            echo "定期実行の場合: 締め $(date -d "@$cutoff" --iso-8601=seconds)、日付 $(date -d 'yesterday' +%F)、対象 $(develop_at "$cutoff")"
+          fi
+          if [ -z "$target" ] || [ "$target" = "0000000000000000000000000000000000000000" ]; then
+            skip "対象の commit がない"
+          fi
+          git cat-file -e "$target^{commit}"
+
+          # 差分の基準は、実際に公開済みの最新のリリース
+          # リリースがまだない（HTTP 404）ときだけ空にする。それ以外の失敗（障害など）は止める
+          if ! previous="$(gh api "repos/$GITHUB_REPOSITORY/releases/latest" --jq .tag_name 2> "$RUNNER_TEMP/latest.err")"; then
+            if grep -q 'HTTP 404' "$RUNNER_TEMP/latest.err"; then
+              previous=""
+            else
+              cat "$RUNNER_TEMP/latest.err" >&2
+              exit 1
+            fi
+          fi
+          release_needed=true
+          main_target="$target"
+          catch_up=""
+          main="$(git rev-parse origin/main)"
+          if [ -n "$previous" ]; then
+            previous_commit="$(git rev-list -n 1 "refs/tags/$previous")"
+            # main が公開済みの最新のリリースより遅れていれば、そこまで追いつかせる
+            # （新しいリリースが不要なときや、配布物が変わらずリリースしないときに使う）
+            if [ "$main" != "$previous_commit" ] && git merge-base --is-ancestor "$main" "$previous_commit"; then
+              catch_up="$previous_commit"
+            fi
+            if git merge-base --is-ancestor "$target" "$previous_commit"; then
+              # 新しいリリースは不要
+              release_needed=false
+              main_target="$previous_commit"
+            fi
+          fi
+
+          if [ "$release_needed" = "false" ] && git merge-base --is-ancestor "$main_target" "$main"; then
+            skip "前回のリリースから develop に更新がない"
+          fi
+          if ! git merge-base --is-ancestor "$main" "$main_target"; then
+            echo "::error::main が対象の祖先ではないため、fast-forward できない"
+            exit 1
+          fi
+
+          {
+            echo "skip=false"
+            echo "day=$day"
+            echo "target=$target"
+            echo "previous=$previous"
+            echo "release_needed=$release_needed"
+            echo "main_target=$main_target"
+            echo "catch_up=$catch_up"
+          } >> "$GITHUB_OUTPUT"
+          echo "対象: $target（$day 分）、前回のリリース: ${previous:-なし}、リリース: $release_needed、main の更新先: $main_target"
+
+  build:
+    needs: plan
+    if: needs.plan.outputs.skip == 'false' && needs.plan.outputs.release_needed == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      changed: ${{ steps.compare.outputs.changed }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.plan.outputs.target }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: ${{ env.UV_VERSION }}
+          enable-cache: true
+
+      - name: 検証・テスト・ビルド
+        run: |
+          set -euo pipefail
+          uv sync --locked
+          uv run pytest
+          uv run dictctl schema --check
+          uv run dictctl fmt --check
+          uv run dictctl validate
+          uv run dictctl build --target gboard
+
+      - name: 前回のリリースと配布物を比べる
+        id: compare
+        env:
+          GH_TOKEN: ${{ github.token }} # 読み取り専用。このステップにだけ渡す（コードは実行しない）
+          PREVIOUS: ${{ needs.plan.outputs.previous }}
+        run: |
+          set -euo pipefail
+          if [ -z "$PREVIOUS" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "初回のリリース"
+            exit 0
+          fi
+          # ZIP は同じ入力から常に同じバイト列になるため、ファイルの集合と中身を比べればよい
+          mkdir -p "$RUNNER_TEMP/previous-assets" "$RUNNER_TEMP/new-assets"
+          gh release download "$PREVIOUS" --repo "$GITHUB_REPOSITORY" \
+            --pattern 'goi-gboard-*.zip' --dir "$RUNNER_TEMP/previous-assets"
+          cp dist/gboard/goi-gboard-*.zip "$RUNNER_TEMP/new-assets/"
+          if diff -r "$RUNNER_TEMP/previous-assets" "$RUNNER_TEMP/new-assets"; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "配布物が前回のリリース（$PREVIOUS）とすべて同じため、リリースしない" | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 版とリリースノートを作る
+        if: steps.compare.outputs.changed == 'true'
+        env:
+          DAY: ${{ needs.plan.outputs.day }}
+          PREVIOUS: ${{ needs.plan.outputs.previous }}
+        run: |
+          set -euo pipefail
+          git tag --list 'v*' | uv run dictctl release-version --date "$DAY" > dist/gboard/TAG
+          old=()
+          if [ -n "$PREVIOUS" ]; then
+            git worktree add --quiet --detach "$RUNNER_TEMP/previous" "refs/tags/$PREVIOUS"
+            old=(--old "$RUNNER_TEMP/previous")
+          fi
+          # リリースノート（長いと省略する）と、差分の全件（タブ区切り。リリースに添付する）
+          changes="dist/gboard/goi-gboard-changes.tsv"
+          if ! { uv run dictctl diff "${old[@]}" --new . > dist/gboard/RELEASE_NOTES.md &&
+                 uv run dictctl diff "${old[@]}" --new . --format tsv > "$changes"; }; then
+            echo "前回のリリース（$PREVIOUS）との差分は作成できませんでした。" > dist/gboard/RELEASE_NOTES.md
+            rm -f "$changes"
+          fi
+          echo "版: $(cat dist/gboard/TAG)"
+          cat dist/gboard/RELEASE_NOTES.md >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: steps.compare.outputs.changed == 'true'
+        with:
+          name: release
+          path: dist/gboard/
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    needs: [plan, build]
+    # dry run では実行しない。新しいリリースを公開するとき（build 成功かつ配布物が変わった）か、
+    # main が公開済みの最新のリリースより遅れているとき（catch_up）に実行する。
+    # 後者では、リリースはせず main をそのリリースまで追いつかせるだけ行う
+    if: >-
+      always() && needs.plan.result == 'success' && needs.plan.outputs.skip == 'false' &&
+      !(github.event_name == 'workflow_dispatch' && inputs.dry_run) &&
+      ((needs.plan.outputs.release_needed == 'true' && needs.build.result == 'success' &&
+        needs.build.outputs.changed == 'true') || needs.plan.outputs.catch_up != '')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write # リリースの作成と main の更新
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      TARGET: ${{ needs.plan.outputs.target }}
+      # 新しいリリースを公開するか（ジョブの起動条件の前半と同じ条件。ステップと MAIN_SHA で共通に使う）
+      NEW_RELEASE: >-
+        ${{ needs.plan.outputs.release_needed == 'true' && needs.build.result == 'success' &&
+        needs.build.outputs.changed == 'true' }}
+      # 新しいリリースを公開するときは対象の commit、そうでなければ公開済みの最新のリリースまで
+      MAIN_SHA: >-
+        ${{ (needs.plan.outputs.release_needed == 'true' && needs.build.result == 'success' &&
+        needs.build.outputs.changed == 'true') && needs.plan.outputs.main_target ||
+        needs.plan.outputs.catch_up }}
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        if: env.NEW_RELEASE == 'true'
+        with:
+          name: release
+          path: release
+
+      - name: GitHub Releases に公開する
+        if: env.NEW_RELEASE == 'true'
+        run: |
+          set -euo pipefail
+          # 同じ commit を対象にしたリリース（下書きを含む）があれば、それを続きから仕上げる
+          gh api --paginate "repos/$GH_REPO/releases?per_page=100" \
+            --jq ".[] | select(.target_commitish == \"$TARGET\") | .tag_name" > "$RUNNER_TEMP/existing"
+          tag="$(sed -n 1p "$RUNNER_TEMP/existing")"
+          if [ -z "$tag" ]; then
+            tag="$(cat release/TAG)"
+            if gh api "repos/$GH_REPO/releases/tags/$tag" --silent 2> "$RUNNER_TEMP/tag.err"; then
+              echo "::error::$tag は別の commit のリリースとして既にある"
+              exit 1
+            elif ! grep -q 'HTTP 404' "$RUNNER_TEMP/tag.err"; then
+              cat "$RUNNER_TEMP/tag.err" >&2
+              exit 1
+            fi
+            gh release create "$tag" --target "$TARGET" --title "$tag" \
+              --notes-file release/RELEASE_NOTES.md --draft
+          fi
+          echo "版: $tag"
+          draft="$(gh release view "$tag" --json isDraft --jq .isDraft)"
+          if [ "$draft" = "false" ]; then
+            echo "$tag は公開済み"
+            exit 0
+          elif [ "$draft" != "true" ]; then
+            echo "::error::$tag の公開状態を確認できない"
+            exit 1
+          fi
+          # 下書きに添付（同名は上書き）してから公開する。何度実行しても同じ結果になる
+          assets=(release/goi-gboard-*.zip)
+          if [ -f release/goi-gboard-changes.tsv ]; then
+            assets+=(release/goi-gboard-changes.tsv)
+          fi
+          gh release upload "$tag" "${assets[@]}" --clobber
+          gh release edit "$tag" --draft=false
+
+      - name: main を進める
+        run: |
+          set -euo pipefail
+          # fast-forward のみ（force: false）。main が対象の祖先でなければ失敗する
+          gh api --method PATCH "repos/$GH_REPO/git/refs/heads/main" \
+            -f sha="$MAIN_SHA" -F force=false --jq .object.sha
+
+  notify:
+    needs: [plan, build, publish]
+    if: failure() && github.event_name == 'schedule'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: 失敗を Issue で知らせる
+        run: |
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "毎日のリリースに失敗しました（$(date +%F)）" \
+            --body "実行ログ: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
