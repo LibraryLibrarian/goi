@@ -136,10 +136,6 @@ class Entry(_Model):
         default_factory=list,
         description="分類・検索用のタグ（英小文字・数字・ハイフン）。",
     )
-    status: Literal["active", "deprecated"] = Field(
-        default="active",
-        description="deprecated の語はビルドに含めない。",
-    )
 
 
 class Defaults(_Model):

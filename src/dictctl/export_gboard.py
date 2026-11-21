@@ -12,7 +12,7 @@
   - ZIP は無圧縮（STORED）にし、日時・権限などのメタデータを固定する
     （Deflate の出力は zlib の実装や版によって変わり得るため）
     無圧縮の ZIP を Gboard 18.6.3 が取り込み、変換に使えることはエミュレーターで確認済み
-    （2026-11-21。deprecated の語が含まれないことも確認）
+    （2026-11-21）
 """
 
 from __future__ import annotations
@@ -54,12 +54,10 @@ class Pack:
 
 
 def collect_rows(groups: Iterable[LoadedGroup]) -> list[Row]:
-    """status が active の語の（読み, 表記, 品詞）を、重複を除いて並べる。"""
+    """すべての語の（読み, 表記, 品詞）を、重複を除いて並べる。"""
     rows: set[Row] = set()
     for loaded in groups:
         for entry in loaded.group.entries:
-            if entry.status != "active":
-                continue
             for conv in entry.conversions:
                 rows.add((conv.reading, conv.surface, loaded.group.effective_pos(conv)))
     return sorted(rows)

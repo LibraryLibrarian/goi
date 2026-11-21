@@ -6,7 +6,7 @@
     並べ替えのキーは「最初の読み → name」。語の中の conversions と sources の順は変えない
   - テキストを NFC 正規化し、前後の空白を取り除く（出典の URL は変更しない）
   - 読みは NFKC 正規化（半角カナ → 全角）したうえで、カタカナをひらがなに直す
-  - タグは辞書順に並べ、既定値と同じ項目（status: active、空の tags・defaults など）は省く
+  - タグは辞書順に並べ、空の項目（tags・defaults、null の pos・note）は省く
   - $schema に、ファイルの位置から schema/group.schema.json への相対パスを入れる
 
 モデルの検証は通らなくても整形できるよう、JSON をそのまま扱う。
@@ -27,7 +27,7 @@ from dictctl.models import EDGE_SPACE_CHARS
 from dictctl.schema import SCHEMA_FILENAME
 
 GROUP_KEYS = ("$schema", "schema_version", "title", "defaults", "entries")
-ENTRY_KEYS = ("name", "conversions", "sources", "tags", "status")
+ENTRY_KEYS = ("name", "conversions", "sources", "tags")
 CONVERSION_KEYS = ("reading", "surface", "pos")
 SOURCE_KEYS = ("url", "note")
 DEFAULTS_KEYS = ("pos",)
@@ -102,8 +102,6 @@ def _format_entry(entry: Any) -> Any:
         entry.pop("tags", None)
     elif isinstance(tags, list) and all(isinstance(t, str) for t in tags):
         entry["tags"] = sorted(normalize_text(t) for t in tags)
-    if entry.get("status") == "active":
-        entry.pop("status")
     return _ordered(entry, ENTRY_KEYS)
 
 

@@ -38,7 +38,6 @@ def with_conversion(**conversion) -> dict:
 
 def test_valid_group_parses():
     group = GroupFile.model_validate(make_group())
-    assert group.entries[0].status == "active"
     assert group.entries[0].conversions[0].reading == "こるせあ"
 
 
@@ -221,3 +220,11 @@ BIDI_CONTROLS = [0x061C, 0x200E, 0x200F, *range(0x202A, 0x202F), *range(0x2066, 
 def test_bidi_controls_are_rejected(codepoint):
     with pytest.raises(ValidationError):
         GroupFile.model_validate(with_conversion(surface="ABC" + chr(codepoint) + "DEF"))
+
+
+def test_status_field_is_no_longer_accepted():
+    # 誤りは書き換えて直す方針のため、status（active/deprecated）は廃止した
+    data = make_group()
+    data["entries"][0]["status"] = "deprecated"
+    with pytest.raises(ValidationError):
+        GroupFile.model_validate(data)
