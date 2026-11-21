@@ -135,3 +135,10 @@ def test_cli_diff_tsv_format(tmp_path):
     result = runner.invoke(app, ["diff", "--new", str(tmp_path), "--format", "tsv"])
     assert result.exit_code == 0
     assert result.output == "change\treading\tsurface\tpos\nadded\tこるせあ\tCorsair\t組織\n"
+
+
+def test_render_notes_budget_includes_later_section_fixed_parts():
+    # レビュー指摘（9b96376）: 削除側で予算を使い切っても、追加側の固定部分で上限を超えない
+    old = {("あ" * 100, f"{i:05d}" + "長" * 95, "固有名詞") for i in range(2000)}
+    new = {("い", "`" * 100, "名詞")}
+    assert len(render_notes(old, new)) <= MAX_NOTES_CHARS

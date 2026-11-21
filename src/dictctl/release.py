@@ -120,7 +120,13 @@ def render_notes(old: set[Row] | None, new: set[Row], budget: int = MAX_NOTES_CH
             "以前のリリースを取り込んだ端末では、Gboardの単語リストから手動で削除してください。"
         )
         used = sum(len(line) + 1 for line in lines)
-        lines += [*_section("削除・変更された語", removed, intro, budget - used), ""]
+        # 後に続く「追加された語」の見出し・フェンス・案内の分を、先に確保しておく
+        reserved = _length(_section("追加された語", added, None, 0)) + 1
+        lines += [*_section("削除・変更された語", removed, intro, budget - used - reserved), ""]
     used = sum(len(line) + 1 for line in lines)
     lines += _section("追加された語", added, None, budget - used)
     return "\n".join(lines) + "\n"
+
+
+def _length(lines: list[str]) -> int:
+    return sum(len(line) + 1 for line in lines)
