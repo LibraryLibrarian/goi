@@ -21,7 +21,13 @@ from dictctl.diagnostics import has_errors
 from dictctl.export_gboard import build_packs, write_packs
 from dictctl.fmt import format_dictionary
 from dictctl.loader import load_dictionary
-from dictctl.release import DictionaryLoadError, dictionary_rows, next_version, render_notes
+from dictctl.release import (
+    DictionaryLoadError,
+    dictionary_rows,
+    next_version,
+    render_notes,
+    render_tsv,
+)
 from dictctl.schema import SCHEMA_FILENAME, render_schema, write_schema
 from dictctl.validate import validate_groups
 
@@ -118,6 +124,11 @@ class Target(StrEnum):
     gboard = "gboard"
 
 
+class DiffFormat(StrEnum):
+    markdown = "markdown"
+    tsv = "tsv"
+
+
 @app.command()
 def build(
     root: RootOption = Path("."),
@@ -169,15 +180,23 @@ def diff(
             file_okay=False,
         ),
     ] = None,
+    output_format: Annotated[
+        DiffFormat,
+        typer.Option(
+            "--format",
+            help="markdown: リリースノート（長いと省略する）。tsv: 全件のタブ区切り。",
+        ),
+    ] = DiffFormat.markdown,
 ) -> None:
-    """前の版との差分（追加・削除・変更された語）をリリースノートの形で出力する。"""
+    """前の版との差分（追加・削除・変更された語）を出力する。"""
     try:
         old_rows = dictionary_rows(old) if old is not None else None
         new_rows = dictionary_rows(new)
     except DictionaryLoadError as exc:
         typer.echo(str(exc), err=True)
         raise typer.Exit(code=1) from exc
-    typer.echo(render_notes(old_rows, new_rows), nl=False)
+    render = render_tsv if output_format is DiffFormat.tsv else render_notes
+    typer.echo(render(old_rows, new_rows), nl=False)
 
 
 @app.command("release-version")

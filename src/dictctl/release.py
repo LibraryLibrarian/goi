@@ -6,6 +6,11 @@
 差分は（読み, 表記, 品詞）の組で比べる。Gboard に取り込まれるのはこの組なので、
 内容が変わった語は「削除された組」と「追加された組」として現れる。削除された組は、
 以前のリリースを取り込んだ端末に残るため、利用者が手動で削除する対象になる。
+
+リリースノートでは、表記を Markdown や HTML として解釈させず文字どおりに見せるため、
+語の一覧をコードブロックの中にタブ区切りで書く。本文は GitHub Releases の上限
+（125,000文字）を超えないよう、文字数で打ち切る。全件はタブ区切りのファイル
+（リリースに添付する goi-gboard-changes.tsv、または dictctl diff --format tsv）で確認できる。
 """
 
 from __future__ import annotations
@@ -20,8 +25,9 @@ from dictctl.export_gboard import Row, collect_rows
 from dictctl.loader import load_dictionary
 
 TAG_PATTERN = re.compile(r"^v(\d{4})\.(\d{2})\.(\d{2})(?:\.(\d+))?$")
-# リリースノートの表に載せる行数の上限（GitHub Releases の本文は125,000文字まで）
-MAX_ROWS_PER_SECTION = 1000
+# リリースノートの本文の上限。GitHub Releases の上限（125,000文字）より余裕を持たせる
+MAX_NOTES_CHARS = 100_000
+CHANGES_FILENAME = "goi-gboard-changes.tsv"
 
 
 def next_version(day: date, existing_tags: Iterable[str]) -> str:
@@ -52,38 +58,69 @@ def dictionary_rows(root: Path) -> set[Row]:
     return set(collect_rows(result.groups))
 
 
-def _escape(cell: str) -> str:
-    return cell.replace("\\", "\\\\").replace("|", "\\|")
+def split_changes(old: set[Row] | None, new: set[Row]) -> tuple[list[Row], list[Row]]:
+    """（削除・変更された組, 追加された組）を返す。"""
+    previous = old or set()
+    return sorted(previous - new), sorted(new - previous)
 
 
-def _table(rows: list[Row]) -> list[str]:
-    lines = ["| 読み | 表記 | 品詞 |", "|---|---|---|"]
-    shown = rows[:MAX_ROWS_PER_SECTION]
-    lines += [f"| {_escape(r)} | {_escape(s)} | {_escape(p)} |" for r, s, p in shown]
-    if len(rows) > len(shown):
-        lines.append("")
-        lines.append(f"ほか{len(rows) - len(shown)}件（全件は`dictctl diff`で確認できます）")
+def render_tsv(old: set[Row] | None, new: set[Row]) -> str:
+    """差分の全件をタブ区切りで返す（省略しない）。"""
+    removed, added = split_changes(old, new)
+    lines = ["change\treading\tsurface\tpos"]
+    lines += [f"removed\t{r}\t{s}\t{p}" for r, s, p in removed]
+    lines += [f"added\t{r}\t{s}\t{p}" for r, s, p in added]
+    return "\n".join(lines) + "\n"
+
+
+def _fence(rows: list[Row]) -> str:
+    """内容に含まれるどのバッククォートの連続よりも長いフェンスを返す。"""
+    longest = max(
+        (len(run) for r in rows for cell in r for run in re.findall(r"`+", cell)), default=0
+    )
+    return "`" * max(3, longest + 1)
+
+
+def _section(title: str, rows: list[Row], intro: str | None, budget: int) -> list[str]:
+    lines = [f"## {title}（{len(rows)}件）", ""]
+    if not rows:
+        return [*lines, "なし"]
+    if intro:
+        lines += [intro, ""]
+    fence = _fence(rows)
+    # 見出し・フェンス・省略時の案内の分を差し引いた残りに収まるだけ載せる
+    remaining = budget - sum(len(line) + 1 for line in lines) - 2 * (len(fence) + 1) - 200
+    shown: list[str] = []
+    for r, s, p in rows:
+        line = f"{r}\t{s}\t{p}"
+        if remaining - (len(line) + 1) < 0:
+            break
+        shown.append(line)
+        remaining -= len(line) + 1
+    lines += [fence + "text", "読み\t表記\t品詞", *shown, fence]
+    if len(shown) < len(rows):
+        lines += [
+            "",
+            f"ほか{len(rows) - len(shown)}件。全件は、リリースに添付の`{CHANGES_FILENAME}`、"
+            "または`dictctl diff --format tsv`で確認できます。",
+        ]
     return lines
 
 
-def render_notes(old: set[Row] | None, new: set[Row]) -> str:
+def render_notes(old: set[Row] | None, new: set[Row], budget: int = MAX_NOTES_CHARS) -> str:
     """リリースノートの本文（Markdown）を作る。old が None なら初回のリリース。"""
-    added = sorted(new - (old or set()))
-    removed = sorted((old or set()) - new)
+    removed, added = split_changes(old, new)
     lines = [f"収録数: {len(new)}件（読みと表記の組）", ""]
     if old is None:
         lines += ["初回のリリースです。", ""]
-    lines += [f"## 追加された語（{len(added)}件）", ""]
-    lines += _table(added) if added else ["なし"]
-    if old is not None:
-        lines += ["", f"## 削除・変更された語（{len(removed)}件）", ""]
-        if removed:
-            lines += [
-                "以前のリリースから削除された語、または内容が変わる前の語です。"
-                "以前のリリースを取り込んだ端末では、Gboardの単語リストから手動で削除してください。",
-                "",
-                *_table(removed),
-            ]
-        else:
-            lines.append("なし")
+    else:
+        # 利用者が対応する必要がある「削除・変更された語」を先に載せる
+        intro = (
+            "以前のリリースから削除された語、または内容が変わる前の語です。"
+            "以前のリリースを取り込んだ端末では、Gboardの単語リストから手動で削除してください。"
+        )
+        used = sum(len(line) + 1 for line in lines)
+        lines += [*_section("削除・変更された語", removed, intro, budget - used), ""]
+    used = sum(len(line) + 1 for line in lines)
+    lines += _section("追加された語", added, None, budget - used)
     return "\n".join(lines) + "\n"
