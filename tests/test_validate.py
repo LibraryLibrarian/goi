@@ -73,15 +73,15 @@ def test_single_source_and_duplicate_name_are_warnings(tmp_path):
 
 
 def test_same_pair_across_files_with_same_pos_is_allowed(tmp_path):
-    write(tmp_path, "youtuber/a.json", group(entry("x", ("えっくす", "X")), pos="人名"))
-    write(tmp_path, "youtuber/b.json", group(entry("x", ("えっくす", "X", "人名"))))
+    write(tmp_path, "streamer/a.json", group(entry("x", ("えっくす", "X")), pos="人名"))
+    write(tmp_path, "streamer/b.json", group(entry("x", ("えっくす", "X", "人名"))))
     issues, _ = run(tmp_path)
     assert issues == []
 
 
 def test_same_pair_across_files_with_different_pos_is_error(tmp_path):
-    write(tmp_path, "youtuber/a.json", group(entry("x", ("えっくす", "X")), pos="人名"))
-    write(tmp_path, "youtuber/b.json", group(entry("x", ("えっくす", "X")), pos="固有名詞"))
+    write(tmp_path, "streamer/a.json", group(entry("x", ("えっくす", "X")), pos="人名"))
+    write(tmp_path, "streamer/b.json", group(entry("x", ("えっくす", "X")), pos="固有名詞"))
     issues, text = run(tmp_path)
     assert sum(i.level == "error" for i in issues) == 2
     assert "品詞が違う語が他のファイルにある" in text
