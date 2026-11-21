@@ -58,9 +58,11 @@ jobs:
 
           # 0:00 より前（境界は含めない）に develop が指していた commit を、活動記録から求める
           # （head でパイプを途中で閉じると pipefail で失敗するため、いったんファイルに書き出す）
+          # （取得に失敗したら return 1 で知らせる。コマンド置換の中では set -e が効かないため）
           develop_at() {
             gh api --paginate "repos/$GITHUB_REPOSITORY/activity?ref=refs/heads/develop&per_page=100" \
-              --jq ".[] | select((.timestamp | fromdateiso8601) < $1) | .after" > "$RUNNER_TEMP/develop_at"
+              --jq ".[] | select((.timestamp | fromdateiso8601) < $1) | .after" \
+              > "$RUNNER_TEMP/develop_at" || return 1
             sed -n 1p "$RUNNER_TEMP/develop_at"
           }
 
@@ -83,9 +85,14 @@ jobs:
           git cat-file -e "$target^{commit}"
 
           # 差分の基準は、実際に公開済みの最新のリリース
-          # リリースがまだない（404）ときは空にする（gh api は失敗時のレスポンスも標準出力に出すため）
-          if ! previous="$(gh api "repos/$GITHUB_REPOSITORY/releases/latest" --jq .tag_name 2>/dev/null)"; then
-            previous=""
+          # リリースがまだない（HTTP 404）ときだけ空にする。それ以外の失敗（障害など）は止める
+          if ! previous="$(gh api "repos/$GITHUB_REPOSITORY/releases/latest" --jq .tag_name 2> "$RUNNER_TEMP/latest.err")"; then
+            if grep -q 'HTTP 404' "$RUNNER_TEMP/latest.err"; then
+              previous=""
+            else
+              cat "$RUNNER_TEMP/latest.err" >&2
+              exit 1
+            fi
           fi
           release_needed=true
           main_target="$target"
@@ -206,17 +213,24 @@ jobs:
           tag="$(sed -n 1p "$RUNNER_TEMP/existing")"
           if [ -z "$tag" ]; then
             tag="$(cat release/TAG)"
-            if gh release view "$tag" > /dev/null 2>&1; then
+            if gh api "repos/$GH_REPO/releases/tags/$tag" --silent 2> "$RUNNER_TEMP/tag.err"; then
               echo "::error::$tag は別の commit のリリースとして既にある"
+              exit 1
+            elif ! grep -q 'HTTP 404' "$RUNNER_TEMP/tag.err"; then
+              cat "$RUNNER_TEMP/tag.err" >&2
               exit 1
             fi
             gh release create "$tag" --target "$TARGET" --title "$tag" \
               --notes-file release/RELEASE_NOTES.md --draft
           fi
           echo "版: $tag"
-          if [ "$(gh release view "$tag" --json isDraft --jq .isDraft)" != "true" ]; then
+          draft="$(gh release view "$tag" --json isDraft --jq .isDraft)"
+          if [ "$draft" = "false" ]; then
             echo "$tag は公開済み"
             exit 0
+          elif [ "$draft" != "true" ]; then
+            echo "::error::$tag の公開状態を確認できない"
+            exit 1
           fi
           # 下書きに添付（同名は上書き）してから公開する。何度実行しても同じ結果になる
           assets=(release/goi-gboard-*.zip)
