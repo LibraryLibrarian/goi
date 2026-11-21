@@ -25,9 +25,10 @@ dictionary/<分類>/<小分類>/<グループ>.json
 - 1つのファイルが1つのグループで、複数の語を持つ（例: `dictionary/company/pc/peripherals.json`）
 - 分類はディレクトリの階層で表す。階層は`dictionary/`から2〜3段にする
 - ディレクトリ名とファイル名は、英小文字・数字・ハイフンだけにする
-- 最上位のディレクトリ名に`all`は使えない（全件入りの配布物の名前に使うため）
+- 最上位のディレクトリ名に`all`は使えない（全件入りの配布物の名前に使うため）。`tag`と`tag-`で始まる名前も使えない（タグの配布物の名前に使うため）
 - 配信者は`dictionary/streamer/`に置く。VTuberは`dictionary/streamer/vtuber/<事務所>.json`、VTuber以外の配信者は`dictionary/streamer/<組織>.json`。YouTubeやTwitchなどのプラットフォームでは分けない
 - 配布物（ZIP）は、全件入りに加えて、最上位と2段目のディレクトリごとに作られる。たとえば`dictionary/streamer/vtuber/`の語は、`goi-gboard-all.zip`・`goi-gboard-streamer.zip`・`goi-gboard-streamer-vtuber.zip`に入る。どこに置くかで、どの配布物に入るかが決まる
+- タグごとにも配布物（`goi-gboard-tag-<タグ>.zip`）が作られる。組織のように、ディレクトリをまたぐまとまりはタグで表す（例: `hololive`タグの付いた語は`goi-gboard-tag-hololive.zip`に入る）
 - 配布物の名前はディレクトリのパスを「-」でつないだものになるため、別のディレクトリと同じ名前になる置き方はできない（例: `a-b/`と`a/b/`）
 - まず既存のファイルに追加できないか探す。どのグループにも属さない語は、その階層の`misc.json`に置く
 - 複数のグループに属する語は、それぞれのファイルに同じ内容で登録してよい。ただし、読み・表記・品詞をそろえること
@@ -39,6 +40,7 @@ dictionary/<分類>/<小分類>/<グループ>.json
   "$schema": "../../../schema/group.schema.json",
   "schema_version": 1,
   "title": "PC周辺機器",
+  "tags": ["pc-parts"],
   "defaults": {
     "pos": "組織"
   },
@@ -52,8 +54,7 @@ dictionary/<分類>/<小分類>/<グループ>.json
       "sources": [
         { "url": "https://www.corsair.com/", "note": "公式サイト" },
         { "url": "https://example.com/corsair", "note": "読みの確認" }
-      ],
-      "tags": ["pc-parts"]
+      ]
     }
   ]
 }
@@ -62,12 +63,13 @@ dictionary/<分類>/<小分類>/<グループ>.json
 | 項目 | 必須 | 内容 |
 |---|---|---|
 | `title` | ○ | グループの表示名 |
+| `tags` | | ファイル内のすべての語に付くタグ（組織名など。英小文字・数字・ハイフン）。タグごとに配布物が作られる |
 | `defaults.pos` | | ファイル内の語に共通する品詞 |
 | `entries[].name` | ○ | 語の代表名称 |
 | `entries[].conversions` | ○ | 読み（`reading`）と変換結果（`surface`）の組。1件以上 |
 | `entries[].conversions[].pos` | | その組だけの品詞。省略すると`defaults.pos`、それも無ければ「品詞なし」 |
 | `entries[].sources` | ○ | 出典。`url`（https）と、何を確認できたかの`note` |
-| `entries[].tags` | | 分類・検索用のタグ（英小文字・数字・ハイフン） |
+| `entries[].tags` | | その語だけに追加するタグ（英小文字・数字・ハイフン）。ファイルの`tags`に加わる |
 
 `$schema`を書いておくと、VS Codeなどのエディターで入力の補完と検証が効きます。`$schema`の値や、キーの順序、語の並び順は`dictctl fmt`で自動で整形されます。
 
