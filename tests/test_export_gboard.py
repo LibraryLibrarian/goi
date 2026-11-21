@@ -197,3 +197,43 @@ def test_pack_name_collision_is_a_validation_error(tmp_path):
     assert result.exit_code == 1
     assert "配布物の名前 goi-gboard-pc-parts.zip が重複する" in result.output
     assert runner.invoke(app, ["build", "--root", str(tmp_path)]).exit_code == 1
+
+
+# --- タグごとの配布物 ---
+
+
+def test_tag_packs_collect_file_and_entry_tags_across_directories(tmp_path):
+    vtubers = group(entry("Corsair", ("こるせあ", "Corsair"), tags=["pc"]), pos="組織")
+    vtubers["tags"] = ["brand"]
+    others = group(entry("Triumph", ("とらいあんふ", "Triumph"), tags=["brand"]))
+    write(tmp_path, "company/pc/peripherals.json", vtubers)
+    write(tmp_path, "vehicle/motorcycle.json", others)
+    packs = {p.name: p for p in build_packs(load(tmp_path))}
+    # ディレクトリをまたいで、同じタグの語が1つの配布物にまとまる
+    assert packs["tag-brand"].rows == [
+        ("こるせあ", "Corsair", "組織"),
+        ("とらいあんふ", "Triumph", "品詞なし"),
+    ]
+    assert packs["tag-pc"].rows == [("こるせあ", "Corsair", "組織")]
+    assert packs["tag-pc"].filename == "goi-gboard-tag-pc.zip"
+
+
+def test_tag_on_file_and_entry_does_not_duplicate_rows(tmp_path):
+    data = group(entry("Corsair", ("こるせあ", "Corsair"), tags=["brand"]))
+    data["tags"] = ["brand"]
+    write(tmp_path, "company/pc.json", data)
+    packs = {p.name: p for p in build_packs(load(tmp_path))}
+    assert packs["tag-brand"].rows == [("こるせあ", "Corsair", "品詞なし")]
+
+
+@pytest.mark.parametrize("top", ["tag", "tag-brand"])
+def test_top_level_names_reserved_for_tag_packs(tmp_path, top):
+    write(tmp_path, f"{top}/brands.json", group(entry("Corsair", ("こるせあ", "Corsair"))))
+    result = runner.invoke(app, ["validate", "--root", str(tmp_path)])
+    assert result.exit_code == 1
+    assert "タグの配布物の名前に使うため予約されている" in result.output
+
+
+def test_tag_prefixed_names_below_top_level_are_allowed(tmp_path):
+    write(tmp_path, "company/tag-heuer.json", group(entry("Corsair", ("こるせあ", "Corsair"))))
+    assert runner.invoke(app, ["validate", "--root", str(tmp_path)]).exit_code == 0

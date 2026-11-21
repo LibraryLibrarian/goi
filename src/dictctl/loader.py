@@ -28,6 +28,9 @@ MIN_DEPTH = 2
 MAX_DEPTH = 3
 # 全件入りの配布物の名前（goi-<target>-all.zip）に使うため、最上位のディレクトリ名には使えない
 ALL_PACK_NAME = "all"
+# タグの配布物の名前（goi-<target>-tag-<タグ>.zip）の接頭辞。ディレクトリの配布物と
+# 名前が重ならないよう、最上位のディレクトリ名には tag と tag- で始まる名前を使えない
+TAG_PACK_PREFIX = "tag"
 # 辞書データのライセンス（CC0 1.0）の本文。dictionary/ 直下にだけ置け、辞書ファイルとしては扱わない
 DATA_LICENSE_FILENAME = "LICENSE"
 
@@ -137,6 +140,15 @@ def check_path(rel: PurePosixPath, display: str) -> list[Issue]:
                 "",
                 f"最上位のディレクトリ名 {ALL_PACK_NAME} は"
                 "全件入りの配布物の名前に使うため予約されている",
+            )
+        )
+    if segments[0] == TAG_PACK_PREFIX or segments[0].startswith(f"{TAG_PACK_PREFIX}-"):
+        issues.append(
+            error(
+                display,
+                "",
+                f"最上位のディレクトリ名 {TAG_PACK_PREFIX} と {TAG_PACK_PREFIX}- で始まる名前は"
+                "タグの配布物の名前に使うため予約されている",
             )
         )
     bad = [s for s in segments if not SEGMENT_PATTERN.fullmatch(s)]

@@ -23,7 +23,7 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 
-from dictctl.loader import ALL_PACK_NAME, LoadedGroup
+from dictctl.loader import ALL_PACK_NAME, TAG_PACK_PREFIX, LoadedGroup
 from dictctl.models import Pos
 from dictctl.validate import MAX_BYTES
 
@@ -45,9 +45,9 @@ Row = tuple[str, str, Pos]  # (読み, 表記, 品詞)
 
 @dataclass(frozen=True)
 class Pack:
-    name: (
-        str  # "all"、またはディレクトリのパスを「-」でつないだもの（例: streamer、streamer-vtuber）
-    )
+    # "all"、ディレクトリのパスを「-」でつないだもの（例: streamer、streamer-vtuber）、
+    # または "tag-" にタグを付けたもの（例: tag-reject）
+    name: str
     rows: list[Row]
 
     @property
@@ -66,10 +66,11 @@ def collect_rows(groups: Iterable[LoadedGroup]) -> list[Row]:
 
 
 def build_packs(groups: list[LoadedGroup]) -> list[Pack]:
-    """全件入りの配布物と、ディレクトリごと（最上位と2段目）の配布物を作る。語のないものは作らない。
+    """全件入りと、ディレクトリごと（最上位と2段目）・タグごとの配布物を作る。語のないものは作らない。
 
     例: streamer/vtuber/hololive.json は all・streamer・streamer-vtuber の3つに入り、
-    streamer/reject.json は all と streamer の2つに入る。
+    streamer/reject.json は all と streamer の2つに入る。さらに、ファイルや語に付いた
+    タグごとに tag-<タグ> に入る（例: reject タグの付いた語は tag-reject）。
     """
     by_dir: dict[tuple[str, ...], list[LoadedGroup]] = {}
     for loaded in groups:
@@ -77,8 +78,20 @@ def build_packs(groups: list[LoadedGroup]) -> list[Pack]:
         for depth in range(1, len(directories) + 1):
             by_dir.setdefault(directories[:depth], []).append(loaded)
 
+    by_tag: dict[str, set[Row]] = {}
+    for loaded in groups:
+        for entry in loaded.group.entries:
+            rows = {
+                (c.reading, c.surface, loaded.group.effective_pos(c)) for c in entry.conversions
+            }
+            for tag in loaded.group.effective_tags(entry):
+                by_tag.setdefault(tag, set()).update(rows)
+
     packs = [Pack(ALL_PACK, collect_rows(groups))]
     packs += [Pack("-".join(key), collect_rows(members)) for key, members in sorted(by_dir.items())]
+    packs += [
+        Pack(f"{TAG_PACK_PREFIX}-{tag}", sorted(rows)) for tag, rows in sorted(by_tag.items())
+    ]
     return [pack for pack in packs if pack.rows]
 
 
