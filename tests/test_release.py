@@ -45,6 +45,22 @@ def test_render_notes_lists_removed_before_added():
     assert "手動で削除してください" in notes
 
 
+def test_render_notes_collapses_each_list_separately():
+    old = {("こるせあ", "Corsair", "名詞")}
+    new = {("とらいあんふ", "Triumph", "固有名詞")}
+    notes = render_notes(old, new)
+    for title, row in [
+        ("## 削除・変更された語（1件）", "こるせあ\tCorsair\t名詞"),
+        ("## 追加された語（1件）", "とらいあんふ\tTriumph\t固有名詞"),
+    ]:
+        section = notes[notes.index(title) :]
+        # 見出しの後に折りたたみが始まり、語はその中（</details> より前）にある
+        opening = section.index("\n<details>\n<summary>一覧を開く</summary>\n\n```text\n")
+        closing = section.index("```\n\n</details>")
+        assert opening < section.index(row) < closing
+    assert notes.count("<details>") == notes.count("</details>") == 2
+
+
 def test_render_notes_without_changes():
     rows = {("こるせあ", "Corsair", "組織")}
     notes = render_notes(rows, rows)
