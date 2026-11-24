@@ -1,0 +1,209 @@
+{
+  "$schema": "../../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "UltraLMTM",
+  "tags": [
+    "ultralmtm"
+  ],
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "雨莉まひる",
+      "conversions": [
+        {
+          "reading": "あまりまひる",
+          "surface": "雨莉まひる"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ultralmtm.com/creators/amari-mahiru/",
+          "note": "公式プロフィール（UltraLMTM）。所属と表記を確認。ローマ字表記「Amari Mahiru」"
+        },
+        {
+          "url": "https://ultralmtm.com/",
+          "note": "公式サイトのトップページ。クリエイター紹介の画像の代替テキストに「アマリマヒル」"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000226.000041650.html",
+          "note": "PR TIMES（GANYMEDEのプレスリリース）。「雨莉まひる（あまり まひる）」"
+        }
+      ]
+    },
+    {
+      "name": "Alpha Azur",
+      "conversions": [
+        {
+          "reading": "あるふぁあずーる",
+          "surface": "Alpha Azur"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ultralmtm.com/creators/alpha-azur/",
+          "note": "公式プロフィール（UltraLMTM）。所属と表記を確認"
+        },
+        {
+          "url": "https://ultralmtm.com/",
+          "note": "公式サイトのトップページ。クリエイター紹介の画像の代替テキストに「アルファ・アズール」"
+        },
+        {
+          "url": "https://kai-you.net/article/96766",
+          "note": "KAI-YOUの記事。UltraLMTMへの加入を報じ「Alpha Azur（アルファアズール）」"
+        }
+      ]
+    },
+    {
+      "name": "狐白うる",
+      "conversions": [
+        {
+          "reading": "こはくうる",
+          "surface": "狐白うる"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ultralmtm.com/creators/kohaku-uru/",
+          "note": "公式プロフィール（UltraLMTM）。所属と表記を確認。ローマ字表記「Kohaku Uru」"
+        },
+        {
+          "url": "https://ultralmtm.com/",
+          "note": "公式サイトのトップページ。クリエイター紹介の画像の代替テキストに「コハクウル」"
+        },
+        {
+          "url": "https://www.youtube.com/@kohaku_uru",
+          "note": "本人のYouTube。チャンネル名「狐白うる / Kohaku Uru - UltraLMTM」"
+        },
+        {
+          "url": "https://wikiwiki.jp/ultra_lmtm/%E7%8B%90%E7%99%BD%E3%81%86%E3%82%8B",
+          "note": "UltraLMTM Wiki*（ファンのwiki）。ページ見出し「狐白うる (こはくうる)」"
+        }
+      ]
+    },
+    {
+      "name": "花酒せい",
+      "conversions": [
+        {
+          "reading": "はなさかせい",
+          "surface": "花酒せい"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ultralmtm.com/creators/hanasaka-sei/",
+          "note": "公式プロフィール（UltraLMTM）。所属と表記を確認。ローマ字表記「Hanasaka Sei」"
+        },
+        {
+          "url": "https://ultralmtm.com/",
+          "note": "公式サイトのトップページ。クリエイター紹介の画像の代替テキストに「ハナサカセイ」"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000226.000041650.html",
+          "note": "PR TIMES（GANYMEDEのプレスリリース）。「花酒せい（はなさか せい）」"
+        },
+        {
+          "url": "https://x.com/Hanasaka_Sei",
+          "note": "本人のX。自己紹介に「UltraLMTM所属 はなさかせいです」"
+        }
+      ]
+    },
+    {
+      "name": "八千八ちう",
+      "conversions": [
+        {
+          "reading": "ぱちぱちう",
+          "surface": "八千八ちう"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ultralmtm.com/creators/pachipa-chiu/",
+          "note": "公式プロフィール（UltraLMTM）。所属と表記を確認。ローマ字表記「Pachipa Chiu」"
+        },
+        {
+          "url": "https://ultralmtm.com/",
+          "note": "公式サイトのトップページ。クリエイター紹介の画像の代替テキストに「パチパチウ」"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000226.000041650.html",
+          "note": "PR TIMES（GANYMEDEのプレスリリース）。「八千八ちう（ぱちぱ ちう）」"
+        },
+        {
+          "url": "https://www.youtube.com/@Pachipa_Chiu",
+          "note": "本人のYouTube。チャンネルの説明に「八千八ちう（ぱちぱちう）」"
+        }
+      ]
+    },
+    {
+      "name": "結川ユイナ",
+      "conversions": [
+        {
+          "reading": "ゆいかわゆいな",
+          "surface": "結川ユイナ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ultralmtm.com/creators/yuikawa-yuina/",
+          "note": "公式プロフィール（UltraLMTM）。所属と表記を確認。ローマ字表記「Yuikawa Yuina」"
+        },
+        {
+          "url": "https://ultralmtm.com/",
+          "note": "公式サイトのトップページ。クリエイター紹介の画像の代替テキストに「ユイカワユイナ」"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000226.000041650.html",
+          "note": "PR TIMES（GANYMEDEのプレスリリース）。「結川ユイナ（ゆいかわ ゆいな）」"
+        }
+      ]
+    },
+    {
+      "name": "リイナ・コガ・フローライト",
+      "conversions": [
+        {
+          "reading": "りいなこがふろーらいと",
+          "surface": "リイナ・コガ・フローライト"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ultralmtm.com/creators/lina-koga-fluorite/",
+          "note": "公式プロフィール（UltraLMTM）。所属と表記を確認。表記がカタカナのため読みは表記どおり（中黒は除く）"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000226.000041650.html",
+          "note": "PR TIMES（GANYMEDEのプレスリリース）。1期生6名のデビューの告知に「リイナ・コガ・フローライト」"
+        },
+        {
+          "url": "https://www.youtube.com/@Lina_Koga_Fluorite",
+          "note": "本人のYouTube。チャンネル名「リイナ・コガ・フローライト / Lina Koga Fluorite - UltraLMTM」"
+        }
+      ]
+    },
+    {
+      "name": "鷲美大笑",
+      "conversions": [
+        {
+          "reading": "わしみたいしょう",
+          "surface": "鷲美大笑"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ultralmtm.com/creators/washimi-taisho/",
+          "note": "公式プロフィール（UltraLMTM）。所属と表記を確認。ローマ字表記「Washimi Taisho」"
+        },
+        {
+          "url": "https://ultralmtm.com/",
+          "note": "公式サイトのトップページ。クリエイター紹介の画像の代替テキストに「ワシミタイショウ」"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000226.000041650.html",
+          "note": "PR TIMES（GANYMEDEのプレスリリース）。「鷲美大笑（わしみ たいしょう）」"
+        }
+      ]
+    }
+  ]
+}
