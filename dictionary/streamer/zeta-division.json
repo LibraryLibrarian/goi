@@ -1,0 +1,527 @@
+{
+  "$schema": "../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "ZETA DIVISION",
+  "tags": [
+    "zeta-division"
+  ],
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "aco",
+      "conversions": [
+        {
+          "reading": "あこ",
+          "surface": "aco"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/aco",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://esportsplayer-pc.com/aco-5764",
+          "note": "esportsplayer-pc.com。「aco（あこ）」"
+        },
+        {
+          "url": "https://x.com/acomingZZ/status/1862331598005551504",
+          "note": "本人のXの投稿。「ZETA DIVISION GC 所属のあこみんぐです」と愛称「あこみんぐ」で名乗る"
+        },
+        {
+          "url": "https://www.youtube.com/@acoming",
+          "note": "本人のYouTube（@acoming）。動画のシリーズ名「あこみんぐとサシ飲みんぐ」"
+        }
+      ]
+    },
+    {
+      "name": "k4sen",
+      "conversions": [
+        {
+          "reading": "かせん",
+          "surface": "k4sen"
+        },
+        {
+          "reading": "かせん",
+          "surface": "かせん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/k4sen",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/K4sen",
+          "note": "Wikipedia。読み「かせん」"
+        },
+        {
+          "url": "https://www.youtube.com/@zzxk4sen",
+          "note": "本人のYouTube。チャンネル名「k4sen / かせん」"
+        }
+      ]
+    },
+    {
+      "name": "Killin9Hit",
+      "conversions": [
+        {
+          "reading": "きりんぐひっと",
+          "surface": "Killin9Hit"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/killin9hit",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Killin9Hit",
+          "note": "Wikipedia。読み「キリングヒット」"
+        }
+      ]
+    },
+    {
+      "name": "Clutch_Fi",
+      "conversions": [
+        {
+          "reading": "くらっちふぁい",
+          "surface": "Clutch_Fi"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/clutch_fi",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/Clutch_Fi",
+          "note": "ピクシブ百科事典。読み「くらっちふぁい」"
+        },
+        {
+          "url": "https://zetadivision.com/news/2023/05/10/15421",
+          "note": "公式の加入告知「CREATOR部門 – Clutch_Fi 加入のお知らせ」"
+        }
+      ]
+    },
+    {
+      "name": "crow",
+      "conversions": [
+        {
+          "reading": "くろう",
+          "surface": "crow"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/crow",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@crowfps7525",
+          "note": "本人のYouTube。説明欄に「名前：crow(クロウ)」"
+        },
+        {
+          "url": "https://x.com/no960fps",
+          "note": "本人のX。表示名「crow」、ファンアートのタグ「#くろうのーと」"
+        }
+      ]
+    },
+    {
+      "name": "ぐちつぼ",
+      "conversions": [
+        {
+          "reading": "ぐちつぼ",
+          "surface": "ぐちつぼ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/%e3%81%90%e3%81%a1%e3%81%a4%e3%81%bc",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://www.youtube.com/@gutitubo",
+          "note": "本人のYouTube。チャンネル名「ぐちつぼ」"
+        },
+        {
+          "url": "https://zetadivision.com/news/2025/12/29/40330",
+          "note": "公式の加入告知"
+        }
+      ]
+    },
+    {
+      "name": "SHAKA",
+      "conversions": [
+        {
+          "reading": "しゃか",
+          "surface": "SHAKA"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/shaka",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://zetadivision.com/news/2025/07/08/35758",
+          "note": "公式の加入告知。「SHAKA(しゃか)」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/SHAKA",
+          "note": "Wikipedia。読み「しゃか」"
+        }
+      ]
+    },
+    {
+      "name": "JapaneseKoreanUG",
+      "conversions": [
+        {
+          "reading": "じゃぱにーずこりあんゆーじー",
+          "surface": "JapaneseKoreanUG"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/japanesekoreanug",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://zetadivision.com/news/2024/10/14/26689",
+          "note": "公式の加入告知。読み「じゃぱにーずこりあんゆーじー」"
+        },
+        {
+          "url": "https://kai-you.net/article/90760",
+          "note": "KAI-YOU。「JapaneseKoreanUG（ジャパニーズコリアンユージー）」"
+        }
+      ]
+    },
+    {
+      "name": "鈴木ノリアキ",
+      "conversions": [
+        {
+          "reading": "すずきのりあき",
+          "surface": "鈴木ノリアキ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/%e9%88%b4%e6%9c%a8%e3%83%8e%e3%83%aa%e3%82%a2%e3%82%ad",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/鈴木ノリアキ",
+          "note": "Wikipedia。読み「すずき のりあき」"
+        }
+      ]
+    },
+    {
+      "name": "すでたき",
+      "conversions": [
+        {
+          "reading": "すでたき",
+          "surface": "すでたき"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/sudetakin",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://www.youtube.com/@sudetaki",
+          "note": "本人のYouTube。チャンネル名「すでたき」"
+        },
+        {
+          "url": "https://zetadivision.com/news/2025/02/20/30967",
+          "note": "公式の加入告知"
+        }
+      ]
+    },
+    {
+      "name": "ta1yo",
+      "conversions": [
+        {
+          "reading": "たいよう",
+          "surface": "ta1yo"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/ta1yo",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認。本名の英語表記「Henderson Sean Taiyo」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Ta1yo",
+          "note": "Wikipedia。本名「ショーン・ヘンダーソン・太陽」。読み「たいよう」は本名の「太陽」から（見出しの読みは「タイヨー」）"
+        }
+      ]
+    },
+    {
+      "name": "takera",
+      "conversions": [
+        {
+          "reading": "たけら",
+          "surface": "takera"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/takera",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://zetadivision.com/news/2025/04/13/33034",
+          "note": "公式の加入告知。「takera(たけら)」"
+        },
+        {
+          "url": "https://x.com/takeraketa",
+          "note": "本人のX。ファンアートのタグ「#たけらアート」"
+        }
+      ]
+    },
+    {
+      "name": "チョコブランカ",
+      "conversions": [
+        {
+          "reading": "ちょこぶらんか",
+          "surface": "チョコブランカ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/%e3%83%81%e3%83%a7%e3%82%b3%e3%83%96%e3%83%a9%e3%83%b3%e3%82%ab",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認。表記がカタカナのため読みは表記どおり（STREET FIGHTER部門に掲載、肩書きはCREATOR）"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/チョコブランカ",
+          "note": "Wikipedia。「チョコブランカ（ChocoBlanka）」"
+        },
+        {
+          "url": "https://www.youtube.com/@chocoblanka",
+          "note": "本人のYouTube。チャンネル名「チョコブランカ Ch.」"
+        }
+      ]
+    },
+    {
+      "name": "Nozomi.",
+      "conversions": [
+        {
+          "reading": "のぞみ",
+          "surface": "Nozomi."
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/nozomi",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認（IDENTITY V部門に掲載、肩書きはCREATOR）"
+        },
+        {
+          "url": "https://x.com/nozomi_identity",
+          "note": "本人のX。表示名「Nozomi.」、ファンアートのタグ「#のぞみゅーじあむ」"
+        },
+        {
+          "url": "https://zetadivision.com/news/2021/03/14/2988",
+          "note": "公式の加入告知（第五人格部門）"
+        }
+      ]
+    },
+    {
+      "name": "ハセシン",
+      "conversions": [
+        {
+          "reading": "はせしん",
+          "surface": "ハセシン"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/%e3%83%8f%e3%82%bb%e3%82%b7%e3%83%b3",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認。表記がカタカナのため読みは表記どおり"
+        },
+        {
+          "url": "https://www.youtube.com/@XxHASESHINxX",
+          "note": "本人のYouTube。チャンネル名「ハセシン / HASESHIN」"
+        },
+        {
+          "url": "https://zetadivision.com/news/2026/10/01/47593",
+          "note": "公式の加入告知"
+        }
+      ]
+    },
+    {
+      "name": "bykn",
+      "conversions": [
+        {
+          "reading": "ばいきん",
+          "surface": "bykn"
+        },
+        {
+          "reading": "ばいきん",
+          "surface": "ばいきん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/bykn",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認（FORTNITE部門に掲載、肩書きはCREATOR）"
+        },
+        {
+          "url": "https://zetadivision.com/news/2026/05/23/44408",
+          "note": "公式の加入告知。「bykn(ばいきん)」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCANxhH78Gkee8s-VdHSZuyA",
+          "note": "本人のYouTube。チャンネル名「bykn / ばいきん」"
+        }
+      ]
+    },
+    {
+      "name": "ピアソン のん",
+      "conversions": [
+        {
+          "reading": "ぴあそんのん",
+          "surface": "ピアソン のん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/%e3%83%94%e3%82%a2%e3%82%bd%e3%83%b3-%e3%81%ae%e3%82%93",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認。表記がカタカナとかなのため読みは表記どおり（IDENTITY V部門に掲載、肩書きはCREATOR）。表記の半角スペースは公式どおり"
+        },
+        {
+          "url": "https://zetadivision.com/news/2024/07/30/24921",
+          "note": "公式の加入告知「ピアソン 唯, のん加入のお知らせ」"
+        },
+        {
+          "url": "https://www.youtube.com/@PiasonYN",
+          "note": "ピアソン 唯との共同のYouTube。チャンネル名「ピアソン 唯のん」"
+        },
+        {
+          "url": "https://x.com/NONNPI",
+          "note": "本人のX。表示名「のん」"
+        }
+      ]
+    },
+    {
+      "name": "ピアソン 唯",
+      "conversions": [
+        {
+          "reading": "ぴあそんゆい",
+          "surface": "ピアソン 唯"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/%e3%83%94%e3%82%a2%e3%82%bd%e3%83%b3-%e5%94%af",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認（IDENTITY V部門に掲載、肩書きはCREATOR）。表記の半角スペースは公式どおり"
+        },
+        {
+          "url": "https://zetadivision.com/news/2024/07/30/24921",
+          "note": "公式の加入告知。「ピアソン 唯(ゆい)」"
+        },
+        {
+          "url": "https://www.youtube.com/@PiasonYN",
+          "note": "ピアソン のんとの共同のYouTube。チャンネル名「ピアソン 唯のん」"
+        }
+      ]
+    },
+    {
+      "name": "MeLton",
+      "conversions": [
+        {
+          "reading": "めるとん",
+          "surface": "MeLton"
+        },
+        {
+          "reading": "めるとん",
+          "surface": "メルトン"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/melton",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://x.com/MeLton_fps",
+          "note": "本人のX。表示名「メルトン/MeLton」"
+        },
+        {
+          "url": "https://www.youtube.com/@melton6743",
+          "note": "本人のYouTube。チャンネル名「MeLton &メルトン」"
+        }
+      ]
+    },
+    {
+      "name": "焼きパン",
+      "conversions": [
+        {
+          "reading": "やきぱん",
+          "surface": "焼きパン"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/%e7%84%bc%e3%81%8d%e3%83%91%e3%83%b3",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://dic.pixiv.net/a/焼きパン",
+          "note": "ピクシブ百科事典。読み「やきぱん」"
+        },
+        {
+          "url": "https://zetadivision.com/news/2022/03/07/8181",
+          "note": "公式の加入告知「CREATOR部門 – 焼きパン 加入のお知らせ」"
+        }
+      ]
+    },
+    {
+      "name": "YAPIMARU",
+      "conversions": [
+        {
+          "reading": "やぴまる",
+          "surface": "YAPIMARU"
+        },
+        {
+          "reading": "やぴまる",
+          "surface": "やぴまる"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/yapimaru",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認（Brawl Stars部門に掲載、肩書きはCREATOR）"
+        },
+        {
+          "url": "https://zetadivision.com/news/2025/02/07/30520",
+          "note": "公式の加入告知。「YAPIMARU(やぴまる)」"
+        },
+        {
+          "url": "https://www.youtube.com/@yapimaru",
+          "note": "本人のYouTube。チャンネル名「YAPIMARU/やぴまる」"
+        }
+      ]
+    },
+    {
+      "name": "Laz",
+      "conversions": [
+        {
+          "reading": "らず",
+          "surface": "Laz"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://zetadivision.com/players/laz",
+          "note": "公式プロフィール（ZETA DIVISION）。所属と表記を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Laz",
+          "note": "Wikipedia。読み「ラズ」"
+        }
+      ]
+    }
+  ]
+}
