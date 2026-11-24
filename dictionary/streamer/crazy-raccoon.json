@@ -1,0 +1,1002 @@
+{
+  "$schema": "../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "Crazy Raccoon",
+  "tags": [
+    "crazy-raccoon"
+  ],
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "Astell",
+      "conversions": [
+        {
+          "reading": "あすてる",
+          "surface": "Astell"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/astell-2/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=astell-2",
+          "note": "公式サイトのデータ（yomi）。読み「あすてる」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。所属選手の表に読み「アステル」"
+        }
+      ]
+    },
+    {
+      "name": "ade",
+      "conversions": [
+        {
+          "reading": "あで",
+          "surface": "ade"
+        },
+        {
+          "reading": "あで",
+          "surface": "あで"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/ade-2/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=ade-2",
+          "note": "公式サイトのデータ（yomi）。読み「あで」"
+        },
+        {
+          "url": "https://x.com/ade3_",
+          "note": "本人のX。表示名「あで / ade」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「あで」"
+        }
+      ]
+    },
+    {
+      "name": "Amatsuki",
+      "conversions": [
+        {
+          "reading": "あまつき",
+          "surface": "Amatsuki"
+        },
+        {
+          "reading": "あまつき",
+          "surface": "天月"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/sushimaster/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=sushimaster",
+          "note": "公式サイトのデータ（yomi）。読み「あまつき」"
+        },
+        {
+          "url": "https://crazyraccoon.jp/%e6%96%b0%e3%83%a1%e3%83%b3%e3%83%90%e3%83%bc-%e5%a4%a9%e6%9c%88-%e3%81%86%e3%82%8b%e3%81%8b%e3%81%8c%e5%8a%a0%e5%85%a5/",
+          "note": "公式の告知「新メンバー 天月/うるかが加入」。表記「天月」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/天月-あまつき-",
+          "note": "Wikipedia。記事名「天月-あまつき-」"
+        }
+      ]
+    },
+    {
+      "name": "Arisakaaa",
+      "conversions": [
+        {
+          "reading": "ありさか",
+          "surface": "Arisakaaa"
+        },
+        {
+          "reading": "ありさか",
+          "surface": "ありさか"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/arisakaaa/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=arisakaaa",
+          "note": "公式サイトのデータ（yomi）。読み「ありさか」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCLLuaTElO1eRGOo2qc_Rdsw",
+          "note": "本人のYouTube。チャンネル名「ありさか/Arisakaaa」"
+        },
+        {
+          "url": "https://x.com/ArisakaaaT",
+          "note": "本人のX。表示名「ありさか」"
+        }
+      ]
+    },
+    {
+      "name": "Alice",
+      "conversions": [
+        {
+          "reading": "ありす",
+          "surface": "Alice"
+        },
+        {
+          "reading": "ありす",
+          "surface": "ありす"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/alice-2/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=alice-2",
+          "note": "公式サイトのデータ（yomi）。読み「ありす」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC3T_5WYgaLMppPOgwTdVDWQ",
+          "note": "本人のYouTube。チャンネル名「ありす /alice」"
+        }
+      ]
+    },
+    {
+      "name": "ANS",
+      "conversions": [
+        {
+          "reading": "あんす",
+          "surface": "ANS"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/ans/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=ans",
+          "note": "公式サイトのデータ（yomi）。読み「あんす」"
+        },
+        {
+          "url": "https://x.com/ansansniper__",
+          "note": "本人のX。プロフィールのハッシュタグ「#あんすART」「#話あんす」"
+        }
+      ]
+    },
+    {
+      "name": "Wokka",
+      "conversions": [
+        {
+          "reading": "うぉっか",
+          "surface": "Wokka"
+        },
+        {
+          "reading": "うぉっか",
+          "surface": "ウォッカ"
+        },
+        {
+          "reading": "うぉっか",
+          "surface": "うぉっか"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/wokka/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=wokka",
+          "note": "公式サイトのデータ（yomi）。読み「うぉっか」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Wokka",
+          "note": "Wikipedia。「Wokka（ウォッカ）」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCmvmF7CnMl6lLiRPUbKzAMg",
+          "note": "本人のYouTube。チャンネル名「ウォッカ【Wokka】」"
+        },
+        {
+          "url": "https://x.com/sprWokka",
+          "note": "本人のX。表示名「うぉっか 🐶🐾」、プロフィール「@crazyraccoon406」"
+        }
+      ]
+    },
+    {
+      "name": "UyuRiru",
+      "conversions": [
+        {
+          "reading": "うゅりる",
+          "surface": "UyuRiru"
+        },
+        {
+          "reading": "うゅりる",
+          "surface": "うゅりる"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/uyuriru/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=uyuriru",
+          "note": "公式サイトのデータ（yomi）。読み「うゅりる」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC6bZVIFYFdlfrzPJ9-r5zaw",
+          "note": "本人のYouTube。チャンネル名「うゅりる/UyuRiru」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/うゅりる",
+          "note": "Wikipedia。記事名「うゅりる」"
+        }
+      ]
+    },
+    {
+      "name": "uruca",
+      "conversions": [
+        {
+          "reading": "うるか",
+          "surface": "uruca"
+        },
+        {
+          "reading": "うるか",
+          "surface": "うるか"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/uruca/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=uruca",
+          "note": "公式サイトのデータ（yomi）。読み「うるか」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UChrTMfNcD1eN2ENGWBD7lUQ",
+          "note": "本人のYouTube。チャンネル名「Uruca ch /うるか」"
+        },
+        {
+          "url": "https://crazyraccoon.jp/%e6%96%b0%e3%83%a1%e3%83%b3%e3%83%90%e3%83%bc-%e5%a4%a9%e6%9c%88-%e3%81%86%e3%82%8b%e3%81%8b%e3%81%8c%e5%8a%a0%e5%85%a5/",
+          "note": "公式の告知「新メンバー 天月/うるかが加入」。表記「うるか」"
+        }
+      ]
+    },
+    {
+      "name": "obo",
+      "conversions": [
+        {
+          "reading": "おぼ",
+          "surface": "obo"
+        },
+        {
+          "reading": "おぼ",
+          "surface": "おぼ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/obo/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=obo",
+          "note": "公式サイトのデータ（yomi）。読み「おぼ」"
+        },
+        {
+          "url": "https://x.com/obormentv",
+          "note": "本人のX。表示名「おぼ」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCE4jlsAFvREH-pRd55F8jSA",
+          "note": "本人のYouTube。チャンネル名「おぼ。」"
+        }
+      ]
+    },
+    {
+      "name": "kinako",
+      "conversions": [
+        {
+          "reading": "きなこ",
+          "surface": "kinako"
+        },
+        {
+          "reading": "きなこ",
+          "surface": "きなこ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/kinako/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=kinako",
+          "note": "公式サイトのデータ（yomi）。読み「きなこ」"
+        },
+        {
+          "url": "https://x.com/kinako_pop",
+          "note": "本人のX。表示名「きなこ」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に名前「きなこ」"
+        }
+      ]
+    },
+    {
+      "name": "Cpt",
+      "conversions": [
+        {
+          "reading": "きゃぷてん",
+          "surface": "Cpt"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/cpt/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=cpt",
+          "note": "公式サイトのデータ（yomi）。読み「きゃぷてん」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「シーピーティー/キャプテン」"
+        }
+      ]
+    },
+    {
+      "name": "Qjac",
+      "conversions": [
+        {
+          "reading": "くじゃく",
+          "surface": "Qjac"
+        },
+        {
+          "reading": "くじゃく",
+          "surface": "くじゃく"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/qjac/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=qjac",
+          "note": "公式サイトのデータ（yomi）。読み「くじゃく」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCUbopX6dwq_P_thVMORupqQ",
+          "note": "本人のYouTube。チャンネル名「QJac/くじゃく」"
+        }
+      ]
+    },
+    {
+      "name": "Cornn",
+      "conversions": [
+        {
+          "reading": "こーん",
+          "surface": "Cornn"
+        },
+        {
+          "reading": "こーん",
+          "surface": "コーン"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/cornn/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=cornn",
+          "note": "公式サイトのデータ（yomi）。読み「こーん」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCCGROwD4gP4lb_I3S5Udfhw",
+          "note": "本人のYouTube。チャンネル名「CRコーン - Cornn」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「コーン」"
+        }
+      ]
+    },
+    {
+      "name": "GocChaNMikey",
+      "conversions": [
+        {
+          "reading": "ごっちゃんまいきー",
+          "surface": "GocChaNMikey"
+        },
+        {
+          "reading": "ごっちゃんまいきー",
+          "surface": "ごっちゃん@マイキー"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/gocchanmikey/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=gocchanmikey",
+          "note": "公式サイトのデータ（yomi）。読み「ごっちゃんまいきー」"
+        },
+        {
+          "url": "https://crazyraccoon.jp/20240401-2/",
+          "note": "公式の告知「「ごっちゃん@マイキー」加入のお知らせ」。表記「ごっちゃん@マイキー」"
+        }
+      ]
+    },
+    {
+      "name": "Jasper",
+      "conversions": [
+        {
+          "reading": "じゃすぱー",
+          "surface": "Jasper"
+        },
+        {
+          "reading": "じゃすぱー",
+          "surface": "じゃすぱー"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/jasper/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=jasper",
+          "note": "公式サイトのデータ（yomi）。読み「じゃすぱー」"
+        },
+        {
+          "url": "https://crazyraccoon.jp/20230422-2/",
+          "note": "公式の告知「「じゃすぱー」加入のお知らせ」。表記「じゃすぱー」"
+        },
+        {
+          "url": "https://x.com/Jasper7se",
+          "note": "本人のX。表示名「じゃすぱー」"
+        }
+      ]
+    },
+    {
+      "name": "Selly",
+      "conversions": [
+        {
+          "reading": "せりー",
+          "surface": "Selly"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/selly/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=selly",
+          "note": "公式サイトのデータ（yomi）。読み「せりー」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「セリー」"
+        }
+      ]
+    },
+    {
+      "name": "Zeder",
+      "conversions": [
+        {
+          "reading": "ぜだー",
+          "surface": "Zeder"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/zeder/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=zeder",
+          "note": "公式サイトのデータ（yomi）。読み「ぜだー」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「ゼダー」"
+        }
+      ]
+    },
+    {
+      "name": "Daruma is god",
+      "conversions": [
+        {
+          "reading": "だるまいずごっど",
+          "surface": "Daruma is god"
+        },
+        {
+          "reading": "だるまいずごっど",
+          "surface": "だるまいずごっど"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/daruma-is-god/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=daruma-is-god",
+          "note": "公式サイトのデータ（yomi）。読み「だるまいずごっど」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCRRKdB87Oj-FkqS4L9QQRiQ",
+          "note": "本人のYouTube。チャンネル名「だるまいずごっど」"
+        },
+        {
+          "url": "https://x.com/darumaisgod",
+          "note": "本人のX。表示名「だるまいずごっど」"
+        }
+      ]
+    },
+    {
+      "name": "Tiramisu",
+      "conversions": [
+        {
+          "reading": "てぃらみす",
+          "surface": "Tiramisu"
+        },
+        {
+          "reading": "てぃらみす",
+          "surface": "ティラミス"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/tiramisu/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=tiramisu",
+          "note": "公式サイトのデータ（yomi）。読み「てぃらみす」"
+        },
+        {
+          "url": "https://x.com/tiramisu7773",
+          "note": "本人のX。表示名「ティラミス」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCGsLewe5pUfNozxgQ4mqwbg",
+          "note": "本人のYouTube。チャンネル名「ティラミスちゃんねる」"
+        }
+      ]
+    },
+    {
+      "name": "Toppy",
+      "conversions": [
+        {
+          "reading": "とっぴー",
+          "surface": "Toppy"
+        },
+        {
+          "reading": "とっぴー",
+          "surface": "とっぴー"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/toppy/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=toppy",
+          "note": "公式サイトのデータ（yomi）。読み「とっぴー」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCzwae-c-aWb3gTPPSKBgb4Q",
+          "note": "本人のYouTube。チャンネル名「とっぴー」"
+        },
+        {
+          "url": "https://x.com/CR_Topio",
+          "note": "本人のX。表示名「とっぴー」"
+        }
+      ]
+    },
+    {
+      "name": "tototMix",
+      "conversions": [
+        {
+          "reading": "ととみっくす",
+          "surface": "tototMix"
+        },
+        {
+          "reading": "ととみっくす",
+          "surface": "ととみっくす"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/tototmix/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=tototmix",
+          "note": "公式サイトのデータ（yomi）。読み「ととみっくす」"
+        },
+        {
+          "url": "https://crazyraccoon.jp/20250401-2/",
+          "note": "公式の告知。加入の告知で表記「ととみっくす」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC52ttjjmf79U4YCcsnpf09A",
+          "note": "本人のYouTube。チャンネル名「ととみっくす.」"
+        }
+      ]
+    },
+    {
+      "name": "neth",
+      "conversions": [
+        {
+          "reading": "ねす",
+          "surface": "neth"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/neth/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=neth",
+          "note": "公式サイトのデータ（yomi）。読み「ねす」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「ネス」"
+        }
+      ]
+    },
+    {
+      "name": "VanilLa",
+      "conversions": [
+        {
+          "reading": "ばにら",
+          "surface": "VanilLa"
+        },
+        {
+          "reading": "ばにら",
+          "surface": "バニラ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/vanilla/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=vanilla",
+          "note": "公式サイトのデータ（yomi）。読み「ばにら」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCWueV72q02od55xENhVrI8g",
+          "note": "本人のYouTube。チャンネル名「VanilLa バニラ」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「バニラ」"
+        }
+      ]
+    },
+    {
+      "name": "Francisco",
+      "conversions": [
+        {
+          "reading": "ふらんしすこ",
+          "surface": "Francisco"
+        },
+        {
+          "reading": "ふらんしすこ",
+          "surface": "ふらんしすこ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/francisco/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=francisco",
+          "note": "公式サイトのデータ（yomi）。読み「ふらんしすこ」"
+        },
+        {
+          "url": "https://x.com/Franciscooo_T",
+          "note": "本人のX。表示名「ふらんしすこ」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC_VFb6Q52lbZJwTuE8Rb5AA",
+          "note": "本人のYouTube。チャンネル名「ふらんしすこ- CR -」"
+        }
+      ]
+    },
+    {
+      "name": "makiba",
+      "conversions": [
+        {
+          "reading": "まきば",
+          "surface": "makiba"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/makiba/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=makiba",
+          "note": "公式サイトのデータ（yomi）。読み「まきば」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「まきば」"
+        }
+      ]
+    },
+    {
+      "name": "Mainy",
+      "conversions": [
+        {
+          "reading": "めいにー",
+          "surface": "Mainy"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/mainy/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=mainy",
+          "note": "公式サイトのデータ（yomi）。読み「めいにー」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「メイニー」"
+        }
+      ]
+    },
+    {
+      "name": "Mondo",
+      "conversions": [
+        {
+          "reading": "もんど",
+          "surface": "Mondo"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/mondo/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=mondo",
+          "note": "公式サイトのデータ（yomi）。読み「もんど」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「モンド」"
+        }
+      ]
+    },
+    {
+      "name": "LEO",
+      "conversions": [
+        {
+          "reading": "やまだりょうすけ",
+          "surface": "LEO"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/leo/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認。STAR部門"
+        },
+        {
+          "url": "https://crazyraccoon.jp/about/",
+          "note": "公式サイトのABOUT。「山田涼介（LEO）」"
+        },
+        {
+          "url": "https://crazyraccoon.jp/20250820-2/",
+          "note": "公式の告知。「CR STAR部門」を新設し、LEOが加入"
+        },
+        {
+          "url": "https://www.youtube.com/@leo_playground",
+          "note": "本人のYouTube。チャンネル名「LEOの遊び場【山田涼介】」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/山田涼介",
+          "note": "Wikipedia。「山田 涼介（やまだ りょうすけ）」。LEOとして活動する本人の名前で、読み「やまだりょうすけ」はここから"
+        }
+      ]
+    },
+    {
+      "name": "Ras",
+      "conversions": [
+        {
+          "reading": "らす",
+          "surface": "Ras"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/ras/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=ras",
+          "note": "公式サイトのデータ（yomi）。読み「らす」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「ラス」"
+        }
+      ]
+    },
+    {
+      "name": "rion",
+      "conversions": [
+        {
+          "reading": "りおん",
+          "surface": "rion"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/rion/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=rion",
+          "note": "公式サイトのデータ（yomi）。読み「りおん」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「リオン」"
+        }
+      ]
+    },
+    {
+      "name": "RIGZE",
+      "conversions": [
+        {
+          "reading": "りぐぜ",
+          "surface": "RIGZE"
+        },
+        {
+          "reading": "りぐぜ",
+          "surface": "リグゼ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/rigze/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=rigze",
+          "note": "公式サイトのデータ（yomi）。読み「りぐぜ」"
+        },
+        {
+          "url": "https://crazyraccoon.jp/20260401-2/",
+          "note": "公式の告知。加入の告知で表記「リグゼ」"
+        },
+        {
+          "url": "https://www.youtube.com/@rigze0925",
+          "note": "本人のYouTube。チャンネル名「リグゼ」"
+        }
+      ]
+    },
+    {
+      "name": "RizArt",
+      "conversions": [
+        {
+          "reading": "りずあーと",
+          "surface": "RizArt"
+        },
+        {
+          "reading": "りずあーと",
+          "surface": "リズアート"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/rizart/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=rizart",
+          "note": "公式サイトのデータ（yomi）。読み「りずあーと」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCWcS5FzBnhiKm27NJNCB9Qw",
+          "note": "本人のYouTube。チャンネル名「賞金首20億のリズアート/RizArt」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Crazy_Raccoon",
+          "note": "Wikipedia（Crazy Raccoon）。STREAMER部門の表に読み「リズアート」"
+        }
+      ]
+    },
+    {
+      "name": "Ruri",
+      "conversions": [
+        {
+          "reading": "るり",
+          "surface": "Ruri"
+        },
+        {
+          "reading": "るり",
+          "surface": "るり"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/ruri/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=ruri",
+          "note": "公式サイトのデータ（yomi）。読み「るり」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCA0DY-BEMXg8wfOs3J_aXKQ",
+          "note": "本人のYouTube。チャンネル名「るり /Ruri」"
+        }
+      ]
+    },
+    {
+      "name": "YY",
+      "conversions": [
+        {
+          "reading": "わいわい",
+          "surface": "YY"
+        },
+        {
+          "reading": "わいわい",
+          "surface": "わいわい"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/yy/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=yy",
+          "note": "公式サイトのデータ（yomi）。読み「わいわい」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/わいわい_(ゲーム実況者)",
+          "note": "Wikipedia。「わいわい（英: YY, Waiwai）」"
+        },
+        {
+          "url": "https://x.com/ABCDYY",
+          "note": "本人のX。表示名「わいわい(37)」"
+        }
+      ]
+    }
+  ]
+}

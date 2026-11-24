@@ -1,0 +1,79 @@
+{
+  "$schema": "../../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "Crazy Raccoon",
+  "tags": [
+    "crazy-raccoon"
+  ],
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "Akami Karubi",
+      "conversions": [
+        {
+          "reading": "あかみかるび",
+          "surface": "Akami Karubi"
+        },
+        {
+          "reading": "あかみかるび",
+          "surface": "赤見かるび"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/akami-karubi/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認。「VTuberとして2024年9月に加入」"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=akami-karubi",
+          "note": "公式サイトのデータ（yomi）。読み「あかみかるび」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/赤見かるび",
+          "note": "Wikipedia。読み「あかみ かるび」、日本のバーチャルYouTuber"
+        },
+        {
+          "url": "https://www.youtube.com/@AkamiKarubi",
+          "note": "本人のYouTube。チャンネル名「赤見かるび / Karubi Akami」"
+        }
+      ]
+    },
+    {
+      "name": "KIRUMA",
+      "conversions": [
+        {
+          "reading": "きるま",
+          "surface": "KIRUMA"
+        },
+        {
+          "reading": "きるま",
+          "surface": "切嘛"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://crazyraccoon.jp/member/kiruma/",
+          "note": "公式プロフィール（Crazy Raccoon）。所属と表記を確認"
+        },
+        {
+          "url": "https://crazyraccoon.jp/wp-json/wp/v2/member?slug=kiruma",
+          "note": "公式サイトのデータ（yomi）。読み「きるま」"
+        },
+        {
+          "url": "https://crazyraccoon.jp/20261123-2/",
+          "note": "公式の告知「新メンバー加入のお知らせ」。「切嘛(@Kiruma_V)がStreamer部門に加入」"
+        },
+        {
+          "url": "https://x.com/Kiruma_V",
+          "note": "本人のX。表示名「切嘛 / Kiruma」、プロフィール「きるまです。」「Live2Dママ様」"
+        },
+        {
+          "url": "https://camp-fire.jp/projects/834737/view",
+          "note": "CAMPFIRE（グッズのクラウドファンディング）。「Vtuberとして活躍中の「切嘛」」"
+        }
+      ]
+    }
+  ]
+}
