@@ -1,0 +1,409 @@
+{
+  "$schema": "../../schema/group.schema.json",
+  "schema_version": 1,
+  "title": "RIDDLE ORDER",
+  "tags": [
+    "riddle"
+  ],
+  "defaults": {
+    "pos": "人名"
+  },
+  "entries": [
+    {
+      "name": "aja",
+      "conversions": [
+        {
+          "reading": "あじゃ",
+          "surface": "aja"
+        },
+        {
+          "reading": "あじゃ",
+          "surface": "あじゃ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/aja/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認"
+        },
+        {
+          "url": "https://www.youtube.com/@ajak0n",
+          "note": "本人のYouTube。チャンネル名「あじゃ」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/RIDDLE_(プロゲーミングチーム)",
+          "note": "Wikipedia（RIDDLEの記事のメンバー表）。読み「あじゃ」"
+        }
+      ]
+    },
+    {
+      "name": "ありけん",
+      "conversions": [
+        {
+          "reading": "ありけん",
+          "surface": "ありけん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/ariken/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC3NHhO0wBaZ5OVxaabcDKrw",
+          "note": "本人のYouTube。チャンネル名「ありけん【クラスに一人はいそうなデブCh】」"
+        },
+        {
+          "url": "https://www.twitch.tv/arikendebu",
+          "note": "本人のTwitch。表示名「ありけんです」"
+        }
+      ]
+    },
+    {
+      "name": "けいき",
+      "conversions": [
+        {
+          "reading": "けいき",
+          "surface": "けいき"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/けいき/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://riddle.info/news/news115/",
+          "note": "公式ニュース。「「けいき」ストリーマー部門加入のお知らせ」"
+        },
+        {
+          "url": "https://www.youtube.com/@keikich",
+          "note": "本人のYouTube。チャンネル名「けいきちゃんねる」"
+        }
+      ]
+    },
+    {
+      "name": "SqLA",
+      "conversions": [
+        {
+          "reading": "さくら",
+          "surface": "SqLA"
+        },
+        {
+          "reading": "さくら",
+          "surface": "さくら"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/sqla/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCItf9xRYdHYlGwAw9JnsnJw",
+          "note": "本人のYouTube。チャンネル名「SqLA さくら / Riddle」。概要欄「さくらと申します」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/RIDDLE_(プロゲーミングチーム)",
+          "note": "Wikipedia（RIDDLEの記事のメンバー表）。読み「さくら」"
+        }
+      ]
+    },
+    {
+      "name": "しんじさん",
+      "conversions": [
+        {
+          "reading": "しんじさん",
+          "surface": "しんじさん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/shinjisan/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://www.twitch.tv/shinjifromjapanxd",
+          "note": "本人のTwitch。表示名「しんじさん」"
+        }
+      ]
+    },
+    {
+      "name": "NiceWigg",
+      "conversions": [
+        {
+          "reading": "ないすうぃっぐ",
+          "surface": "NiceWigg"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/nicewigg/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/RIDDLE_(プロゲーミングチーム)",
+          "note": "Wikipedia（RIDDLEの記事のメンバー表）。読み「ないすうぃっぐ」"
+        },
+        {
+          "url": "https://riddle.info/news/news52/",
+          "note": "公式ニュース。加入の告知。100 Thievesとの同時所属"
+        }
+      ]
+    },
+    {
+      "name": "naohiro21",
+      "conversions": [
+        {
+          "reading": "なおひろとぅえんてぃーわん",
+          "surface": "naohiro21"
+        },
+        {
+          "reading": "なおひろとぅえんてぃーわん",
+          "surface": "なおひろ21"
+        },
+        {
+          "reading": "なおひろ",
+          "surface": "naohiro21"
+        },
+        {
+          "reading": "なおひろ",
+          "surface": "なおひろ21"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/naohiro21/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認"
+        },
+        {
+          "url": "https://x.com/naohiro21YT/status/2096878130636132377",
+          "note": "本人のXの投稿。大会のアナウンス音声で「なおひろとぅえんてぃーわん」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/Naohiro21",
+          "note": "Wikipedia。「naohiro21（なおひろトゥエンティーワン）」、ふりがな「なおひろ21」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCYkJBszCeX9bBUpZQXI32lQ",
+          "note": "本人のYouTube。チャンネル名「なおひろ21」"
+        }
+      ]
+    },
+    {
+      "name": "ふぁいあー",
+      "conversions": [
+        {
+          "reading": "ふぁいあー",
+          "surface": "ふぁいあー"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/fire/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認。コンテンツクリエイター部門。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCus454bdWrbVBix3EvUM92w",
+          "note": "本人のYouTube。チャンネル名「ふぁいあー / Riddle」"
+        }
+      ]
+    },
+    {
+      "name": "Hesiko",
+      "conversions": [
+        {
+          "reading": "へしこ",
+          "surface": "Hesiko"
+        },
+        {
+          "reading": "へしこ",
+          "surface": "へしこ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/hesiko/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認。ニュース欄の見出しに「へしこ 加入のお知らせ。」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCDJ_eFjX89HP-gAT9P1HbRA",
+          "note": "本人のYouTube。チャンネル名「へしこ」。概要欄「RIDDLEストリーマー部門所属のへしこです。」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/RIDDLE_(プロゲーミングチーム)",
+          "note": "Wikipedia（RIDDLEの記事のメンバー表）。名前「へしこ」、英語表記「Hesiko」"
+        }
+      ]
+    },
+    {
+      "name": "ボドカ",
+      "conversions": [
+        {
+          "reading": "ぼどか",
+          "surface": "ボドカ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/vodka/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認。オーナー"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/ボドカ",
+          "note": "Wikipedia。読み「ぼどか」"
+        },
+        {
+          "url": "https://www.youtube.com/@vodkachaso",
+          "note": "本人のYouTube。チャンネル名「ボドカ / Riddle - ゲーム実況」。概要欄「ぼどかです」"
+        }
+      ]
+    },
+    {
+      "name": "maufin",
+      "conversions": [
+        {
+          "reading": "まうふぃん",
+          "surface": "maufin"
+        },
+        {
+          "reading": "まうふぃん",
+          "surface": "まうふぃん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/maufin/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認。コンテンツクリエイター部門"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC_INF4xQABOfv116mpQz2YQ",
+          "note": "本人のYouTube。チャンネル名「まうふぃん / Riddle」"
+        },
+        {
+          "url": "https://riddle.info/about/",
+          "note": "公式のABOUT。沿革に「まうふぃん」"
+        }
+      ]
+    },
+    {
+      "name": "MARUTAKE",
+      "conversions": [
+        {
+          "reading": "まるたけ",
+          "surface": "MARUTAKE"
+        },
+        {
+          "reading": "まるたけ",
+          "surface": "まるたけ"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/marutake/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認"
+        },
+        {
+          "url": "https://x.com/A_Marutake",
+          "note": "本人のX。表示名「まるたけ/MARUTAKE」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/RIDDLE_(プロゲーミングチーム)",
+          "note": "Wikipedia（RIDDLEの記事のメンバー表）。読み「まるたけ」"
+        }
+      ]
+    },
+    {
+      "name": "まろん",
+      "conversions": [
+        {
+          "reading": "まろん",
+          "surface": "まろん"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/maron/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCVU9FJUDdsjIFbJijf9kxrg",
+          "note": "本人のYouTube。チャンネル名「まろん / Riddle」"
+        },
+        {
+          "url": "https://riddle.info/news/news123",
+          "note": "公式ニュース。「ストリーマー部門所属のまろん」"
+        }
+      ]
+    },
+    {
+      "name": "YUKIO",
+      "conversions": [
+        {
+          "reading": "ゆきお",
+          "surface": "YUKIO"
+        },
+        {
+          "reading": "ゆきお",
+          "surface": "ゆきお"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/yukio/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認。ニュース欄の見出しに「ゆきお 競技活動引退、ストリーマー移行のお知らせ」"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCn85IB3kxNMo993oPNDKpuA",
+          "note": "本人のYouTube。チャンネル名「ゆきお」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/RIDDLE_(プロゲーミングチーム)",
+          "note": "Wikipedia（RIDDLEの記事のメンバー表）。読み「ゆきお」"
+        }
+      ]
+    },
+    {
+      "name": "葉",
+      "conversions": [
+        {
+          "reading": "よう",
+          "surface": "葉"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/yoh/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認。URLのスラッグ「yoh」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/RIDDLE_(プロゲーミングチーム)",
+          "note": "Wikipedia（RIDDLEの記事のメンバー表）。読み「よう」、英語表記「Yoh」"
+        }
+      ]
+    },
+    {
+      "name": "らっしゃー",
+      "conversions": [
+        {
+          "reading": "らっしゃー",
+          "surface": "らっしゃー"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://riddle.info/members/らっしゃー/",
+          "note": "公式プロフィール（RIDDLE ORDER）。所属と表記を確認。表記がかなのため読みは表記どおり"
+        },
+        {
+          "url": "https://riddle.info/news/news113/",
+          "note": "公式ニュース。「「らっしゃー」ストリーマー部門加入のお知らせ」"
+        },
+        {
+          "url": "https://www.youtube.com/@rassyach",
+          "note": "本人のYouTube。チャンネル名「らっしゃー ch」。概要欄「らっしゃーと申します」"
+        }
+      ]
+    }
+  ]
+}
