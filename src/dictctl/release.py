@@ -8,7 +8,8 @@
 以前のリリースを取り込んだ端末に残るため、利用者が手動で削除する対象になる。
 
 リリースノートでは、表記を Markdown や HTML として解釈させず文字どおりに見せるため、
-語の一覧をコードブロックの中にタブ区切りで書く。本文は GitHub Releases の上限
+語の一覧をコードブロックの中にタブ区切りで書く。一覧は件数によらず <details> で折りたたみ、
+添付ファイルの欄までスクロールしやすくする。本文は GitHub Releases の上限
 （125,000文字）を超えないよう、文字数で打ち切る。全件はタブ区切りのファイル
 （リリースに添付する goi-gboard-changes.tsv、または dictctl diff --format tsv）で確認できる。
 """
@@ -28,6 +29,10 @@ TAG_PATTERN = re.compile(r"^v(\d{4})\.(\d{2})\.(\d{2})(?:\.(\d+))?$")
 # リリースノートの本文の上限。GitHub Releases の上限（125,000文字）より余裕を持たせる
 MAX_NOTES_CHARS = 100_000
 CHANGES_FILENAME = "goi-gboard-changes.tsv"
+# 一覧を折りたたむ。<summary> の後と </details> の前に空行がないと、中のコードブロックが表示されない
+DETAILS_OPEN = ["<details>", "<summary>一覧を開く</summary>", ""]
+DETAILS_CLOSE = ["", "</details>"]
+TABLE_HEADER = "読み\t表記\t品詞"
 
 
 def next_version(day: date, existing_tags: Iterable[str]) -> str:
@@ -88,8 +93,10 @@ def _section(title: str, rows: list[Row], intro: str | None, budget: int) -> lis
     if intro:
         lines += [intro, ""]
     fence = _fence(rows)
-    # 見出し・フェンス・省略時の案内の分を差し引いた残りに収まるだけ載せる
-    remaining = budget - sum(len(line) + 1 for line in lines) - 2 * (len(fence) + 1) - 200
+    opening = [*DETAILS_OPEN, fence + "text", TABLE_HEADER]
+    closing = [fence, *DETAILS_CLOSE]
+    # 見出し・折りたたみ・フェンス・省略時の案内（200文字を見込む）を除いた残りに載せる
+    remaining = budget - _length(lines) - _length(opening) - _length(closing) - 200
     shown: list[str] = []
     for r, s, p in rows:
         line = f"{r}\t{s}\t{p}"
@@ -97,7 +104,7 @@ def _section(title: str, rows: list[Row], intro: str | None, budget: int) -> lis
             break
         shown.append(line)
         remaining -= len(line) + 1
-    lines += [fence + "text", "読み\t表記\t品詞", *shown, fence]
+    lines += [*opening, *shown, *closing]
     if len(shown) < len(rows):
         lines += [
             "",
