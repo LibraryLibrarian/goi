@@ -185,6 +185,10 @@
         {
           "reading": "うぉっか",
           "surface": "ウォッカ"
+        },
+        {
+          "reading": "うぉっか",
+          "surface": "うぉっか"
         }
       ],
       "sources": [
@@ -203,6 +207,10 @@
         {
           "url": "https://www.youtube.com/channel/UCmvmF7CnMl6lLiRPUbKzAMg",
           "note": "本人のYouTube。チャンネル名「ウォッカ【Wokka】」"
+        },
+        {
+          "url": "https://x.com/sprWokka",
+          "note": "本人のX。表示名「うぉっか 🐶🐾」、プロフィール「@crazyraccoon406」"
         }
       ]
     },
@@ -817,6 +825,10 @@
         {
           "url": "https://www.youtube.com/@leo_playground",
           "note": "本人のYouTube。チャンネル名「LEOの遊び場【山田涼介】」"
+        },
+        {
+          "url": "https://ja.wikipedia.org/wiki/山田涼介",
+          "note": "Wikipedia。「山田 涼介（やまだ りょうすけ）」。LEOとして活動する本人の名前で、読み「やまだりょうすけ」はここから"
         }
       ]
     },
@@ -979,6 +991,10 @@
         {
           "url": "https://ja.wikipedia.org/wiki/わいわい_(ゲーム実況者)",
           "note": "Wikipedia。「わいわい（英: YY, Waiwai）」"
+        },
+        {
+          "url": "https://x.com/ABCDYY",
+          "note": "本人のX。表示名「わいわい(37)」"
         }
       ]
     }
